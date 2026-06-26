@@ -6,6 +6,7 @@
 
 | Date | Note | Topic | Tags | Source |
 |------|------|-------|------|--------|
+| 2026-06-26 | [yc-how-to-get-evaluate-startup-ideas](notes/yc-how-to-get-evaluate-startup-ideas.md) | YC — 스타트업 아이디어 얻고 평가하는 법 (Jared Friedman) | #사업개발 #창업 #YC #아이디어평가 | [YouTube](https://www.youtube.com/watch?v=Th8JoIan4dg) |
 | 2026-06-26 | [meta-arena-prediction-market](notes/meta-arena-prediction-market.md) | 메타 '아레나' — 저커버그의 예측시장 앱 | #사업개발 #글로벌사업 #증권 #예측시장 | [AI타임스](https://www.aitimes.com/news/articleView.html?idxno=212056) |
 | 2026-06-26 | [ibm-cuga-agent-harness](notes/ibm-cuga-agent-harness.md) | IBM CUGA — 에이전트 하네스(harness)와 cuga-apps | #에이전트 #오픈소스 #사업개발 #거버넌스 | [HF 블로그](https://huggingface.co/blog/ibm-research/cuga-apps) |
 | 2026-06-26 | [uipath-maestro-case-agentic](notes/uipath-maestro-case-agentic.md) | 유아이패스 마에스트로 케이스 (에이전틱 케이스 관리) | #사업개발 #에이전트 #금융 #자동화 | [기사](https://www.newstheai.com/news/articleView.html?idxno=20943) |
