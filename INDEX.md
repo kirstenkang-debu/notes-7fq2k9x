@@ -6,6 +6,7 @@
 
 | Date | Note | Topic | Tags | Source |
 |------|------|-------|------|--------|
+| 2026-06-26 | [ibm-cuga-agent-harness](notes/ibm-cuga-agent-harness.md) | IBM CUGA — 에이전트 하네스(harness)와 cuga-apps | #에이전트 #오픈소스 #사업개발 #거버넌스 | [HF 블로그](https://huggingface.co/blog/ibm-research/cuga-apps) |
 | 2026-06-26 | [uipath-maestro-case-agentic](notes/uipath-maestro-case-agentic.md) | 유아이패스 마에스트로 케이스 (에이전틱 케이스 관리) | #사업개발 #에이전트 #금융 #자동화 | [기사](https://www.newstheai.com/news/articleView.html?idxno=20943) |
 
 ---
