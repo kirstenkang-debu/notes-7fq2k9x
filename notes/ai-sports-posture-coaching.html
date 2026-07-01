@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>AI 운동 자세 교정·코칭 사업 지도 + 기술 해설</title>
+<style>
+  :root{
+    --bg:#0f1117; --card:#1a1d27; --card2:#161922; --line:#2a2f3d; --ink:#e8eaf0; --sub:#9aa3b2;
+    --yoga:#a78bfa; --yogab:#241a4d;
+    --golf:#34d399; --golfb:#0c3d2e;
+    --bad:#fbbf24; --badb:#3d300c;
+    --adj:#60a5fa; --adjb:#0c2a4d;
+    --accent:#a78bfa; --accent2:#f472b6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);
+       font-family:-apple-system,"Apple SD Gothic Neo","Pretendard",system-ui,sans-serif;
+       line-height:1.5;font-size:13.5px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1180px;margin:0 auto;padding:34px 32px 60px}
+
+  /* ---- section shell ---- */
+  section{margin-bottom:40px;scroll-margin-top:20px}
+  .kicker{font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+  h2{font-size:22px;font-weight:800;letter-spacing:-.4px;margin-bottom:4px}
+  h2 .n{color:var(--sub);font-weight:700;margin-right:10px;font-size:18px}
+  .lead{color:var(--sub);font-size:13px;margin-bottom:18px;max-width:820px}
+
+  /* ---- hero ---- */
+  header.hero{border:1px solid var(--line);border-radius:16px;padding:34px 34px 30px;
+    background:radial-gradient(120% 140% at 0% 0%,#211a3d 0%,#141722 45%,#0f1117 100%);margin-bottom:34px}
+  header.hero h1{font-size:30px;font-weight:800;letter-spacing:-.8px;line-height:1.2}
+  header.hero h1 em{font-style:normal;color:var(--accent)}
+  header.hero p{color:var(--sub);font-size:14px;margin-top:12px;max-width:760px}
+  .herometa{display:flex;gap:26px;margin-top:22px;flex-wrap:wrap}
+  .herometa div{font-size:11px;color:var(--sub)}
+  .herometa b{display:block;font-size:20px;color:var(--ink);font-weight:800;margin-bottom:2px}
+  .herometa .u{color:var(--accent)}
+  nav{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
+  nav a{font-size:11.5px;font-weight:700;text-decoration:none;color:var(--sub);
+     border:1px solid var(--line);border-radius:20px;padding:6px 13px;transition:.15s}
+  nav a:hover{color:var(--ink);border-color:var(--accent);background:var(--yogab)}
+
+  /* ---- legend chips ---- */
+  .chip{font-size:11px;font-weight:800;padding:5px 12px;border-radius:20px;display:inline-flex;align-items:center;gap:6px}
+  .chip::before{content:"";width:8px;height:8px;border-radius:50%}
+  .cy{background:var(--yogab);color:var(--yoga)} .cy::before{background:var(--yoga)}
+  .cg{background:var(--golfb);color:var(--golf)} .cg::before{background:var(--golf)}
+  .cb{background:var(--badb);color:var(--bad)} .cb::before{background:var(--bad)}
+  .ca{background:var(--adjb);color:var(--adj)} .ca::before{background:var(--adj)}
+
+  /* ---- tables ---- */
+  table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden;font-size:12.5px;border:1px solid var(--line)}
+  th,td{padding:11px 13px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+  thead th{background:#222632;font-size:10.5px;color:var(--sub);text-transform:uppercase;letter-spacing:.5px;font-weight:700}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:#1e2230}
+  .co{font-weight:800;font-size:13px;white-space:nowrap}
+  .flag{font-size:10px;color:var(--sub);font-weight:600;display:block;margin-top:2px}
+  td small,.mut{color:var(--sub);font-size:11px}
+  .pill{display:inline-block;font-size:10px;font-weight:800;padding:2px 8px;border-radius:6px}
+  .py{background:var(--yogab);color:var(--yoga)} .pg{background:var(--golfb);color:var(--golf)}
+  .pb{background:var(--badb);color:var(--bad)} .pa{background:var(--adjb);color:var(--adj)}
+  .money{color:var(--golf);font-weight:800;white-space:nowrap}
+
+  /* section accent bar */
+  .bar{width:34px;height:4px;border-radius:3px;margin-bottom:14px}
+  .by{background:var(--yoga)} .bg{background:var(--golf)} .bb{background:var(--bad)} .ba{background:var(--adj)}
+
+  /* ---- tech pipeline ---- */
+  .pipe{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin:20px 0 8px;position:relative}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 14px;position:relative;z-index:1}
+  .step .num{position:absolute;top:-11px;left:14px;width:22px;height:22px;border-radius:50%;
+     background:var(--accent);color:#0f1117;font-weight:900;font-size:12px;display:flex;align-items:center;justify-content:center}
+  .step h4{font-size:12.5px;font-weight:800;margin:4px 0 5px}
+  .step p{font-size:11px;color:var(--sub);line-height:1.5}
+  .step .code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;color:var(--golf);margin-top:7px;
+     background:#0e1520;border:1px solid var(--line);border-radius:6px;padding:5px 7px;display:block;word-break:break-word}
+  .arrow{display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:22px}
+  @media(max-width:900px){.pipe{grid-template-columns:1fr}.arrow{transform:rotate(90deg);padding:2px 0}}
+
+  /* two-col cards */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:820px){.grid2,.grid3{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+  .card h3{font-size:14px;font-weight:800;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .card h3 .dot{width:9px;height:9px;border-radius:50%;background:var(--accent)}
+  .card p{font-size:12px;color:var(--sub);line-height:1.6}
+  .card ul{list-style:none;font-size:12px;margin-top:6px}
+  .card li{padding:4px 0 4px 17px;position:relative;color:var(--ink)}
+  .card li::before{content:"▸";position:absolute;left:0;color:var(--accent)}
+  .card li b{color:#fff}
+  code.k{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px;background:#0e1520;
+     border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:var(--golf)}
+
+  /* concept explainer boxes */
+  .concept{background:linear-gradient(180deg,#1a1d27,#15131f);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:14px}
+  .concept .tt{font-size:14px;font-weight:800;color:var(--accent);margin-bottom:6px}
+  .concept .tt b{color:var(--accent2)}
+  .concept p{font-size:12.5px;color:var(--ink);line-height:1.65}
+  .concept .analogy{margin-top:9px;font-size:12px;color:var(--sub);border-left:3px solid var(--accent);padding-left:11px}
+
+  /* skeleton svg wrap */
+  .diagram{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:18px;text-align:center}
+  .diagram figcaption{font-size:11px;color:var(--sub);margin-top:10px}
+
+  /* insight boxes */
+  .insight{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+  .insight.hot{border-color:var(--golf);background:linear-gradient(180deg,#1a1d27,#0e2019)}
+  .insight.gap{border-color:var(--bad);background:linear-gradient(180deg,#1a1d27,#221c0c)}
+  .insight h3{font-size:13px;font-weight:800;margin-bottom:9px}
+  .insight ul{list-style:none;font-size:12.5px}
+  .insight li{padding:5px 0 5px 18px;position:relative;color:var(--ink);line-height:1.55}
+  .insight li::before{content:"→";position:absolute;left:0;color:var(--accent);font-weight:800}
+  .insight li b{color:#fff}
+
+  footer{margin-top:44px;font-size:10.5px;color:var(--sub);border-top:1px solid var(--line);padding-top:16px;line-height:1.7}
+  footer a{color:var(--adj);text-decoration:none}
+  .srcgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px 22px;margin-top:8px}
+  @media(max-width:820px){.srcgrid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="kicker">스포츠테크 · 컴퓨터비전 · 리서치</div>
+    <h1>AI 실시간 <em>자세 교정·코칭</em> 사업 지도<br>— 요가·골프·배드민턴, 그리고 기술의 원리</h1>
+    <p>스마트폰 카메라 한 대로 사람의 관절을 인식해 "무릎이 무너졌다", "스윙 궤도가 틀어졌다"를 실시간으로 잡아주는
+       AI 코칭 시장의 국내외 플레이어와, 그 밑을 받치는 <b>포즈 추정(Pose Estimation)</b> 기술을 한 장에 정리했습니다.</p>
+    <div class="herometa">
+      <div><b>15+</b><span class="u">국내외 서비스</span></div>
+      <div><b>3</b><span class="u">핵심 종목 (요가·골프·배드민턴)</span></div>
+      <div><b>$5.5M~55억</b><span class="u">대표 투자·인수 규모</span></div>
+      <div><b>2026</b><span class="u">기준 시점</span></div>
+    </div>
+    <nav>
+      <a href="#market">시장 개요</a>
+      <a href="#yoga">🧘 요가</a>
+      <a href="#golf">⛳ 골프</a>
+      <a href="#badminton">🏸 배드민턴</a>
+      <a href="#adjacent">🏋️ 인접시장</a>
+      <a href="#tech">⚙️ 기술 원리</a>
+      <a href="#blazepose">BlazePose란?</a>
+      <a href="#insight">💡 사업 인사이트</a>
+    </nav>
+  </header>
+
+  <!-- ============ MARKET ============ -->
+  <section id="market">
+    <div class="kicker">Overview</div>
+    <h2><span class="n">01</span>한 문장으로</h2>
+    <p class="lead">모든 서비스는 결국 같은 3단계를 판다 —
+      <b>① 카메라로 몸을 본다 → ② AI가 관절 위치를 숫자로 바꾼다 → ③ "정답 자세"와 비교해 틀린 곳을 알려준다.</b>
+      종목이 요가든 골프든 배드민턴이든 엔진은 거의 동일하고, 승부는 "코칭 경험"에서 갈립니다.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:6px">
+      <span class="chip cy">요가 · 필라테스</span>
+      <span class="chip cg">골프 (가장 성숙·수익성 입증)</span>
+      <span class="chip cb">배드민턴 · 라켓 (초기 · 기회)</span>
+      <span class="chip ca">홈트 · 물리치료 (인접·B2B)</span>
+    </div>
+  </section>
+
+  <!-- ============ YOGA ============ -->
+  <section id="yoga">
+    <div class="bar by"></div>
+    <div class="kicker" style="color:var(--yoga)">Vertical 1</div>
+    <h2><span class="n">02</span>🧘 요가 AI 코칭</h2>
+    <p class="lead">부상 방지가 핵심 가치. 정렬(alignment)·좌우 대칭·바디라인을 실시간으로 교정하고,
+       구독형 라이브 클래스와 결합하는 모델이 주류.</p>
+    <table>
+      <thead><tr><th style="width:20%">서비스 / 국가</th><th style="width:44%">기술·특징</th><th>사업모델 / 비고</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="co">Yogain</span><span class="flag">🌐 글로벌</span></td>
+          <td>온디바이스로 <b>14개 관절을 30fps 추적</b>. 무릎이 떨어지거나 척추가 굽는 순간 <b>햅틱 진동 + 화면 교정</b>. <span class="pill py">실시간 피드백</span></td>
+          <td>하루 7회 라이브 클래스 · 주간 진행 리포트 · <span class="mut">구독형</span></td>
+        </tr>
+        <tr>
+          <td><span class="co">Zenith Yoga</span><span class="flag">🇺🇸 미국</span></td>
+          <td>폰 카메라로 정렬·좌우 대칭·바디라인 분석, 흔한 실수를 자동 감지하고 정밀 교정 제안</td>
+          <td>App Store 구독 · <span class="mut">B2C</span></td>
+        </tr>
+        <tr>
+          <td><span class="co">Eva Yoga</span><span class="flag">🌐 글로벌</span></td>
+          <td><b>Google Gemini 1.5 Pro</b> 기반 동작 모니터링 + 즉시 피드백으로 부상 위험 감소 <span class="pill py">생성형 AI</span></td>
+          <td>Gemini 개발자 대회 출품작 · <span class="mut">AI 대화형 코치 실험</span></td>
+        </tr>
+        <tr>
+          <td><span class="co">하우핏 (아이픽셀)</span><span class="flag">🇰🇷 한국</span></td>
+          <td>요가·홈트 동작을 AI가 <b>점수화·교정</b>. 전문 강사 라이브가 AI 점수를 보며 실시간 코멘트</td>
+          <td>B2C 구독 + B2B · <span class="mut">AI + 사람 하이브리드</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============ GOLF ============ -->
+  <section id="golf">
+    <div class="bar bg"></div>
+    <div class="kicker" style="color:var(--golf)">Vertical 2 · 돈이 도는 곳</div>
+    <h2><span class="n">03</span>⛳ 골프 스윙 AI 코칭</h2>
+    <p class="lead">객단가가 높고(오프라인 레슨 회당 5~10만 원) 지불의향이 커서 <b>가장 자본이 몰리고 수익성이 입증된</b> 버티컬.
+       단일 카메라로 <b>3D 스윙</b>을 복원하고, 생성형 AI가 대화형 코치로 붙는 게 최신 트렌드.</p>
+    <table>
+      <thead><tr><th style="width:20%">서비스 / 국가</th><th style="width:40%">기술·특징</th><th>규모 / 투자</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="co">Sportsbox AI</span><span class="flag">🇺🇸 미국</span></td>
+          <td>스마트폰 카메라만으로 <b>3D 스윙 모델</b> 생성(모션캡처 스튜디오 대체). Gemini 기반 <b>대화형 AI 코치</b>. <span class="pill pg">3D · 생성형</span></td>
+          <td><span class="money">시드 $5.5M+</span> (PGA·LA다저스 계열 EP Golf 등)<br><small>2026년 B. DeChambeau 주도 <b>8자리(수백억) 인수</b>, 차세대 코치 'SAMI' 발표 · $15.99/월</small></td>
+        </tr>
+        <tr>
+          <td><span class="co">모아이스 · 골프픽스</span><span class="flag">🇰🇷 한국</span></td>
+          <td><b>마커리스 모션 분석</b>, 등록·출원 <b>특허 50건+</b>. 잘못된 스윙 자세 자동 진단·교정</td>
+          <td><span class="money">시리즈B 55억</span> (누적 시드→A 25억→B)<br><small>50개국 150만+ DL · AI분석 2,500만 건 · <b>해외매출 98%</b> · FT·Statista 고성장기업 2년 연속</small></td>
+        </tr>
+        <tr>
+          <td><span class="co">골프존 GDR AI 코치</span><span class="flag">🇰🇷 한국</span></td>
+          <td>정밀 스윙 분석 + <b>Amazon Bedrock 생성형 AI</b> + 수퍼톤 실시간 음성으로 맞춤 자세 교정 <span class="pill pg">음성 코칭</span></td>
+          <td>대기업 스크린골프 인프라 연계 · <small>오프라인 채널 강점</small></td>
+        </tr>
+        <tr>
+          <td><span class="co">DeepSwing · SwingSight<br>Greenside · SWEE AI</span><span class="flag">🌐 미국·글로벌</span></td>
+          <td>스윙 <b>자동 감지</b>(어드레스 인식 후 자동 녹화), 바이오메카닉 분석, AI 이벤트 인식</td>
+          <td>구독 SaaS · <small>기능 특화 경쟁 다수</small></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============ BADMINTON ============ -->
+  <section id="badminton">
+    <div class="bar bb"></div>
+    <div class="kicker" style="color:var(--bad)">Vertical 3 · 블루오션</div>
+    <h2><span class="n">04</span>🏸 배드민턴 · 라켓 스포츠 AI</h2>
+    <p class="lead">아직 지배적 플레이어가 없는 <b>초기 시장 = 진입 기회</b>. 스매시·클리어·풋워크의 타점과 라켓 각도를 정량화.</p>
+    <table>
+      <thead><tr><th style="width:20%">서비스 / 국가</th><th style="width:48%">기술·특징</th><th>비고</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="co">AI Sports Trainer</span><span class="flag">🌐 글로벌</span></td>
+          <td>스매시·클리어·풋워크를 <b>10초 만에</b> 분석. 포즈 추정으로 <b>타점·라켓 각도 정량화</b> <span class="pill pb">빠른 분석</span></td>
+          <td>종목 확장형(테니스 등)</td>
+        </tr>
+        <tr>
+          <td><span class="co">BadPro+</span><span class="flag">🌐 글로벌</span></td>
+          <td>실시간 바이오메카닉 분석 + <b>상대 패턴 분석</b>, 자동 하이라이트·진행률 추적</td>
+          <td>iOS·Android · 전술까지 확장</td>
+        </tr>
+        <tr>
+          <td><span class="co">SportsReflector</span><span class="flag">🌐 글로벌</span></td>
+          <td><b>25개+ 관절 추적</b>, 동작마다 0~100점, <b>AR 가이드 드릴</b> 12종, 멀티앵글 분석</td>
+          <td>다종목 플랫폼(게이미피케이션)</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="mut" style="margin-top:9px">※ 스탠퍼드 등 학계에서도 라켓스포츠 AI 트레이닝을 연구 중 — 기술은 성숙, 제품·브랜드는 미성숙.</p>
+  </section>
+
+  <!-- ============ ADJACENT ============ -->
+  <section id="adjacent">
+    <div class="bar ba"></div>
+    <div class="kicker" style="color:var(--adj)">인접 시장</div>
+    <h2><span class="n">05</span>🏋️ 홈트 · 물리치료 (같은 코어 기술)</h2>
+    <p class="lead">자세 교정 엔진은 동일. B2B 헬스케어(보험수가·병원 채널)로 가면 수익화 경로가 달라짐.</p>
+    <div class="grid3">
+      <div class="card">
+        <h3><span class="dot" style="background:var(--adj)"></span>Kaia Health <span class="mut">🇩🇪🇺🇸</span></h3>
+        <p>카메라 컴퓨터비전으로 반복 카운트 + 음성 자세 교정. <b>만성통증 디지털치료제(DTx)</b>.</p>
+        <ul><li>시리즈A <b>$10M</b> (누적 수천만 달러)</li><li>보험·의료 채널 수익화</li></ul>
+      </div>
+      <div class="card">
+        <h3><span class="dot" style="background:var(--adj)"></span>Exer AI <span class="mut">🇺🇸</span></h3>
+        <p>임상용 <b>MSK(근골격) 모션 분석</b>. 병원 원격진료 경로에 연동되는 B2B 헬스케어 플랫폼.</p>
+        <ul><li>클리닉 · 원격재활</li></ul>
+      </div>
+      <div class="card">
+        <h3><span class="dot" style="background:var(--adj)"></span>국내 홈트 <span class="mut">🇰🇷</span></h3>
+        <p>카카오VX·LGU+ <b>스마트홈트</b>, 데브언리밋 <b>Sparky.TV</b>, 위힐드 <b>라이크핏</b>, 머슬컴퍼니 <b>The Ai Fitness</b>.</p>
+        <ul><li>관절 인식 실시간 교정 + 정확도·칼로리 리포트</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TECH ============ -->
+  <section id="tech">
+    <div class="kicker" style="color:var(--accent2)">How it works</div>
+    <h2><span class="n">06</span>⚙️ 기술은 어떻게 구현되나 — 5단계 파이프라인</h2>
+    <p class="lead">"AI가 자세를 교정한다"는 말 뒤에는 아래 5단계가 돌아갑니다. 대부분의 스타트업이 <b>1~2단계는 오픈소스(무료)로 시작</b>하고,
+      <b>3~5단계(정답 기준·피드백·코칭 UX)에서 차별화</b>합니다.</p>
+
+    <div class="pipe">
+      <div class="step">
+        <span class="num">1</span>
+        <h4>카메라 입력</h4>
+        <p>스마트폰/웹캠 영상 프레임을 초당 30장 캡처. 별도 센서·마커 불필요("마커리스").</p>
+        <span class="code">video → frame[t]</span>
+      </div>
+      <div class="arrow">→</div>
+      <div class="step">
+        <span class="num">2</span>
+        <h4>포즈 추정 (핵심)</h4>
+        <p>경량 CNN이 프레임에서 <b>관절 33개의 (x, y, z) 좌표</b>를 뽑아 "막대인간(스켈레톤)"을 만듦.</p>
+        <span class="code">BlazePose / MediaPipe → 33 landmarks</span>
+      </div>
+      <div class="arrow">→</div>
+      <div class="step">
+        <span class="num">3</span>
+        <h4>각도·궤적 계산</h4>
+        <p>관절 좌표로 <b>관절 각도, 스윙 궤도, 무게중심</b>을 수학적으로 계산.</p>
+        <span class="code">angle(어깨,팔꿈치,손목)=142°</span>
+      </div>
+      <div class="arrow">→</div>
+      <div class="step">
+        <span class="num">4</span>
+        <h4>정답과 비교</h4>
+        <p>전문가 기준 자세와 각도 차이(threshold)를 판정. "무릎 각도 20° 부족" 식으로 오류 검출.</p>
+        <span class="code">|내각도 − 기준| &gt; 임계값 → 오류</span>
+      </div>
+      <div class="arrow">→</div>
+      <div class="step">
+        <span class="num">5</span>
+        <h4>피드백·코칭</h4>
+        <p>화면 표시·음성·햅틱으로 교정 지시. 최신엔 <b>생성형 AI가 대화형 코치</b>로 설명.</p>
+        <span class="code">LLM(Gemini) → "무릎을 더 굽히세요"</span>
+      </div>
+    </div>
+    <p class="mut" style="margin-top:6px">핵심 통찰: <b>2단계 엔진은 사실상 공용 자산</b>이다. 그래서 골프 앱을 만들면 요가·배드민턴으로 확장이 쉽고(모아이스도 골프→헬스케어 확장 중), 진짜 해자는 <b>3~5단계의 데이터·UX</b>에서 생긴다.</p>
+  </section>
+
+  <!-- ============ BLAZEPOSE EXPLAINER ============ -->
+  <section id="blazepose">
+    <div class="kicker" style="color:var(--accent2)">개념 해설</div>
+    <h2><span class="n">07</span>BlazePose / MediaPipe / "경량 CNN"이 대체 뭔가?</h2>
+    <p class="lead">발표에서 가장 많이 받는 질문. 세 단어를 아래처럼 나눠서 설명하면 됩니다.</p>
+
+    <div class="grid2">
+      <div>
+        <div class="concept">
+          <div class="tt">CNN <b>(합성곱 신경망)</b></div>
+          <p>이미지에서 <b>특징을 뽑아내는 데 특화된 딥러닝 모델</b>. 사진을 작은 조각으로 훑으며
+             '모서리 → 곡선 → 관절 모양 → 사람 형태' 순으로 점점 복잡한 패턴을 학습한다. 얼굴인식·자율주행 카메라의 그 기술.</p>
+          <div class="analogy">비유: 그림을 멀리서 보다가 점점 확대하며 "여기가 팔꿈치구나"를 알아채는 눈.</div>
+        </div>
+        <div class="concept">
+          <div class="tt">"경량(Lightweight)"</div>
+          <p>보통 CNN은 무거워서 서버 GPU가 필요하다. <b>경량 = 스마트폰에서도 실시간(30fps)으로 돌아가게</b>
+             모델을 가볍게 압축한 버전. 그래서 서버 없이 폰 안(온디바이스)에서 즉시 교정이 가능하다.</p>
+          <div class="analogy">비유: 대형 트럭 엔진을 오토바이에 실을 수 있게 줄인 것.</div>
+        </div>
+      </div>
+      <div>
+        <div class="concept">
+          <div class="tt">BlazePose <b>(구글 제작)</b></div>
+          <p>사람 몸에서 <b>관절 33개 좌표(랜드마크)</b>를 찾아내는 경량 CNN 모델.
+             자세 추정(pose estimation) 전용으로, 손끝·발끝까지 잡아 <b>2D는 물론 3D(z 깊이)까지</b> 추정한다.</p>
+          <div class="analogy">즉, "사진 속 사람의 뼈대를 숫자 좌표로 바꿔주는 모델".</div>
+        </div>
+        <div class="concept">
+          <div class="tt">MediaPipe <b>(구글 오픈소스 프레임워크)</b></div>
+          <p>BlazePose 같은 모델을 카메라 영상에 바로 붙여 쓰게 해주는 <b>무료 도구 상자</b>.
+             iOS·Android·웹 어디서나 몇 줄로 관절 추적을 붙일 수 있어 <b>대부분의 자세 교정 앱이 여기서 출발</b>한다.</p>
+          <div class="analogy">BlazePose가 '엔진'이면, MediaPipe는 그 엔진을 끼운 '완성차 키트'.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="diagram" style="margin-top:16px">
+      <svg width="100%" height="190" viewBox="0 0 720 190" role="img" aria-label="포즈 추정 개념도">
+        <!-- panel 1: photo -->
+        <rect x="20" y="20" width="150" height="150" rx="10" fill="#20242f" stroke="#2a2f3d"/>
+        <circle cx="95" cy="60" r="16" fill="#3a4152"/>
+        <rect x="83" y="78" width="24" height="46" rx="8" fill="#3a4152"/>
+        <rect x="70" y="82" width="12" height="40" rx="6" fill="#3a4152" transform="rotate(18 76 100)"/>
+        <rect x="108" y="82" width="12" height="40" rx="6" fill="#3a4152" transform="rotate(-18 114 100)"/>
+        <rect x="86" y="122" width="10" height="40" rx="5" fill="#3a4152"/>
+        <rect x="98" y="122" width="10" height="40" rx="5" fill="#3a4152"/>
+        <text x="95" y="184" fill="#9aa3b2" font-size="11" text-anchor="middle">① 카메라 원본</text>
+
+        <text x="200" y="100" fill="#a78bfa" font-size="26" text-anchor="middle">→</text>
+        <text x="200" y="122" fill="#9aa3b2" font-size="9" text-anchor="middle">BlazePose CNN</text>
+
+        <!-- panel 2: skeleton -->
+        <rect x="240" y="20" width="150" height="150" rx="10" fill="#20242f" stroke="#2a2f3d"/>
+        <!-- joints -->
+        <g stroke="#34d399" stroke-width="2.5">
+          <line x1="315" y1="58" x2="315" y2="105"/>
+          <line x1="315" y1="70" x2="292" y2="98"/>
+          <line x1="315" y1="70" x2="338" y2="98"/>
+          <line x1="315" y1="105" x2="303" y2="150"/>
+          <line x1="315" y1="105" x2="327" y2="150"/>
+        </g>
+        <g fill="#fbbf24">
+          <circle cx="315" cy="52" r="6"/><circle cx="315" cy="70" r="4"/>
+          <circle cx="292" cy="98" r="4"/><circle cx="338" cy="98" r="4"/>
+          <circle cx="315" cy="105" r="4"/>
+          <circle cx="303" cy="150" r="4"/><circle cx="327" cy="150" r="4"/>
+        </g>
+        <text x="315" y="184" fill="#9aa3b2" font-size="11" text-anchor="middle">② 33개 관절 스켈레톤</text>
+
+        <text x="420" y="100" fill="#a78bfa" font-size="26" text-anchor="middle">→</text>
+
+        <!-- panel 3: numbers/angle -->
+        <rect x="460" y="20" width="240" height="150" rx="10" fill="#20242f" stroke="#2a2f3d"/>
+        <text x="478" y="52" fill="#e8eaf0" font-size="12" font-family="monospace">어깨(0.51, 0.32)</text>
+        <text x="478" y="74" fill="#e8eaf0" font-size="12" font-family="monospace">팔꿈치(0.44, 0.55)</text>
+        <text x="478" y="96" fill="#e8eaf0" font-size="12" font-family="monospace">손목(0.40, 0.78)</text>
+        <text x="478" y="126" fill="#34d399" font-size="13" font-family="monospace">팔꿈치각 = 142°</text>
+        <text x="478" y="148" fill="#f87171" font-size="12" font-family="monospace">기준 160° → 18° 부족!</text>
+        <text x="580" y="184" fill="#9aa3b2" font-size="11" text-anchor="middle">③ 좌표→각도→교정</text>
+      </svg>
+      <figcaption>사진 속 사람 → 뼈대 좌표 → 각도 계산 → "정답과 비교해 교정" 까지의 흐름</figcaption>
+    </div>
+  </section>
+
+  <!-- ============ INSIGHT ============ -->
+  <section id="insight">
+    <div class="kicker">Business Takeaways</div>
+    <h2><span class="n">08</span>💡 사업 관점 인사이트</h2>
+    <div class="grid2" style="margin-bottom:16px">
+      <div class="insight hot">
+        <h3>🔥 어디에 돈이 있나</h3>
+        <ul>
+          <li><b>골프가 수익성 입증된 버티컬</b> — 높은 객단가·지불의향, Sportsbox 인수·모아이스 55억처럼 자본 집중</li>
+          <li><b>생성형 AI 대화형 코치</b>가 신흥 차별화 축 (Gemini·Bedrock 결합)</li>
+          <li><b>단일 카메라 3D 복원</b>이 프리미엄 포인트 — 값비싼 모션캡처 스튜디오 대체</li>
+        </ul>
+      </div>
+      <div class="insight gap">
+        <h3>🎯 틈새 기회</h3>
+        <ul>
+          <li><b>지배자 없는 종목</b>: 배드민턴·테니스·필라테스·클라이밍</li>
+          <li><b>B2B 헬스케어 연계</b>: 물리치료·시니어 낙상예방 → 보험수가·병원 채널로 수익화</li>
+          <li><b>AI + 사람 하이브리드</b>: 순수 AI보다 강사 라이브 결합이 리텐션↑ (하우핏 모델)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="insight">
+      <h3>⚠️ 진입 시 유의점</h3>
+      <ul>
+        <li><b>기술 자체는 해자가 아니다</b> — 엔진(포즈 추정)은 오픈소스 공용 자산. 진짜 해자는 정답 데이터·코칭 UX·브랜드</li>
+        <li><b>정확도 vs 경험</b> — 유저는 정밀도보다 "이해되는 교정"과 재미(게이미피케이션)에 지갑을 연다</li>
+        <li><b>수익화 경로 설계</b> — B2C 구독은 리텐션 싸움, B2B 헬스케어는 인증·채널 싸움. 초기부터 택일 필요</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <b>기준 시점</b> 2026년 중반 · <b>목적</b> 사업 탐색용 리서치 (수치는 공개 보도·벤더 페이지 기준 추정 포함, 최신 라운드·인수 조건은 변동 가능)<br>
+    <b>주요 출처</b>
+    <div class="srcgrid">
+      <span>· Yogain — <a href="https://www.yogainwellness.com/">yogainwellness.com</a></span>
+      <span>· Zenith Yoga — <a href="https://play.google.com/store/apps/details?id=com.usiapps.zenith">Google Play</a></span>
+      <span>· Eva Yoga — <a href="https://ai.google.dev/competition/projects/eva-yoga-app">Google AI</a></span>
+      <span>· Sportsbox AI — <a href="https://www.sportsbox.ai/">sportsbox.ai</a> · <a href="https://www.geekwire.com/2026/golf-star-bryson-dechambeau-leads-acquisition-of-seattle-area-startup-sportsbox-ai/">GeekWire 인수기사</a></span>
+      <span>· 모아이스/골프픽스 — <a href="https://www.investnews.co.kr/news/articleView.html?idxno=3002514">인베스트(시리즈B)</a> · <a href="https://www.etnews.com/20220210000148">전자신문</a></span>
+      <span>· 골프존 AI 코치 — <a href="https://www.hankyung.com/article/2025052774371">한국경제</a></span>
+      <span>· AI Sports Trainer — <a href="https://ai-sportstrainer.com/en/badminton">배드민턴</a> · BadPro+ — <a href="https://badproplus.com/">badproplus.com</a></span>
+      <span>· SportsReflector — <a href="https://sportsreflector.com/sports/badminton">배드민턴</a></span>
+      <span>· Kaia Health — <a href="https://techcrunch.com/2019/01/21/kaia-health-gets-10m-support-for-ai-powered-management-of-chronic-pain/">TechCrunch</a> · Exer — <a href="https://www.exer.ai/">exer.ai</a></span>
+      <span>· 국내 홈트 — <a href="https://www.ajunews.com/view/20220423024000930">아주경제</a></span>
+      <span>· 기술 원리 — MediaPipe/BlazePose (Google) 공식 문서 · 관련 연구</span>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
