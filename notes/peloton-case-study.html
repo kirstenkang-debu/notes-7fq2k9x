@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Peloton 케이스스터디 — 세계 1등 운동 코칭 사업의 철학·구조·흥망</title>
+<style>
+  :root{
+    --bg:#f7f3ea; --card:#ffffff; --card2:#f1ebdd; --line:#e6ddca; --ink:#2b2721; --sub:#8a8070;
+    --brand:#e8322f;      /* Peloton red */
+    --brandb:#fdeceb;
+    --up:#0f9d6b; --upb:#d9f2e7;
+    --down:#d1453b; --downb:#fbe7e5;
+    --gold:#c17d0a; --goldb:#faedcf;
+    --blue:#2563c9; --blueb:#dde8fb;
+    --accent:#e8322f; --accent2:#6d43d1;
+    --shadow:0 1px 2px rgba(60,50,30,.05),0 6px 18px rgba(60,50,30,.06);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);
+       font-family:-apple-system,"Apple SD Gothic Neo","Pretendard",system-ui,sans-serif;
+       line-height:1.5;font-size:13.5px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1180px;margin:0 auto;padding:34px 32px 60px}
+  section{margin-bottom:40px;scroll-margin-top:20px}
+  .kicker{font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+  h2{font-size:22px;font-weight:800;letter-spacing:-.4px;margin-bottom:4px}
+  h2 .n{color:var(--sub);font-weight:700;margin-right:10px;font-size:18px}
+  .lead{color:var(--sub);font-size:13px;margin-bottom:18px;max-width:860px}
+
+  /* hero */
+  header.hero{border:1px solid var(--line);border-radius:16px;padding:34px 34px 30px;
+    background:radial-gradient(120% 140% at 0% 0%,#fde3e2 0%,#faf3ec 46%,#f7f3ea 100%);
+    box-shadow:var(--shadow);margin-bottom:30px}
+  header.hero .badge{display:inline-block;font-size:11px;font-weight:800;color:#fff;background:var(--brand);border-radius:20px;padding:4px 12px;margin-bottom:12px}
+  header.hero h1{font-size:30px;font-weight:800;letter-spacing:-.8px;line-height:1.2}
+  header.hero h1 em{font-style:normal;color:var(--brand)}
+  header.hero p{color:var(--sub);font-size:14px;margin-top:12px;max-width:780px}
+  nav{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+  nav a{font-size:11.5px;font-weight:700;text-decoration:none;color:var(--sub);border:1px solid var(--line);border-radius:20px;padding:6px 13px;transition:.15s;background:#fff}
+  nav a:hover{color:var(--brand);border-color:var(--brand);background:var(--brandb)}
+
+  /* metric strip */
+  .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:34px}
+  @media(max-width:820px){.metrics{grid-template-columns:1fr 1fr}}
+  .metric{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 16px;box-shadow:var(--shadow)}
+  .metric .lbl{font-size:10.5px;color:var(--sub);font-weight:700;text-transform:uppercase;letter-spacing:.4px}
+  .metric .val{font-size:24px;font-weight:800;margin:4px 0 2px;letter-spacing:-.5px}
+  .metric .sub{font-size:11px;color:var(--sub)}
+  .metric .val.down{color:var(--down)} .metric .val.up{color:var(--up)}
+
+  /* cards */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:820px){.grid2,.grid3{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
+  .card h3{font-size:14px;font-weight:800;margin-bottom:9px;display:flex;align-items:center;gap:8px}
+  .card h3 .dot{width:9px;height:9px;border-radius:50%;background:var(--accent)}
+  .card p{font-size:12px;color:var(--sub);line-height:1.6}
+  .card ul{list-style:none;font-size:12.5px;margin-top:4px}
+  .card li{padding:5px 0 5px 18px;position:relative;color:var(--ink);line-height:1.55}
+  .card li::before{content:"▸";position:absolute;left:0;color:var(--accent)}
+  .card li b{color:var(--ink)}
+
+  /* revenue chart */
+  .chart{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px 24px 16px;box-shadow:var(--shadow)}
+  .bars{display:flex;align-items:flex-end;gap:18px;height:270px;padding:0 4px;border-bottom:2px solid var(--line);position:relative}
+  .bar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+  .bar .col{width:70%;border-radius:6px 6px 0 0;background:linear-gradient(180deg,#f26b69,#e8322f);position:relative;transition:.2s}
+  .bar.peak .col{background:linear-gradient(180deg,#8f5cff,#6d43d1)}
+  .bar.dim .col{background:linear-gradient(180deg,#e9b6b5,#d98684)}
+  .bar .amt{font-size:12px;font-weight:800;margin-bottom:6px}
+  .bar .amt.peakt{color:var(--accent2)}
+  .bar .yr{font-size:11px;color:var(--sub);margin-top:8px;font-weight:600}
+  .bar .yr b{display:block;color:var(--ink);font-size:11px}
+  .chart .cap{font-size:11px;color:var(--sub);margin-top:12px}
+  .annot{position:absolute;top:-6px;font-size:10px;font-weight:800;color:var(--accent2);background:var(--card);padding:2px 6px;border:1px solid #d9cbf6;border-radius:6px}
+
+  /* timeline */
+  .timeline{position:relative;margin-left:8px;padding-left:26px;border-left:2px solid var(--line)}
+  .tl{position:relative;padding:0 0 20px 6px}
+  .tl:last-child{padding-bottom:0}
+  .tl .dot{position:absolute;left:-35px;top:2px;width:14px;height:14px;border-radius:50%;background:var(--brand);border:3px solid var(--bg)}
+  .tl.rise .dot{background:var(--up)} .tl.fall .dot{background:var(--down)} .tl.turn .dot{background:var(--gold)}
+  .tl .yr{font-size:12px;font-weight:800;color:var(--ink)}
+  .tl .yr span{font-weight:600;color:var(--sub);font-size:11px;margin-left:6px}
+  .tl .txt{font-size:12.5px;color:var(--ink);margin-top:2px;line-height:1.55}
+  .tl .txt b{color:var(--ink)}
+  .tag{display:inline-block;font-size:9.5px;font-weight:800;padding:1px 7px;border-radius:5px;margin-left:6px;vertical-align:middle}
+  .tag.up{background:var(--upb);color:var(--up)} .tag.down{background:var(--downb);color:var(--down)} .tag.turn{background:var(--goldb);color:var(--gold)}
+
+  /* pipeline / flywheel */
+  .pipe{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:0;margin:16px 0 4px}
+  .step{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:14px;position:relative}
+  .step .num{position:absolute;top:-11px;left:14px;width:22px;height:22px;border-radius:50%;background:var(--accent);color:#fff;font-weight:900;font-size:12px;display:flex;align-items:center;justify-content:center}
+  .step h4{font-size:12.5px;font-weight:800;margin:4px 0 5px}
+  .step p{font-size:11px;color:var(--sub);line-height:1.5}
+  .arrow{display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:22px}
+  @media(max-width:820px){.pipe{grid-template-columns:1fr}.arrow{transform:rotate(90deg);padding:2px 0}}
+
+  /* tables */
+  table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden;font-size:12.5px;border:1px solid var(--line);box-shadow:var(--shadow)}
+  th,td{padding:11px 13px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+  thead th{background:var(--card2);font-size:10.5px;color:var(--sub);text-transform:uppercase;letter-spacing:.5px;font-weight:700}
+  tbody tr:last-child td{border-bottom:none}
+  .co{font-weight:800;font-size:13px}
+  td small,.mut{color:var(--sub);font-size:11px}
+  .yes{color:var(--up);font-weight:800} .no{color:var(--down);font-weight:800} .mid{color:var(--gold);font-weight:800}
+
+  /* insight */
+  .insight{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;box-shadow:var(--shadow)}
+  .insight.hot{border-color:#a6e5c9;background:linear-gradient(180deg,#ffffff,#e9faf2)}
+  .insight.gap{border-color:#eeb6b3;background:linear-gradient(180deg,#ffffff,#fdeeed)}
+  .insight h3{font-size:13px;font-weight:800;margin-bottom:9px}
+  .insight ul{list-style:none;font-size:12.5px}
+  .insight li{padding:5px 0 5px 18px;position:relative;color:var(--ink);line-height:1.55}
+  .insight li::before{content:"→";position:absolute;left:0;color:var(--accent);font-weight:800}
+  .insight li b{color:var(--ink)}
+
+  .pullquote{background:linear-gradient(180deg,#fff,#faf3ec);border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:12px;padding:18px 22px;font-size:15px;font-weight:700;color:var(--ink);box-shadow:var(--shadow)}
+  .pullquote span{color:var(--brand)}
+
+  footer{margin-top:44px;font-size:10.5px;color:var(--sub);border-top:1px solid var(--line);padding-top:16px;line-height:1.7}
+  footer a{color:var(--blue);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <header class="hero">
+    <span class="badge">CASE STUDY · 운동 코칭 벤치마크</span>
+    <h1><em>Peloton</em> — "장비를 판 게 아니라, <em>습관</em>을 팔았다"</h1>
+    <p>세계에서 가장 큰 <b>구독형 운동 코칭 사업</b>의 철학·사업구조·플라이휠, 그리고 $500억 → $18억으로 무너진 흥망까지.
+       AI 자세교정 사업을 설계하려는 사람이 반드시 뜯어봐야 할 교과서.</p>
+    <nav>
+      <a href="#snapshot">스냅샷</a>
+      <a href="#revenue">재무 추이</a>
+      <a href="#model">사업구조</a>
+      <a href="#philosophy">철학</a>
+      <a href="#flywheel">플라이휠</a>
+      <a href="#timeline">흥망 타임라인</a>
+      <a href="#vs">경쟁사 비교</a>
+      <a href="#lessons">배울 점</a>
+    </nav>
+  </header>
+
+  <!-- SNAPSHOT -->
+  <section id="snapshot">
+    <div class="metrics">
+      <div class="metric"><div class="lbl">매출 정점 (FY2021)</div><div class="val">$4.02B</div><div class="sub">전년비 +120%</div></div>
+      <div class="metric"><div class="lbl">현재 매출 (FY2025)</div><div class="val down">$2.4B</div><div class="sub">정점 대비 −40%</div></div>
+      <div class="metric"><div class="lbl">시가총액 (정점→현재)</div><div class="val down">$49B→$1.8B</div><div class="sub">−97%, 5년간 $47.5B 증발</div></div>
+      <div class="metric"><div class="lbl">월 이탈률 (churn)</div><div class="val up">1.2~1.8%</div><div class="sub">업계 최저 수준 유지</div></div>
+    </div>
+    <div class="pullquote">Peloton의 진짜 상품은 바이크가 아니라 <span>매일 켜게 만드는 구독 경험</span>이었다. — 흥할 때도, 망할 때도 이유는 여기에 있었다.</div>
+  </section>
+
+  <!-- REVENUE -->
+  <section id="revenue">
+    <div class="kicker">Financials</div>
+    <h2><span class="n">01</span>재무 추이 — 로켓처럼 오르고, 중력처럼 떨어졌다</h2>
+    <p class="lead">연매출(회계연도, $B). 팬데믹으로 FY19→FY21에 4.4배 폭발 → 헬스장 재개 후 3년 연속 역성장. <b>보라색이 정점(FY21).</b></p>
+    <div class="chart">
+      <div class="bars">
+        <div class="bar dim"><div class="amt">$0.92B</div><div class="col" style="height:55px"></div><div class="yr"><b>FY19</b>IPO</div></div>
+        <div class="bar"><div class="amt">$1.83B</div><div class="col" style="height:109px"></div><div class="yr"><b>FY20</b>+100%</div></div>
+        <div class="bar peak"><div class="amt peakt">$4.02B</div><div class="col" style="height:240px"><span class="annot">📈 정점 +120%</span></div><div class="yr"><b>FY21</b>+120%</div></div>
+        <div class="bar"><div class="amt">$3.58B</div><div class="col" style="height:214px"></div><div class="yr"><b>FY22</b>−11%</div></div>
+        <div class="bar dim"><div class="amt">$2.80B</div><div class="col" style="height:167px"></div><div class="yr"><b>FY23</b>−22%</div></div>
+        <div class="bar dim"><div class="amt">$2.70B</div><div class="col" style="height:161px"></div><div class="yr"><b>FY24</b>−4%</div></div>
+        <div class="bar dim"><div class="amt">$2.40B</div><div class="col" style="height:143px"></div><div class="yr"><b>FY25</b>−8%</div></div>
+      </div>
+      <div class="cap">출처: Peloton IR / Bullfincher. FY = 6월 종료 회계연도. 주가는 2021년 1월 $167로 정점 후 −97%.</div>
+    </div>
+  </section>
+
+  <!-- MODEL -->
+  <section id="model">
+    <div class="kicker">Business Structure</div>
+    <h2><span class="n">02</span>사업구조 — Hardware-as-a-Service (HaaS)</h2>
+    <p class="lead">핵심은 <b>"하드웨어로 들어와서 구독으로 남는다"</b>. 하드웨어는 관문(때론 미끼), 반복되는 구독료가 진짜 이익원.</p>
+    <div class="pipe">
+      <div class="step"><span class="num">1</span><h4>하드웨어 판매</h4><p>바이크·트레드밀($1,000~2,500대). 큰 초기 투자 = 강력한 <b>락인(lock-in)</b> 발생</p></div>
+      <div class="arrow">→</div>
+      <div class="step"><span class="num">2</span><h4>월 구독 (본체)</h4><p>All-Access 멤버십 <b>월 ~$44</b>. 라이브·VOD 클래스 무제한. <b>고마진·예측가능한 반복매출</b></p></div>
+      <div class="arrow">→</div>
+      <div class="step"><span class="num">3</span><h4>앱 구독 (저변)</h4><p>기기 없이 <b>월 ~$13</b>로 콘텐츠만. 하드웨어 장벽 낮춰 시장 확대</p></div>
+    </div>
+    <div class="grid2" style="margin-top:16px">
+      <div class="card">
+        <h3><span class="dot"></span>매출 구성 (FY2025)</h3>
+        <ul>
+          <li><b>구독 매출 = 전체의 62%</b> — 이미 하드웨어를 넘어섬</li>
+          <li>구독은 <b>고마진(총이익률 60%대 후반)</b>, 하드웨어는 저마진/때론 적자</li>
+          <li>→ "기기를 싸게 팔고 구독으로 회수" 구조가 이상적 목표</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3><span class="dot" style="background:var(--up)"></span>왜 이 구조가 강력한가</h3>
+        <ul>
+          <li>일회성 판매 → <b>반복매출(recurring)</b>로 전환 = 밸류에이션 배수↑</li>
+          <li>구독자 수 × 낮은 churn = <b>미래 현금흐름 예측 가능</b></li>
+          <li>커뮤니티·습관이 쌓일수록 <b>해지 비용(심리적)</b>이 커짐</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section id="philosophy">
+    <div class="kicker">Philosophy</div>
+    <h2><span class="n">03</span>철학 — 무엇을 판다고 믿었는가</h2>
+    <div class="grid3">
+      <div class="card">
+        <h3><span class="dot" style="background:var(--accent2)"></span>콘텐츠 &gt; 장비</h3>
+        <p>바이크는 그릇일 뿐, 본질은 <b>몰입되는 instructor-led 콘텐츠</b>. "집에 부티크 스튜디오를 들여놓는다"는 경험을 판다.</p>
+      </div>
+      <div class="card">
+        <h3><span class="dot" style="background:var(--gold)"></span>강사 = 브랜드의 심장</h3>
+        <p>운동 실력 + 엔터테이너 기질 + 진정성을 갖춘 강사를 선발. Robin Arzón·Cody Rigsby 등이 <b>마이크로 셀럽·팬덤</b>으로 성장.</p>
+      </div>
+      <div class="card">
+        <h3><span class="dot" style="background:var(--up)"></span>운동을 정체성으로</h3>
+        <p>기록·리더보드·뱃지·해시태그로 <b>습관과 소속감</b>을 설계. "나는 Peloton 타는 사람"이라는 <b>정체성</b>이 최고의 리텐션.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLYWHEEL -->
+  <section id="flywheel">
+    <div class="kicker">Growth Engine</div>
+    <h2><span class="n">04</span>커넥티드 피트니스 플라이휠</h2>
+    <p class="lead">각 단계가 다음을 강화해 <b>스스로 도는 바퀴</b>. 이 바퀴의 속도를 결정하는 단 하나의 숫자가 <b>이탈률(churn)</b>.</p>
+    <div class="card">
+      <div class="pipe">
+        <div class="step"><span class="num">1</span><h4>스타 강사·콘텐츠</h4><p>매력적 강사가 매일 라이브/VOD 방송 → "또 오고 싶다"</p></div>
+        <div class="arrow">→</div>
+        <div class="step"><span class="num">2</span><h4>매일 참여·습관</h4><p>리더보드·성취 시스템 → 앱을 매일 켠다</p></div>
+        <div class="arrow">→</div>
+        <div class="step"><span class="num">3</span><h4>커뮤니티·데이터</h4><p>유대감 + 사용데이터로 개인화 → 더 몰입</p></div>
+      </div>
+      <p class="mut" style="margin-top:12px;text-align:center">↑ 참여↑ → <b style="color:var(--up)">이탈률↓ (월 1%대)</b> → 구독매출 예측가능 → 강사·콘텐츠에 재투자 → 다시 처음으로 🔁</p>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section id="timeline">
+    <div class="kicker">Rise &amp; Fall</div>
+    <h2><span class="n">05</span>흥망 타임라인 — $500억에서 $18억으로</h2>
+    <p class="lead"><span style="color:var(--up)">●</span> 상승 &nbsp; <span style="color:var(--down)">●</span> 하락/위기 &nbsp; <span style="color:var(--gold)">●</span> 전환점</p>
+    <div class="timeline">
+      <div class="tl rise"><div class="dot"></div><div class="yr">2012 <span>창업</span></div><div class="txt">John Foley가 공동창업. "집에서 스튜디오 수업을"이라는 아이디어에서 출발.</div></div>
+      <div class="tl rise"><div class="dot"></div><div class="yr">2019.9 <span>IPO</span> <span class="tag up">매출 $915M</span></div><div class="txt">나스닥 상장. 이미 하드웨어+구독 모델 확립.</div></div>
+      <div class="tl rise"><div class="dot"></div><div class="yr">2020~21 <span>팬데믹 특수</span> <span class="tag up">정점</span></div><div class="txt">헬스장 폐쇄로 수요 폭발. <b>주가 $167(2021.1), 시총 ~$49B</b>. FY21 매출 <b>$4.02B(+120%)</b>. 첫 분기 매출 10억 달러 돌파.</div></div>
+      <div class="tl fall"><div class="dot"></div><div class="yr">2022.2 <span>창업자 퇴진·구조조정</span> <span class="tag turn">전환</span></div><div class="txt">Foley가 CEO 사임(→회장), <b>Barry McCarthy(前 넷플릭스·스포티파이 CFO)</b> 부임. 동시에 <b>2,800명 감원</b> 발표. 수요 급감 시작.</div></div>
+      <div class="tl fall"><div class="dot"></div><div class="yr">2023.1 <span>트레드밀 리콜 벌금</span> <span class="tag down">$19M 벌금</span></div><div class="txt">결함 늑장보고로 <b>$1,900만 민사벌금</b>(6세 아동 사망 등 사고). 안전 이슈가 브랜드 타격.</div></div>
+      <div class="tl fall"><div class="dot"></div><div class="yr">2023.5 <span>바이크 대량 리콜</span> <span class="tag down">220만 대</span></div><div class="txt">안장 결함으로 <b>2018년부터 팔린 바이크 220만 대 리콜</b>. 비용·신뢰 이중 타격.</div></div>
+      <div class="tl turn"><div class="dot"></div><div class="yr">2024.5 <span>2번째 CEO도 사임</span> <span class="tag down">−15% 감원</span></div><div class="txt">McCarthy 2년 만에 사임, 추가 <b>15%(약 400명) 감원</b> + 부채 리파이낸싱. 구조조정으로 <b>흑자 전환 시도</b>.</div></div>
+      <div class="tl turn"><div class="dot"></div><div class="yr">2025.1 <span>새 CEO 취임</span> <span class="tag turn">턴어라운드</span></div><div class="txt"><b>Peter Stern(前 애플·포드)</b> CEO 취임. 성장보다 <b>수익성·비용구조 개선</b>에 집중. 월 churn 1%대 유지, FY26 FCF $2억+ 목표.</div></div>
+    </div>
+  </section>
+
+  <!-- VS -->
+  <section id="vs">
+    <div class="kicker">Competitive Landscape</div>
+    <h2><span class="n">06</span>3가지 코칭 모델 비교 — 사람 vs AI vs 하이브리드</h2>
+    <p class="lead">"운동 코칭을 어떻게 전달하나"에 따라 셋으로 갈린다. AI 자세교정 사업은 이 스펙트럼 어디에 설지가 첫 결정.</p>
+    <table>
+      <thead><tr><th style="width:16%">회사</th><th style="width:22%">코칭 방식</th><th style="width:16%">가격</th><th style="width:16%">규모</th><th>강점 / 약점</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="co">Peloton</span><br><small>하이브리드</small></td>
+          <td>하드웨어 + <b>스타강사 라이브 그룹</b> 클래스 (1:다수)</td>
+          <td>기기 $1k~2.5k<br>+ 월 ~$44</td>
+          <td>구독 <b>~266만</b><br>매출 $2.4B</td>
+          <td><span class="yes">강점</span> 브랜드·커뮤니티·낮은 churn<br><span class="no">약점</span> 고가 하드웨어 의존, 1:1 맞춤·자세교정 약함</td>
+        </tr>
+        <tr>
+          <td><span class="co">Future</span><br><small>사람 1:1</small></td>
+          <td><b>진짜 사람 트레이너</b>가 원격으로 주간 프로그램·메시지 관리</td>
+          <td>월 ~$199</td>
+          <td>프리미엄 소수<br>(고ARPU)</td>
+          <td><span class="yes">강점</span> 최고의 개인화·책임감(accountability)<br><span class="no">약점</span> 인건비 → <b>확장성 낮음</b></td>
+        </tr>
+        <tr>
+          <td><span class="co">Freeletics</span><br><small>순수 AI</small></td>
+          <td><b>AI 알고리즘 코치</b>가 맞춤 운동 생성 + Coach+ 챗봇</td>
+          <td>저가 구독<br>(~$1~2/주 수준)</td>
+          <td>누적 <b>6천만+</b> 유저</td>
+          <td><span class="yes">강점</span> 저비용·무한확장, 데이터 축적<br><span class="no">약점</span> 인간적 유대·동기부여 약함</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="mut" style="margin-top:9px">※ AI 실시간 <b>자세교정</b>은 세 모델 어디에도 아직 깊게 없다 → <b>Peloton의 커뮤니티/구독 + 사람의 책임감 + AI의 확장성</b>을 잇는 빈칸이 기회.</p>
+  </section>
+
+  <!-- LESSONS -->
+  <section id="lessons">
+    <div class="kicker">Takeaways</div>
+    <h2><span class="n">07</span>여기서 배울 것 — AI 코칭 사업에 적용</h2>
+    <div class="grid2">
+      <div class="insight hot">
+        <h3>✅ 따라 할 것</h3>
+        <ul>
+          <li><b>반복매출(구독) 구조</b> — 일회성 앱 판매·기기 판매로 끝내지 말 것</li>
+          <li><b>사람/캐릭터가 최고의 리텐션</b> — 순수 기능보다 "따르고 싶은 코치·커뮤니티"</li>
+          <li><b>북극성 지표 = churn·engagement</b> — 매출보다 이 둘을 먼저 본다</li>
+          <li><b>습관·정체성 설계</b> — 기록·소속감이 진짜 해자(기능은 복제됨)</li>
+        </ul>
+      </div>
+      <div class="insight gap">
+        <h3>⚠️ 피할 것 (Peloton의 실패에서)</h3>
+        <ul>
+          <li><b>일시적 수요를 구조적 성장으로 착각</b> — 팬데믹 특수를 영구 성장으로 오판</li>
+          <li><b>고정비·재고 과투자</b> — 수요 꺾이자 하드웨어 부담이 목을 조름</li>
+          <li><b>안전·품질 리스크</b> — 리콜/벌금이 브랜드 신뢰를 직격</li>
+          <li><b>하드웨어 종속</b> — AI 자세교정은 <b>폰 카메라만으로</b> 이 짐을 피할 수 있음(경량 CNN의 이점)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pullquote" style="margin-top:16px">결론: <span>Peloton의 구독·커뮤니티·낮은 churn 구조</span>를 가져오되, <span>하드웨어 종속은 버리고</span> AI 실시간 자세교정으로 1:1 개인화를 채우는 지점 — 그게 다음 세대 운동 코칭의 빈칸이다.</div>
+  </section>
+
+  <footer>
+    <b>기준 시점</b> 2026년 중반 · <b>목적</b> 벤치마크 학습용 케이스스터디 (수치는 공개 IR·보도 기준, 일부 추정 포함)<br>
+    <b>출처</b>
+    · Peloton IR / <a href="https://investor.onepeloton.com/">investor.onepeloton.com</a>
+    · <a href="https://bullfincher.io/companies/peloton-interactive/revenue">Bullfincher 매출</a>
+    · <a href="https://www.businessofapps.com/data/peloton-statistics/">Business of Apps</a>
+    · <a href="https://frontofficesports.com/peloton-timeline-ceo-changes-layoffs-recalls-and-falling-stocks/">Front Office Sports 타임라인</a>
+    · <a href="https://www.cnbc.com/2024/05/02/peloton-ceo-barry-mccarthy-steps-down-15percent-of-staff-laid-off.html">CNBC</a>
+    · <a href="https://www.latterly.org/peloton-marketing-strategy/">Latterly(전략·플라이휠)</a>
+    · <a href="https://www.mobihealthnews.com/news/freeletics-scores-25-million-ai-fitness-coaching-app">MobiHealthNews(Freeletics)</a>
+  </footer>
+
+</div>
+</body>
+</html>
