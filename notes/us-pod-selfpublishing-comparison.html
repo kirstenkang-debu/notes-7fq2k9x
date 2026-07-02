@@ -4,258 +4,448 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>미국 POD·셀프퍼블리싱 스타트업 비교</title>
+<title>미국 AI·POD 출판 시장조사 — Spines형 회사</title>
 <style>
   :root{
     --navy:#0f172a; --navy2:#1e293b;
     --ink:#0f172a; --muted:#64748b;
     --line:#e2e8f0; --soft:#f8fafc;
     --blue:#2563eb; --blue-soft:#eff6ff;
-    --amber:#f59e0b; --green:#16a34a;
+    --amber:#f59e0b; --green:#16a34a; --red:#dc2626;
     --warn-bg:#fff7ed; --warn-line:#fdba74; --warn-ink:#9a3412;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
-  html,body{height:100%;}
   body{
     background:#334155;
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
     color:var(--ink);
-    display:flex; align-items:center; justify-content:center;
-    padding:24px;
+    padding:28px 20px 60px;
+    display:flex; flex-direction:column; align-items:center; gap:34px;
   }
-  /* 16:9 slide */
   .slide{
     width:100%; max-width:1280px; aspect-ratio:16/9;
     background:#fff; border-radius:18px; overflow:hidden;
-    box-shadow:0 30px 80px rgba(0,0,0,.45);
-    display:flex; flex-direction:column;
+    box-shadow:0 24px 70px rgba(0,0,0,.45);
+    display:flex; flex-direction:column; position:relative;
   }
-  /* header */
   header{
     background:linear-gradient(120deg,var(--navy),var(--navy2));
-    color:#fff; padding:22px 38px 18px;
+    color:#fff; padding:20px 38px 16px;
     display:flex; align-items:flex-end; justify-content:space-between;
   }
-  header .t h1{font-size:1.7rem; letter-spacing:-.02em; font-weight:800;}
-  header .t p{font-size:.86rem; color:#cbd5e1; margin-top:4px;}
+  .kicker{font-size:.7rem; letter-spacing:.14em; color:#93c5fd; font-weight:700; text-transform:uppercase;}
+  header h1{font-size:1.55rem; letter-spacing:-.02em; font-weight:800; margin-top:3px;}
+  header .sub{font-size:.82rem; color:#cbd5e1; margin-top:3px;}
   header .badge{
     background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25);
-    color:#e2e8f0; font-size:.72rem; padding:6px 12px; border-radius:999px; white-space:nowrap;
+    color:#e2e8f0; font-size:.7rem; padding:6px 12px; border-radius:999px; white-space:nowrap;
   }
-  /* body */
-  .body{flex:1; padding:12px 30px 10px; display:flex; flex-direction:column; min-height:0;}
+  .body{flex:1; padding:20px 38px 14px; display:flex; flex-direction:column; min-height:0;}
+  .pagenum{position:absolute; bottom:12px; right:20px; font-size:.62rem; color:var(--muted);}
+  .src{padding:6px 38px 12px; color:var(--muted); font-size:.6rem;}
+
+  /* ---- Slide 1 : market stat cards ---- */
+  .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; flex:1;}
+  .card{
+    border:1px solid var(--line); border-radius:14px; padding:16px 18px;
+    display:flex; flex-direction:column; justify-content:center; background:var(--soft);
+  }
+  .card .label{font-size:.8rem; color:var(--muted); font-weight:600;}
+  .card .big{font-size:1.7rem; font-weight:800; color:var(--navy); margin:6px 0 2px; letter-spacing:-.02em;}
+  .card .big .arrow{color:var(--muted); font-weight:500; font-size:1.1rem;}
+  .card .cagr{font-size:.82rem; font-weight:700;}
+  .card .cagr.hi{color:var(--green);} .card .cagr.mid{color:var(--blue);}
+  .card .note{font-size:.72rem; color:var(--muted); margin-top:5px;}
+  .card.accent{background:var(--blue-soft); border-color:#bfdbfe;}
+  .takeaway{
+    margin-top:16px; background:#ecfdf5; border:1px solid #86efac; border-radius:12px;
+    padding:12px 18px; font-size:.9rem; color:#065f46; font-weight:600;
+  }
+  .takeaway b{color:var(--green);}
+
+  /* ---- shared tables (slide 2 & 4) ---- */
   .tablewrap{flex:1; min-height:0; overflow:hidden;}
-  table{width:100%; height:100%; border-collapse:collapse; table-layout:fixed;}
-  thead th{
-    background:var(--navy); color:#fff; font-size:.66rem; font-weight:700;
-    text-align:left; padding:6px 9px; letter-spacing:.01em;
-  }
-  thead th:first-child{border-top-left-radius:8px;}
-  thead th:last-child{border-top-right-radius:8px; text-align:center;}
-  tbody td{
-    padding:4px 9px; border-bottom:1px solid var(--line);
-    font-size:.66rem; line-height:1.28; vertical-align:middle;
-  }
-  tbody tr.body-row:nth-child(even){background:var(--soft);}
-  tr.group td{
-    background:var(--blue-soft); color:var(--blue); font-weight:800;
-    font-size:.64rem; letter-spacing:.03em; padding:4px 10px;
-    border-bottom:1px solid #bfdbfe; text-transform:none;
-  }
-  tr.group td .tag{
-    background:var(--blue); color:#fff; border-radius:4px; padding:1px 6px;
-    font-size:.58rem; margin-right:7px; letter-spacing:0;
-  }
-  .co{font-weight:800; color:var(--navy); font-size:.78rem; white-space:nowrap;}
-  .co small{display:block; font-weight:500; color:var(--muted); font-size:.64rem; margin-top:1px;}
+  table{width:100%; border-collapse:collapse; table-layout:fixed;}
+  thead th{background:var(--navy); color:#fff; font-size:.66rem; font-weight:700; text-align:left; padding:6px 9px;}
+  thead th:last-child{text-align:center;}
+  tbody td{padding:5px 9px; border-bottom:1px solid var(--line); font-size:.68rem; line-height:1.3; vertical-align:middle;}
+  .co{font-weight:800; color:var(--navy); white-space:nowrap;}
+  .co small{display:block; font-weight:500; color:var(--muted); font-size:.62rem; margin-top:1px;}
   .hl{color:var(--blue); font-weight:800;}
   .pos{color:var(--green); font-weight:800;}
+  .neg{color:var(--red); font-weight:700;}
   .mut{color:var(--muted);}
-  .sim{text-align:center; white-space:nowrap;}
-  .sim .s{color:var(--amber); font-size:.95rem; letter-spacing:1px;}
-  .sim .s .off{color:var(--line);}
-  .sim small{display:block; color:var(--muted); font-size:.6rem; margin-top:1px;}
-  .price{color:var(--ink); font-weight:800;}
-  /* 매출액 컬럼(4번째) 하이라이트 */
-  tr.body-row td:nth-child(4){background:#eff6ff; color:var(--blue); font-weight:700;}
-  tr.body-row:nth-child(even) td:nth-child(4){background:#dbeafe;}
-  tr.body-row td:nth-child(4) .mut{color:#60a5fa;}
-  /* col widths */
-  col.c1{width:11%} col.c2{width:13%} col.c3{width:16%} col.c4{width:13%}
-  col.c5{width:11%} col.c6{width:11%} col.c7{width:15%} col.c8{width:10%}
-  /* footer note */
-  .warn{
-    margin-top:10px; background:var(--warn-bg); border:1px solid var(--warn-line);
-    border-radius:10px; padding:9px 14px; display:flex; gap:14px; align-items:center;
+  tr.group td{
+    background:var(--blue-soft); color:var(--blue); font-weight:800; font-size:.64rem;
+    padding:4px 10px; border-bottom:1px solid #bfdbfe;
   }
-  .warn b{color:var(--warn-ink); font-size:.74rem; white-space:nowrap;}
-  .warn ol{display:flex; gap:18px; list-style:none; flex-wrap:wrap;}
-  .warn li{font-size:.7rem; color:#7c2d12; position:relative; padding-left:16px;}
-  .warn li:before{content:"!"; position:absolute; left:0; top:-1px; font-weight:800; color:var(--amber);}
-  footer{padding:7px 38px 12px; color:var(--muted); font-size:.6rem; text-align:right;}
+  tr.group td .tag{background:var(--blue); color:#fff; border-radius:4px; padding:1px 6px; font-size:.58rem; margin-right:7px;}
+  tr.group.b td{background:#faf5ff; color:#7c3aed; border-bottom:1px solid #ddd6fe;}
+  tr.group.b td .tag{background:#7c3aed;}
+  .sim{text-align:center; white-space:nowrap;}
+  .sim .s{color:var(--amber); font-size:.9rem; letter-spacing:1px;}
+  .sim .s .off{color:var(--line);}
+  .sim small{display:block; color:var(--muted); font-size:.58rem;}
+
+  /* slide 4 revenue highlight + price */
+  #cmp tr.body-row td:nth-child(4){background:#eff6ff; color:var(--blue); font-weight:700;}
+  #cmp tr.body-row td:nth-child(4) .mut{color:#60a5fa;}
+  #cmp .price{font-weight:800;}
+  #cmp col.c1{width:11%} #cmp col.c2{width:13%} #cmp col.c3{width:16%} #cmp col.c4{width:13%}
+  #cmp col.c5{width:11%} #cmp col.c6{width:11%} #cmp col.c7{width:15%} #cmp col.c8{width:10%}
+
+  /* slide 2 landscape widths */
+  #land col.l1{width:15%} #land col.l2{width:26%} #land col.l3{width:20%} #land col.l4{width:22%} #land col.l5{width:17%}
+
+  /* ---- Slide 3 : business model ---- */
+  .cols3{display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; flex:1;}
+  .panel{border:1px solid var(--line); border-radius:14px; padding:14px 16px; display:flex; flex-direction:column;}
+  .panel h3{font-size:.86rem; color:var(--navy); margin-bottom:9px; display:flex; align-items:center; gap:7px;}
+  .panel h3 .dot{width:9px; height:9px; border-radius:50%;}
+  .panel ul{list-style:none; display:flex; flex-direction:column; gap:8px;}
+  .panel li{font-size:.72rem; line-height:1.35; padding-left:2px;}
+  .panel li b{color:var(--navy);}
+  .tier{font-weight:800; color:var(--blue);}
+  .riskbox{margin-top:14px; background:var(--warn-bg); border:1px solid var(--warn-line); border-radius:12px; padding:11px 16px;}
+  .riskbox b{color:var(--warn-ink); font-size:.76rem;}
+  .riskbox ul{display:flex; gap:20px; list-style:none; flex-wrap:wrap; margin-top:5px;}
+  .riskbox li{font-size:.7rem; color:#7c2d12; padding-left:15px; position:relative;}
+  .riskbox li:before{content:"⚠"; position:absolute; left:0; color:var(--amber); font-size:.66rem;}
+
+  @media print{
+    body{background:#fff; padding:0; gap:0;}
+    .slide{box-shadow:none; border-radius:0; max-width:none; width:100%; height:100vh; page-break-after:always;}
+    @page{size:landscape;}
+  }
 </style>
 </head>
 <body>
-<div class="slide">
-  <header>
-    <div class="t">
-      <h1>🇺🇸 미국 POD · 셀프퍼블리싱 스타트업 비교</h1>
-      <p>교보문고 POD처럼 — 사람 작가가 쓰는 셀프퍼블리싱 <b>A</b> + AI 활용형 출판/집필 <b>B</b></p>
-    </div>
-    <div class="badge">매출 · 수익률 · 유저 · 출간 권수 &nbsp;|&nbsp; 2026.06</div>
-  </header>
 
+<!-- ================= SLIDE 1 : MARKET ================= -->
+<section class="slide">
+  <header>
+    <div>
+      <div class="kicker">시장조사 · 01 시장 개요</div>
+      <h1>🇺🇸 AI · 셀프퍼블리싱 / POD 출판 시장 규모</h1>
+      <div class="sub">교보 POD형 "작가가 쓰고 회사가 출판" 모델 — Spines가 노리는 시장</div>
+    </div>
+    <div class="badge">TAM · 성장률 · 2026.07</div>
+  </header>
   <div class="body">
-    <div class="tablewrap">
+    <div class="cards">
+      <div class="card">
+        <div class="label">셀프퍼블리싱 시장</div>
+        <div class="big">$1.85B <span class="arrow">→</span> $8.1~8.6B</div>
+        <div class="cagr mid">CAGR 8.8~16.7%</div>
+        <div class="note">’24 → ’34 (출처마다 편차) · 북미 38.4% 최대</div>
+      </div>
+      <div class="card accent">
+        <div class="label">AI 출판 시장 (AI in Publishing)</div>
+        <div class="big">$2.8~3.6B <span class="arrow">→</span> $41.2B</div>
+        <div class="cagr hi">CAGR ~31%</div>
+        <div class="note">’23–24 → ’33 · 셀프퍼블리싱의 2~4배 성장</div>
+      </div>
+      <div class="card accent">
+        <div class="label">AI 도서 집필 시장 (공격적 추정)</div>
+        <div class="big">$2.8B <span class="arrow">→</span> $47.1B</div>
+        <div class="cagr hi">CAGR 32.6%</div>
+        <div class="note">’24 → ’34 · 집필툴(Sudowrite류) 포함</div>
+      </div>
+      <div class="card">
+        <div class="label">POD 도서 서비스 시장</div>
+        <div class="big">$4.71B <span class="arrow">→</span> $10B</div>
+        <div class="cagr mid">CAGR 7.8%</div>
+        <div class="note">’25 → ’35 · 전체 POD 시장은 $10~13B(’25), CAGR ~24%</div>
+      </div>
+      <div class="card">
+        <div class="label">연간 셀프출판 도서 수</div>
+        <div class="big">2.6M+ <span class="arrow">종/년</span></div>
+        <div class="cagr mid">전통출판 추월</div>
+        <div class="note">’23 기준 · 셀프출판 작가 87%가 POD 사용</div>
+      </div>
+      <div class="card">
+        <div class="label">전체 신간 규모 (참고)</div>
+        <div class="big">4M+ <span class="arrow">종/년</span></div>
+        <div class="cagr mid">전통출판 50만~100만</div>
+        <div class="note">나머지 대부분이 셀프퍼블리싱 롱테일</div>
+      </div>
+    </div>
+    <div class="takeaway">💡 <b>핵심</b>: AI 출판·집필 시장은 CAGR <b>30%+</b>로 셀프퍼블리싱(~9~17%)보다 2~4배 빠르게 성장 → Spines·Publishing.com이 겨냥하는 "고성장 교집합"이 바로 여기.</div>
+  </div>
+  <div class="src">출처: DataInsights/Dataintelo(셀프퍼블리싱), Market.us(AI in Publishing CAGR 30.8~31.2%), Market.us(AI book writing 32.6%), WiseGuy/Precedence(POD), Automateed·ISBNdb(셀프출판 통계)</div>
+  <div class="pagenum">1 / 4</div>
+</section>
+
+<!-- ================= SLIDE 2 : LANDSCAPE ================= -->
+<section class="slide">
+  <header>
+    <div>
+      <div class="kicker">시장조사 · 02 경쟁 구도</div>
+      <h1>Spines형 회사 지도 — "작가가 돈 내고 풀서비스 출판"</h1>
+      <div class="sub"><b>A</b> AI 네이티브 풀서비스 · <b>B</b> 하이브리드 출판사(사람 중심, 동일 모델)</div>
+    </div>
+    <div class="badge">경쟁사 매핑</div>
+  </header>
+  <div class="body">
+    <div class="tablewrap" id="land">
       <table>
-        <colgroup>
-          <col class="c1"><col class="c2"><col class="c3"><col class="c4"><col class="c5"><col class="c6"><col class="c7"><col class="c8">
-        </colgroup>
+        <colgroup><col class="l1"><col class="l2"><col class="l3"><col class="l4"><col class="l5"></colgroup>
         <thead>
-          <tr>
-            <th>회사 (설립)</th><th>모델</th><th>💰 유저 요금 (서비스료)</th><th>매출 (연도·출처)</th>
-            <th>수익률 / 펀딩</th><th>유저(작가) 수</th><th>출간 도서 수</th><th>교보 유사도</th>
+          <tr><th>회사 (설립)</th><th>모델 / 특징</th><th>유저 요금</th><th>펀딩 · 매출 · 규모</th><th>Spines 근접도</th></tr>
+        </thead>
+        <tbody>
+          <tr class="group b"><td colspan="5"><span class="tag">A</span>AI 네이티브 풀서비스 출판 (Spines와 가장 유사)</td></tr>
+          <tr class="body-row">
+            <td class="co">Spines<small>2021</small></td>
+            <td>AI가 교정·표지·메타·유통 자동화, 3주 내 출간</td>
+            <td><b>$1,200~5,000</b>/권</td>
+            <td>펀딩 <span class="hl">$22.5M</span> · 8,000권 목표(’25) · 인세 작가 70/사 30</td>
+            <td class="sim"><span class="s">기준점</span></td>
           </tr>
+          <tr class="body-row">
+            <td class="co">Publishing.com<small>2017</small></td>
+            <td>AI Publishing Academy(교육)+AI툴, KDP 셀프출판</td>
+            <td>아카데미 <b>$6,000</b></td>
+            <td>매출 <span class="hl">$22~60M</span> · 학생 3만 · <span class="neg">FTC $150만 합의</span></td>
+            <td class="sim"><span class="s">★★<span class="off">★</span></span><small>교육/툴형</small></td>
+          </tr>
+          <tr class="body-row">
+            <td class="co">BriBooks<small>2021 · 印/이스라엘</small></td>
+            <td>어린이 대상 AI 글쓰기·출판 플랫폼</td>
+            <td>저가·구독</td>
+            <td>프리시드 <span class="hl">$1.5M</span> · 학생 <span class="hl">140만</span> · 32개국</td>
+            <td class="sim"><span class="s">★★<span class="off">★</span></span><small>키즈 특화</small></td>
+          </tr>
+          <tr class="body-row">
+            <td class="co">AI Book Publisher<small>—</small></td>
+            <td>"한나절에 책 완성" AI 생성형 출판</td>
+            <td class="mut">미확인</td>
+            <td class="mut">비공개 — 추가 조사 필요 리드</td>
+            <td class="sim"><span class="s">★<span class="off">★★</span></span><small>조사중</small></td>
+          </tr>
+          <tr class="body-row">
+            <td class="co">MS 8080 Books<small>2024</small></td>
+            <td>Microsoft 자체 출판 임프린트(제작기간 단축)</td>
+            <td class="mut">—</td>
+            <td>대기업 진입 신호</td>
+            <td class="sim"><span class="s">★<span class="off">★★</span></span><small>빅테크</small></td>
+          </tr>
+
+          <tr class="group"><td colspan="5"><span class="tag">B</span>하이브리드 출판사 — 사람 중심, "작가 유료 풀서비스" 동일 모델(실질 대체재)</td></tr>
+          <tr class="body-row">
+            <td class="co">Greenleaf Book Group<small>—</small></td>
+            <td>프리미엄 하이브리드, 서점·공항 유통</td>
+            <td><b>$10K~250K</b> (통상 $35~50K)</td>
+            <td>베스트셀러 70권+ · 인세 최대 70%</td>
+            <td class="sim"><span class="s">★★<span class="off">★</span></span><small>프리미엄</small></td>
+          </tr>
+          <tr class="body-row">
+            <td class="co">Scribe Media<small>2014</small></td>
+            <td>대필+출판 딜리게이션(비즈니스 저자)</td>
+            <td>프리미엄</td>
+            <td><span class="neg">’23 유동성 위기·90명 감원→Enduring Ventures 인수</span></td>
+            <td class="sim"><span class="s">★★<span class="off">★</span></span><small>회생중</small></td>
+          </tr>
+          <tr class="body-row">
+            <td class="co">Gatekeeper Press<small>—</small></td>
+            <td>모듈형 셀프출판 서비스</td>
+            <td>eBook $249·페이퍼백 $249·표지 $189·편집 $10.5/천자</td>
+            <td>작가 <span class="hl">2,600+</span> · 인세 <span class="pos">100%</span></td>
+            <td class="sim"><span class="s">★★<span class="off">★</span></span><small>모듈형</small></td>
+          </tr>
+          <tr class="body-row">
+            <td class="co">Atmosphere Press<small>—</small></td>
+            <td>부티크 하이브리드, 작가 친화 계약</td>
+            <td>패키지형</td>
+            <td>수천 종 출간 · 관대한 인세</td>
+            <td class="sim"><span class="s">★<span class="off">★★</span></span><small>부티크</small></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="src">출처: eWeek·TechCrunch(Spines), Crunchbase·Growjo·FTC(Publishing.com), Indian Economic Observer(BriBooks), PublishersWeekly·Kindlepreneur(Scribe), Gatekeeper/Greenleaf/Atmosphere 공식·리뷰</div>
+  <div class="pagenum">2 / 4</div>
+</section>
+
+<!-- ================= SLIDE 3 : BUSINESS MODEL ================= -->
+<section class="slide">
+  <header>
+    <div>
+      <div class="kicker">시장조사 · 03 비즈니스 모델 & 수익성</div>
+      <h1>돈은 어떻게 버나 — 요금 · 인세 · 수익성 리스크</h1>
+      <div class="sub">작가가 내는 돈의 3가지 구조 + 수익성 경고 신호</div>
+    </div>
+    <div class="badge">모델 · 유닛이코노믹스</div>
+  </header>
+  <div class="body">
+    <div class="cols3">
+      <div class="panel">
+        <h3><span class="dot" style="background:var(--red)"></span>① 선결제 패키지 (고가)</h3>
+        <ul>
+          <li><b>Spines</b> <span class="tier">$1,200~5,000/권</span> — AI로 원가↓, 대량 출간</li>
+          <li><b>BookBaby</b> <span class="tier">$1,090~2,890</span> 패키지</li>
+          <li><b>Greenleaf</b> <span class="tier">$10K~250K</span> — 프리미엄</li>
+          <li><b>Scribe</b> — 대필 포함 최고가</li>
+          <li class="mut">→ 회사 매출의 대부분이 <b>작가 선결제</b>에서 발생</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3><span class="dot" style="background:var(--blue)"></span>② 구독 / 모듈 (중저가)</h3>
+        <ul>
+          <li><b>PublishDrive</b> <span class="tier">$13.99~83.99/월</span></li>
+          <li><b>Sudowrite</b> <span class="tier">$10~59/월</span> (집필툴)</li>
+          <li><b>Gatekeeper</b> 모듈 $189~249 + 편집 종량</li>
+          <li><b>Publishing.com</b> 아카데미 <span class="tier">$6,000</span></li>
+          <li class="mut">→ 반복 매출(ARR) 또는 건별 과금</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3><span class="dot" style="background:var(--green)"></span>③ 무료 + 수익배분</h3>
+        <ul>
+          <li><b>Amazon KDP</b> — 무료, 판매수수료</li>
+          <li><b>Lulu / IngramSpark</b> — 무료 업로드 + 인쇄비</li>
+          <li><b>Inkitt/Galatea</b> — 작가 무료, 매출 셰어</li>
+          <li><b>Draft2Digital</b> — 무료 + 판매 10%</li>
+          <li class="mut">→ 회사는 <b>판매·유통</b>에서 수익, 작가 진입장벽↓</li>
+        </ul>
+      </div>
+    </div>
+    <div class="riskbox">
+      <b>⚠ 수익성 · 평판 리스크 (반복 패턴)</b>
+      <ul>
+        <li>매출 90%+가 "작가 수수료"면 위험 신호 (하이브리드 업계 공통 경고)</li>
+        <li>Publishing.com — FTC 조사, 과장 수익광고로 <b>$150만 합의(’25)</b></li>
+        <li>Scribe Media — 유동성 위기로 <b>90명 감원·자산 압류(’23)</b> 후 인수</li>
+        <li>어느 회사도 <b>영업이익률(margin)은 비공개</b> — 전부 비상장</li>
+      </ul>
+    </div>
+  </div>
+  <div class="src">출처: 각 사 요금 페이지, Kindlepreneur, FTC 보도자료, Hillshire/Kotobee(하이브리드 수익모델 분석)</div>
+  <div class="pagenum">3 / 4</div>
+</section>
+
+<!-- ================= SLIDE 4 : FULL COMPARISON ================= -->
+<section class="slide">
+  <header>
+    <div>
+      <div class="kicker">시장조사 · 04 전체 비교표</div>
+      <h1>플랫폼 12개사 종합 비교 (요금 · 매출 · 유저 · 출간)</h1>
+      <div class="sub"><b>A</b> 사람 작가 셀프퍼블리싱 · <b>B</b> AI 활용형</div>
+    </div>
+    <div class="badge">💰 요금 · 매출 하이라이트</div>
+  </header>
+  <div class="body">
+    <div class="tablewrap" id="cmp">
+      <table>
+        <colgroup><col class="c1"><col class="c2"><col class="c3"><col class="c4"><col class="c5"><col class="c6"><col class="c7"><col class="c8"></colgroup>
+        <thead>
+          <tr><th>회사 (설립)</th><th>모델</th><th>💰 유저 요금</th><th>매출 (연도·출처)</th><th>수익률/펀딩</th><th>유저 수</th><th>출간 도서</th><th>교보 유사도</th></tr>
         </thead>
         <tbody>
           <tr class="group"><td colspan="8"><span class="tag">A</span>사람 작가 중심 · POD / 셀프퍼블리싱</td></tr>
           <tr class="body-row">
-            <td class="co">Lulu<small>2002</small></td>
-            <td>POD 인쇄+유통, 작가 직접 업로드</td>
-            <td class="pricecell"><span class="price">업로드 무료</span> · 인쇄비만(200p $5~8/권)</td>
-            <td>추정치만 (Growjo $178M·혼동 가능성↑) <span class="mut">공식 비공개</span></td>
-            <td>비상장·부트스트랩</td>
-            <td>수십만 <span class="mut">(비공개)</span></td>
-            <td>누적 <span class="hl">약 200만 종</span>(’14), 주당 수천 권</td>
+            <td class="co">Lulu<small>2002</small></td><td>POD 인쇄+유통, 직접 업로드</td>
+            <td><span class="price">업로드 무료</span> · 인쇄비만($5~8/권)</td>
+            <td>공식 비공개 <span class="mut">(Growjo $178M 혼동↑)</span></td>
+            <td>비상장·부트스트랩</td><td>수십만<span class="mut">(비공개)</span></td>
+            <td>누적 <span class="hl">~200만 종</span>(’14)</td>
             <td class="sim"><span class="s">★★★</span><small>가장 직접</small></td>
           </tr>
           <tr class="body-row">
-            <td class="co">IngramSpark<small>2013 · Ingram</small></td>
-            <td>POD + 전세계 4만+ 서점 유통</td>
-            <td class="pricecell"><span class="price">셋업 무료</span> · 인쇄비 + 수정 $25 · 유통 1.5%</td>
-            <td><span class="hl">$100M+</span>(’20) · 모회사 $2B+</td>
-            <td>대기업 사업부</td>
-            <td class="mut">비공개</td>
-            <td>누적 <span class="hl">700만+ 권</span>, 일 4,000권↑</td>
+            <td class="co">IngramSpark<small>2013</small></td><td>POD+전세계 4만+ 서점</td>
+            <td><span class="price">셋업 무료</span>·인쇄비+수정$25·유통1.5%</td>
+            <td><span class="hl">$100M+</span>(’20)·모회사$2B+</td>
+            <td>대기업 사업부</td><td class="mut">비공개</td>
+            <td>누적 <span class="hl">700만+ 권</span></td>
             <td class="sim"><span class="s">★★★</span><small>수치 단단</small></td>
           </tr>
           <tr class="body-row">
-            <td class="co">BookBaby<small>2011</small></td>
-            <td>유료 패키지형 셀프퍼블리싱+POD</td>
-            <td class="pricecell"><span class="price">패키지 $1,090~2,890</span> · eBook $299 · POD $399</td>
-            <td class="mut">비공개</td>
-            <td class="mut">비공개</td>
-            <td><span class="hl">20만+ 작가</span></td>
-            <td class="mut">비공개</td>
+            <td class="co">BookBaby<small>2011</small></td><td>유료 패키지형+POD</td>
+            <td><span class="price">패키지 $1,090~2,890</span></td>
+            <td class="mut">비공개</td><td class="mut">비공개</td>
+            <td><span class="hl">20만+ 작가</span></td><td class="mut">비공개</td>
             <td class="sim"><span class="s">★★<span class="off">★</span></span></td>
           </tr>
           <tr class="body-row">
-            <td class="co">Blurb<small>2005</small></td>
-            <td>포토북·비주얼북 중심 POD</td>
-            <td class="pricecell"><span class="price">셋업 무료</span> · 인쇄비만(200p $13~26/권)</td>
-            <td>$45M(’09) → <span class="hl">~$100M</span>(근년)</td>
-            <td>비상장</td>
-            <td><span class="hl">~200만 작가</span>(’12)</td>
-            <td>1.9만 권/연(’18), 누적 390만(’12)</td>
+            <td class="co">Blurb<small>2005</small></td><td>포토북·비주얼북 POD</td>
+            <td><span class="price">셋업 무료</span>·인쇄비($13~26/권)</td>
+            <td>$45M(’09)→<span class="hl">~$100M</span></td>
+            <td>비상장</td><td><span class="hl">~200만 작가</span></td>
+            <td>1.9만/년(’18)</td>
             <td class="sim"><span class="s">★★<span class="off">★</span></span></td>
           </tr>
           <tr class="body-row">
-            <td class="co">Draft2Digital<small>2012 · Smashwords</small></td>
-            <td>전자책·POD 무료배포(판매수수료)</td>
-            <td class="pricecell"><span class="price">무료</span> · 판매 10% 수수료 · 활성화 $20</td>
-            <td class="mut">비공개</td>
-            <td>비상장</td>
-            <td><span class="hl">33만+ 작가</span></td>
-            <td>누적 <span class="hl">100만+ 종</span>, 월 1~1.5만↑</td>
+            <td class="co">Draft2Digital<small>2012</small></td><td>전자책·POD 무료배포</td>
+            <td><span class="price">무료</span>·판매10%·활성화$20</td>
+            <td class="mut">비공개</td><td>비상장</td>
+            <td><span class="hl">33만+ 작가</span></td><td>누적 <span class="hl">100만+ 종</span></td>
             <td class="sim"><span class="s">★★<span class="off">★</span></span></td>
           </tr>
           <tr class="body-row">
-            <td class="co">PublishDrive<small>2015</small></td>
-            <td>월 구독형 와이드 배포</td>
-            <td class="pricecell"><span class="price">구독 $13.99~83.99/월</span> · 무료 플랜 有 · 인세 100%</td>
-            <td><span class="hl">~$3.7M</span> 추정(Growjo)</td>
-            <td>직원 33명</td>
-            <td class="mut">비공개</td>
-            <td>누적 <span class="hl">10만+ 전자책</span></td>
+            <td class="co">PublishDrive<small>2015</small></td><td>월 구독 와이드 배포</td>
+            <td><span class="price">$13.99~83.99/월</span>·인세100%</td>
+            <td><span class="hl">~$3.7M</span> 추정</td>
+            <td>직원 33명</td><td class="mut">비공개</td>
+            <td>누적 <span class="hl">10만+</span></td>
             <td class="sim"><span class="s">★<span class="off">★★</span></span></td>
           </tr>
           <tr class="body-row">
-            <td class="co">Reedsy<small>2014</small></td>
-            <td>작가↔편집·디자이너 마켓플레이스</td>
-            <td class="pricecell"><span class="price">프리랜서 비용 $2,940~5,660</span> (셀프출판 전체)</td>
-            <td>GMV <span class="hl">$1M/월</span> · 펀딩 $486K</td>
-            <td>커미션 10%×2</td>
-            <td><span class="hl">~100만 작가</span>, 프로 1,500</td>
+            <td class="co">Reedsy<small>2014</small></td><td>편집·디자이너 마켓플레이스</td>
+            <td><span class="price">프리랜서 $2,940~5,660</span></td>
+            <td>GMV <span class="hl">$1M/월</span>·펀딩$486K</td>
+            <td>커미션 10%×2</td><td><span class="hl">~100만 작가</span></td>
             <td>월 1,000+ 프로젝트</td>
             <td class="sim"><span class="s">★<span class="off">★★</span></span><small>대행 아님</small></td>
           </tr>
           <tr class="body-row">
-            <td class="co">Amazon KDP<small>—</small></td>
-            <td>셀프퍼블리싱 최대 플랫폼</td>
-            <td class="pricecell"><span class="price">무료</span> · 인쇄·전송비를 인세에서 차감</td>
-            <td>비공개 (아마존 사업부)</td>
-            <td class="mut">—</td>
-            <td class="mut">비공개</td>
-            <td>작가 인세 연 <span class="pos">$5억+</span>(’22 $522M)</td>
+            <td class="co">Amazon KDP<small>—</small></td><td>셀프퍼블리싱 최대</td>
+            <td><span class="price">무료</span>·인쇄/전송비 차감</td>
+            <td>비공개(아마존)</td>
+            <td class="mut">—</td><td class="mut">비공개</td>
+            <td>작가 인세 <span class="pos">$5억+</span>(’22)</td>
             <td class="sim"><span class="s">★★<span class="off">★</span></span><small>규모 최대</small></td>
           </tr>
-
-          <tr class="group"><td colspan="8"><span class="tag">B</span>AI 활용형 · AI 제작 보조 / 데이터 기반 출판</td></tr>
+          <tr class="group b"><td colspan="8"><span class="tag">B</span>AI 활용형 · AI 제작 보조 / 데이터 기반 출판</td></tr>
           <tr class="body-row">
-            <td class="co">Spines<small>2021</small></td>
-            <td>AI 제작 보조(교정·표지·메타) · <b>글은 작가</b></td>
-            <td class="pricecell"><span class="price">$1,200~5,000/권</span> · 인세·판권 작가 100%</td>
-            <td>YoY <span class="pos">+1,000%</span> (절대액 비공개)</td>
-            <td>펀딩 <span class="hl">$22.5M</span></td>
-            <td class="mut">비공개</td>
-            <td>400(’23)→2천+(’24)→<span class="hl">8천 목표(’25)</span></td>
+            <td class="co">Spines<small>2021</small></td><td>AI 제작 보조·글은 작가</td>
+            <td><span class="price">$1,200~5,000/권</span>·인세 70%</td>
+            <td>YoY <span class="pos">+1,000%</span></td>
+            <td>펀딩 <span class="hl">$22.5M</span></td><td class="mut">비공개</td>
+            <td><span class="hl">8천 목표(’25)</span></td>
             <td class="sim"><span class="s">★★<span class="off">★</span></span><small>출판 대행</small></td>
           </tr>
           <tr class="body-row">
-            <td class="co">Inkitt / Galatea<small>2013</small></td>
-            <td>작가 투고→AI·데이터로 베스트셀러 선별·출판</td>
-            <td class="pricecell"><span class="price">작가 무료</span> · 회사가 수익 배분(매출 셰어)</td>
-            <td>Galatea 런레이트 <span class="hl">$38M+</span>, 기업가치 ~$4억</td>
-            <td>누적 펀딩 <span class="hl">$117M</span></td>
-            <td><span class="hl">3,300만 유저</span></td>
-            <td>“출판 작가 2명 중 1명 베스트셀러” 주장</td>
+            <td class="co">Inkitt/Galatea<small>2013</small></td><td>AI·데이터로 베스트셀러 선별</td>
+            <td><span class="price">작가 무료</span>·수익 배분</td>
+            <td>런레이트 <span class="hl">$38M+</span>·가치~$4억</td>
+            <td>펀딩 <span class="hl">$117M</span></td><td><span class="hl">3,300만 유저</span></td>
+            <td>“2명중 1명 BS” 주장</td>
             <td class="sim"><span class="s">★★<span class="off">★</span></span><small>최대 규모</small></td>
           </tr>
           <tr class="body-row">
-            <td class="co">Sudowrite<small>2020</small></td>
-            <td>AI 소설 집필 보조 툴(작가가 AI로 씀)</td>
-            <td class="pricecell"><span class="price">구독 $10~59/월</span> (Hobby/Pro/Max)</td>
-            <td>ARR <span class="hl">$1.8M</span>(’25) · 부트스트랩</td>
-            <td>직원 ~16명</td>
-            <td class="mut">비공개</td>
-            <td class="mut">툴 제공 (직접 출판 아님)</td>
+            <td class="co">Sudowrite<small>2020</small></td><td>AI 소설 집필 보조 툴</td>
+            <td><span class="price">$10~59/월</span></td>
+            <td>ARR <span class="hl">$1.8M</span>(’25)</td>
+            <td>부트스트랩·~16명</td><td class="mut">비공개</td>
+            <td class="mut">툴(출판 아님)</td>
             <td class="sim"><span class="s">★<span class="off">★★</span></span><small>집필 툴</small></td>
           </tr>
           <tr class="body-row">
-            <td class="co">Squibler<small>2018</small></td>
-            <td>AI 장편·시나리오 집필 플랫폼</td>
-            <td class="pricecell"><span class="price">구독 ~$16/월~</span> (정액·무제한형)</td>
-            <td>매출 <span class="hl">$1.4~5M</span> 추정 · 부트스트랩</td>
-            <td>직원 11~20명</td>
-            <td class="mut">비공개</td>
-            <td class="mut">툴 제공 (직접 출판 아님)</td>
+            <td class="co">Squibler<small>2018</small></td><td>AI 장편·시나리오 집필</td>
+            <td><span class="price">~$16/월~</span></td>
+            <td><span class="hl">$1.4~5M</span> 추정</td>
+            <td>부트스트랩·11~20명</td><td class="mut">비공개</td>
+            <td class="mut">툴(출판 아님)</td>
             <td class="sim"><span class="s">★<span class="off">★★</span></span><small>집필 툴</small></td>
           </tr>
         </tbody>
       </table>
     </div>
-
-    <div class="warn">
-      <b>⚠ 핵심 주의</b>
-      <ol>
-        <li>전부 비상장 → <b>수익률(margin) 공개 0곳</b></li>
-        <li>Lulu $178M = 의류 "Lulus" 혼동 추정 → <b>신뢰 금지</b></li>
-        <li>Sudowrite·Squibler는 <b>집필 툴</b>(출판 대행 아님) · 출처/연도 제각각</li>
-      </ol>
-    </div>
   </div>
+  <div class="src">주의: 전부 비상장 → 수익률 비공개 · Lulu $178M은 의류 "Lulus" 혼동 추정, 신뢰 금지 · 출처/연도 제각각(가장 신뢰할 단일 수치만 게재)</div>
+  <div class="pagenum">4 / 4</div>
+</section>
 
-  <footer>출처: Wikipedia · Growjo · Publishers Weekly · Statista · Draft2Digital · Starter Story · Written Word Media · eWeek/The Bookseller · TechCrunch(Inkitt) · GetLatka(Sudowrite) &nbsp;|&nbsp; 2026-06-30</footer>
-</div>
 </body>
 </html>
