@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>국제조세 업무 자동화 AI — 기술 아키텍처 한 장 장표</title>
+<style>
+  :root{
+    --ink:#0f172a; --sub:#475569; --line:#e2e8f0; --bg:#f8fafc;
+    --brand:#1e3a8a; --brand2:#2563eb; --accent:#0891b2;
+    --warn:#b45309; --good:#047857; --chipbg:#eff6ff;
+    --s1:#eef2ff; --s2:#ecfeff; --s3:#fef3c7; --s4:#dcfce7;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  body{font-family:-apple-system,"Segoe UI","Malgun Gothic","Apple SD Gothic Neo",sans-serif;
+    color:var(--ink); background:var(--bg); line-height:1.4; padding:22px;}
+  .sheet{max-width:1240px; margin:0 auto; background:#fff; border:1px solid var(--line);
+    border-radius:14px; padding:26px 30px; box-shadow:0 6px 24px rgba(15,23,42,.06);}
+  header{border-bottom:2px solid var(--brand); padding-bottom:12px; margin-bottom:16px;}
+  .eyebrow{color:var(--brand2); font-weight:700; font-size:12px; letter-spacing:.14em; text-transform:uppercase;}
+  h1{font-size:24px; font-weight:800; margin-top:3px; letter-spacing:-.01em;}
+  .sub{color:var(--sub); font-size:13px; margin-top:5px;}
+  .goal{display:inline-block; margin-top:9px; background:var(--chipbg); color:var(--brand);
+    font-weight:700; font-size:12.5px; padding:5px 11px; border-radius:20px;}
+
+  h2{font-size:14px; font-weight:800; margin:18px 0 9px; color:var(--brand);
+    display:flex; align-items:center; gap:7px;}
+  h2 .n{background:var(--brand); color:#fff; width:20px; height:20px; border-radius:6px;
+    display:inline-flex; align-items:center; justify-content:center; font-size:12px;}
+
+  /* pipeline */
+  .pipe{display:grid; grid-template-columns:repeat(4,1fr); gap:10px;}
+  .stage{border:1px solid var(--line); border-radius:11px; padding:12px 12px 13px; position:relative;}
+  .stage:nth-child(1){background:var(--s1)} .stage:nth-child(2){background:var(--s2)}
+  .stage:nth-child(3){background:var(--s3)} .stage:nth-child(4){background:var(--s4)}
+  .stage .step{font-size:11px; font-weight:800; color:var(--sub); letter-spacing:.05em;}
+  .stage h3{font-size:13.5px; font-weight:800; margin:2px 0 7px;}
+  .stage ul{list-style:none; font-size:11.7px; color:#1f2937;}
+  .stage li{padding:2px 0 2px 13px; position:relative;}
+  .stage li::before{content:"▪"; position:absolute; left:0; color:var(--brand2); font-size:9px; top:4px;}
+  .tech{margin-top:8px; padding-top:7px; border-top:1px dashed rgba(15,23,42,.18); font-size:10.8px;}
+  .tech b{color:var(--brand); display:block; font-size:10px; letter-spacing:.05em; margin-bottom:3px;}
+  .tag{display:inline-block; background:rgba(255,255,255,.75); border:1px solid rgba(15,23,42,.12);
+    border-radius:5px; padding:1.5px 6px; margin:2px 3px 0 0; font-size:10.3px; font-weight:600;}
+  .arrow{position:absolute; right:-9px; top:50%; transform:translateY(-50%); z-index:2;
+    color:var(--brand2); font-size:16px; font-weight:900;}
+
+  .cols{display:grid; grid-template-columns:1.15fr .85fr; gap:22px; margin-top:6px;}
+
+  /* cross-cutting */
+  .cross{display:grid; grid-template-columns:repeat(2,1fr); gap:8px;}
+  .cbox{border:1px solid var(--line); border-radius:9px; padding:9px 11px; background:#fbfdff;}
+  .cbox h4{font-size:12px; font-weight:800; color:var(--accent); margin-bottom:3px;}
+  .cbox p{font-size:11px; color:#374151;}
+
+  /* market table */
+  table{width:100%; border-collapse:collapse; font-size:11.3px;}
+  th,td{text-align:left; padding:6px 7px; border-bottom:1px solid var(--line); vertical-align:top;}
+  th{background:var(--brand); color:#fff; font-size:10.5px; letter-spacing:.03em;}
+  td b{color:var(--brand);}
+  .yes{color:var(--good); font-weight:800;} .no{color:#b91c1c; font-weight:800;}
+  .part{color:var(--warn); font-weight:800;}
+
+  .verdict{margin-top:16px; background:linear-gradient(90deg,#1e3a8a,#2563eb); color:#fff;
+    border-radius:12px; padding:15px 20px;}
+  .verdict h2{color:#fff; margin:0 0 6px;}
+  .verdict h2 .n{background:#fff; color:var(--brand);}
+  .verdict p{font-size:12.8px; line-height:1.55;}
+  .verdict .hl{background:rgba(255,255,255,.2); padding:1px 6px; border-radius:5px; font-weight:800;}
+
+  footer{margin-top:14px; padding-top:10px; border-top:1px solid var(--line);
+    font-size:10px; color:var(--sub); line-height:1.5;}
+  footer a{color:var(--brand2); text-decoration:none;}
+  @media print{body{padding:0; background:#fff} .sheet{box-shadow:none; border:none}}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <header>
+    <div class="eyebrow">국제조세 · 글로벌최저한세 · BEPS 신고 자동화</div>
+    <h1>계열사 재무데이터 추출·검증·독촉 자동화 — 기술 아키텍처</h1>
+    <div class="sub">HCON + 1,000여 개 이종(異種) 엑셀 중간연결정산표 → Pillar Two(GloBE)·BEPS(CbCR)·국제조세 서식 신고에 필요한 데이터 자동 파이프라인</div>
+    <div class="goal">🎯 목표: 계열사 데이터 추출·오류검증 공수 <b>연 400시간</b> 절감</div>
+  </header>
+
+  <!-- PIPELINE -->
+  <h2><span class="n">◆</span>핵심 파이프라인 — 4단계 & 단계별 기술 스택</h2>
+  <div class="pipe">
+    <div class="stage">
+      <div class="arrow">➜</div>
+      <div class="step">STEP 1</div>
+      <h3>자료 취합 (Ingest)</h3>
+      <ul>
+        <li>HCON 연결데이터 API 수취</li>
+        <li>중간연결정산표 엑셀 수집(메일/공유폴더)</li>
+        <li>법인·기간 메타데이터 태깅</li>
+      </ul>
+      <div class="tech"><b>필요 기술</b>
+        <span class="tag">HCON API/DB 커넥터</span>
+        <span class="tag">IMAP/Graph 메일 수집</span>
+        <span class="tag">openpyxl · 파일 스토리지</span>
+        <span class="tag">문서 버전·계보 관리</span>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="arrow">➜</div>
+      <div class="step">STEP 2</div>
+      <h3>데이터 추출 (Extract)</h3>
+      <ul>
+        <li>이종 양식 → 표준 스키마 매핑</li>
+        <li>셀 고정참조 X → <b>의미 기반</b> 항목 인식</li>
+        <li>신뢰도 낮으면 사람 검토 라우팅</li>
+      </ul>
+      <div class="tech"><b>필요 기술 (병목 핵심)</b>
+        <span class="tag">LLM 구조화추출(Claude, structured output)</span>
+        <span class="tag">Table/Layout 인식</span>
+        <span class="tag">계정과목 시맨틱 매핑</span>
+        <span class="tag">confidence score + HITL</span>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="arrow">➜</div>
+      <div class="step">STEP 3</div>
+      <h3>오류 검증 (Validate)</h3>
+      <ul>
+        <li>정합성 룰(차대·합계·부호·통화)</li>
+        <li>HCON 대사(reconciliation)</li>
+        <li>이상치·전기대비 급변 탐지</li>
+      </ul>
+      <div class="tech"><b>필요 기술</b>
+        <span class="tag">Rule Engine (검증규칙)</span>
+        <span class="tag">Reconciliation 대사엔진</span>
+        <span class="tag">이상탐지(통계/ML)</span>
+        <span class="tag">ETR·GloBE 임계치 체크</span>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="step">STEP 4</div>
+      <h3>재검토·독촉 (Follow-up)</h3>
+      <ul>
+        <li>미회신 법인 자동 탐지·집계</li>
+        <li>오류사유 파악 → 재검토 메일 <b>자동생성</b></li>
+        <li>회신 트래킹 → 내역 확정</li>
+      </ul>
+      <div class="tech"><b>필요 기술</b>
+        <span class="tag">워크플로 오케스트레이션</span>
+        <span class="tag">LLM 메일 초안 + 승인후 발송</span>
+        <span class="tag">상태 대시보드·SLA 추적</span>
+        <span class="tag">감사로그(audit trail)</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cols">
+    <!-- MARKET -->
+    <div>
+      <h2><span class="n">◆</span>세계 최고 사례 — 이 파이프라인을 얼마나 커버하나</h2>
+      <table>
+        <thead><tr>
+          <th style="width:24%">솔루션</th><th>계산·신고<br>(Pillar2/CbCR)</th><th>이종엑셀<br>AI추출</th><th>오류<br>검증</th><th>자동<br>독촉메일</th>
+        </tr></thead>
+        <tbody>
+          <tr><td><b>Orbitax GMT</b><br><span style="font-size:10px;color:var(--sub)">+ONESOURCE</span></td>
+            <td class="yes">✔ 190국</td><td class="part">△ 템플릿</td><td class="yes">✔</td><td class="yes">✔ 내장*</td></tr>
+          <tr><td><b>PwC Pillar Two Engine</b><br><span style="font-size:10px;color:var(--sub)">Beacon/Sightline</span></td>
+            <td class="yes">✔</td><td class="part">△</td><td class="yes">✔</td><td class="part">△ 컨설팅</td></tr>
+          <tr><td><b>KPMG KBAT</b><br><span style="font-size:10px;color:var(--sub)">Digital Gateway</span></td>
+            <td class="yes">✔ XML</td><td class="part">△ 설문</td><td class="yes">✔</td><td class="part">△</td></tr>
+          <tr><td><b>Wolters Kluwer</b><br><span style="font-size:10px;color:var(--sub)">CCH Integrator</span></td>
+            <td class="yes">✔ GIR/QDMTT</td><td class="no">✕</td><td class="yes">✔</td><td class="no">✕</td></tr>
+          <tr><td><b>Trullion</b><br><span style="font-size:10px;color:var(--sub)">AI 문서추출</span></td>
+            <td class="no">✕</td><td class="yes">✔ 강점</td><td class="yes">✔ 대사</td><td class="no">✕</td></tr>
+          <tr><td><b>범용 Doc AI</b><br><span style="font-size:10px;color:var(--sub)">Rossum/Azure DI</span></td>
+            <td class="no">✕</td><td class="yes">✔</td><td class="part">△</td><td class="no">✕</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:9.8px; color:var(--sub); margin-top:5px;">
+        * Orbitax는 CbCR/1120 XML 업로드 시 엔티티 템플릿을 자동 채워 담당자에게 발송, 이메일로 회신 취합하는 data collection workflow 내장 — 우리 STEP 4에 가장 근접. 단 "이종 자유양식 엑셀" 자동추출은 여전히 표준템플릿 강제 방식.
+      </p>
+    </div>
+
+    <!-- CROSS-CUTTING -->
+    <div>
+      <h2><span class="n">◆</span>공통(횡단) 요구사항</h2>
+      <div class="cross">
+        <div class="cbox"><h4>🔐 접근권한</h4><p>HCON 조회권한 · 담당자 e-mail(메일 수신/발신) 권한 — 필수 선행조건</p></div>
+        <div class="cbox"><h4>🗂 데이터 표준</h4><p>계정과목·법인코드 마스터, 표준 추출 스키마(GloBE 필드) 사전 정의</p></div>
+        <div class="cbox"><h4>🧑‍⚖️ Human-in-loop</h4><p>저신뢰 추출·중대 오류는 반드시 사람 승인 후 확정(세무 리스크)</p></div>
+        <div class="cbox"><h4>📝 감사추적</h4><p>추출·수정·발송 전 이력 로깅 — 세무조사 대응·재현성</p></div>
+        <div class="cbox"><h4>🔒 보안</h4><p>재무데이터 사내망/전용 테넌트, PII·민감정보 마스킹</p></div>
+        <div class="cbox"><h4>🔁 규칙 갱신</h4><p>국가별 Pillar2 규정 변화 반영 — 룰 라이브러리 지속 업데이트</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VERDICT -->
+  <div class="verdict">
+    <h2><span class="n">★</span>결론 — Build × Buy 하이브리드</h2>
+    <p>
+      <span class="hl">계산·신고 엔진은 BUY</span> → PwC Pillar Two Engine · Orbitax GMT · ONESOURCE 같은 검증된 상용 엔진으로 GloBE 계산·GIR/QDMTT·CbCR XML 생성을 커버(규정 갱신 부담 이관).
+      &nbsp;그러나 우리의 진짜 병목인 <span class="hl">「1,000개 이종 엑셀 자동추출 + 오류검증 + 미회신 자동독촉」은 BUILD</span> →
+      LLM 구조화추출(Claude) + Rule/이상탐지 검증엔진 + 워크플로 오케스트레이션 + 메일 자동생성을 자체 구축해 상용 엔진의 입력단(front-end glue)으로 결합.
+      <b>연 400시간 절감의 80%는 STEP 2~4(추출·검증·독촉)에서 나오며, 이 영역은 상용 세무패키지가 표준템플릿을 강제해 완전 자동화가 안 되는 구간이므로 자체 개발 가치가 가장 큼.</b>
+    </p>
+  </div>
+
+  <footer>
+    <b>출처</b> ·
+    <a href="https://www.pwc.com/us/en/services/tax/multinationals/pillar-two-model-for-data-and-reporting.html">PwC Pillar Two (Beacon/Sightline)</a> ·
+    <a href="https://kpmg.com/xx/en/our-insights/ai-and-technology/kpmgbepsautomationtechnology.html">KPMG BEPS 2.0 Automation (KBAT)</a> ·
+    <a href="https://orbitax.com/solutions/global-minimum-tax">Orbitax Global Minimum Tax</a> ·
+    <a href="https://tax.thomsonreuters.com/blog/managing-pillar-two-data-using-onesource-tax-provision-and-orbitax-gmt/">ONESOURCE × Orbitax GMT</a> ·
+    <a href="https://www.wolterskluwer.com/en/solutions/cch-integrator/beps-pillar-two">Wolters Kluwer CCH Integrator</a> ·
+    <a href="https://trullion.com/products/data-extract/">Trullion AI Data Extract/Validation</a>
+    <br>Pillar Two: 연결매출 €750M↑ 다국적그룹, 저세율국 최저 ETR 15% (2024.1.1 시행, 35개국+ 도입). 본 장표는 벤더 공개자료 기반 요약이며 도입 전 실제 기능·한국 사용가능성은 개별 확인 필요.
+  </footer>
+</div>
+</body>
+</html>
