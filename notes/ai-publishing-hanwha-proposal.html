@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>AI 출판 — 한화 사업 제안</title>
+<style>
+  :root{
+    --paper:#fbf7f0;
+    --ink:#2b2824; --muted:#847c6f;
+    --line:#e8e0d3; --soft:#faf5ec;
+    --orange:#f2954f;            /* soft Hanwha orange */
+    --orange-ink:#c86322;        /* readable orange text */
+    --orange-soft:#fdeede;       /* tint */
+    --green:#5f8a3c;
+    --gray:#8f887a;              /* current-bar gray (darker/visible) */
+    --serif:Georgia,"Times New Roman","Nanum Myeongjo",serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    line-height:1.5;
+  }
+  .band{padding:66px 24px;}
+  .band.white{background:#fff;}
+  .band.tint{background:linear-gradient(135deg,#fff 55%,var(--orange-soft));}
+  .wrap{max-width:1140px; margin:0 auto;}
+  .kicker{font-size:.78rem; letter-spacing:.16em; color:var(--orange-ink); font-weight:800; text-transform:uppercase; margin-bottom:12px;}
+  h2.sec{font-family:var(--serif); font-size:2rem; font-weight:700; letter-spacing:-.01em; line-height:1.3;}
+  h3.sub{font-family:var(--serif); font-size:1.35rem; font-weight:700; margin:38px 0 18px; display:flex; align-items:center; gap:10px;}
+
+  /* ---------- 0. MINDMAP ---------- */
+  .mindmap{width:100%; max-width:1000px; display:block; margin:0 auto; border:1px solid var(--line);
+    border-radius:16px; box-shadow:0 8px 30px rgba(43,40,36,.08);}
+
+  /* ---------- 1. WHY HANWHA ---------- */
+  .why-head{font-family:var(--serif); font-size:2.15rem; font-weight:700; line-height:1.4; letter-spacing:-.01em;}
+  .why-head .hl{color:var(--orange-ink);}
+  .why-head .src-quote{display:block; font-family:-apple-system,sans-serif; font-size:.95rem; font-weight:600;
+    color:var(--muted); margin-top:14px; font-style:italic;}
+
+  /* AI 피로 광고 트렌드 */
+  .adtrend{display:grid; grid-template-columns:1.35fr 1fr; gap:26px; align-items:center;
+    margin:34px 0 10px; background:var(--soft); border:1px solid var(--line);
+    border-left:6px solid var(--orange); border-radius:18px; padding:26px 28px;}
+  .adkicker{font-family:var(--serif); font-size:1.35rem; font-weight:700; margin-bottom:18px; color:var(--ink);}
+  .adkicker:before{content:"📣 "; }
+  .adflow{display:flex; align-items:stretch; gap:10px; flex-wrap:wrap;}
+  .stage{flex:1; min-width:92px; background:#fff; border:1px solid var(--line); border-radius:14px;
+    padding:14px 12px; text-align:center; display:flex; flex-direction:column; gap:10px; justify-content:space-between;}
+  .stage.on{background:var(--orange-soft); border-color:#f6cba6;}
+  .stage-t{font-weight:800; font-size:.92rem; color:#584f45;}
+  .stage.on .stage-t{color:var(--orange-ink);}
+  .logos{display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap;}
+  .logos svg{display:block; border-radius:7px;}
+  .logos .emoji{font-size:1.5rem; line-height:1;}
+  .arrow{display:flex; align-items:center; color:var(--orange); font-size:1.4rem; font-weight:800;}
+  .adnote{font-size:.86rem; color:#584f45; line-height:1.5; margin-top:16px;}
+  .adnote b{color:var(--orange-ink);}
+  .adcrop{width:100%; overflow:hidden; aspect-ratio:591/433; border-radius:14px;
+    border:1px solid var(--line); box-shadow:0 6px 22px rgba(43,40,36,.12);}
+  .adcrop img{width:100%; display:block; margin-top:-36.4%;}
+
+  /* ---------- CLOSING: OTHER AI CASES ---------- */
+  .closing{background:linear-gradient(135deg,#2b2824,#453d34); color:#fff;}
+  .closing .kicker{color:#f4b183;}
+  .closing h2.sec{color:#fff;}
+  .case-tbl{width:100%; border-collapse:separate; border-spacing:0 12px; margin-top:24px;}
+  .case-tbl td{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.14); padding:20px 22px; vertical-align:middle;}
+  .case-tbl td:first-child{border-right:none; border-radius:14px 0 0 14px; width:70px; text-align:center; font-size:2rem;}
+  .case-tbl td.mid{border-left:none; border-right:none;}
+  .case-tbl td:last-child{border-left:none; border-radius:0 14px 14px 0; width:150px; text-align:right;}
+  .case-tbl .cno{font-family:var(--serif); font-size:1.6rem; font-weight:700; color:#f4b183;}
+  .case-tbl .ctitle{font-family:var(--serif); font-size:1.28rem; font-weight:700; color:#fff; margin-bottom:4px;}
+  .case-tbl .cdesc{font-size:.9rem; color:#d9cfc2; line-height:1.45;}
+  .case-tbl a.cbtn{display:inline-block; background:var(--orange); color:#fff; text-decoration:none;
+    font-weight:800; font-size:.85rem; padding:10px 18px; border-radius:999px; white-space:nowrap;}
+  .case-tbl a.cbtn:hover{background:#e0813a;}
+  .why-list{display:flex; flex-direction:column; gap:16px; margin-top:34px;}
+  .wrow{display:flex; align-items:center; gap:22px; background:var(--soft); border:1px solid var(--line);
+    border-left:6px solid var(--orange); border-radius:16px; padding:22px 26px;}
+  .wrow .ic{width:66px; height:66px; flex:none; border-radius:18px; background:var(--orange-soft);
+    display:flex; align-items:center; justify-content:center; font-size:2.1rem;}
+  .wrow .h{font-family:var(--serif); font-size:1.28rem; font-weight:700; margin-bottom:5px;}
+  .wrow .d{font-size:1rem; color:#584f45; line-height:1.5;}
+  .wrow .d b{color:var(--orange-ink);}
+
+  /* ---------- 2. COVER STATEMENT ---------- */
+  .cover-wrap{text-align:center; padding:34px 0;}
+  h1.cover{font-family:var(--serif); font-size:3.2rem; line-height:1.28; font-weight:700; letter-spacing:-.02em;}
+  h1.cover .hl{color:var(--orange-ink);}
+
+  /* ---------- 3. BUSINESS MODEL ---------- */
+  .phases{display:grid; grid-template-columns:1fr 1.45fr 1fr; gap:18px; align-items:stretch;}
+  .phase{background:var(--soft); border:1px solid var(--line); border-radius:16px; padding:22px 22px; display:flex; flex-direction:column;}
+  .phase.mid{background:var(--orange-soft); border-color:#f6cba6;}
+  .phase .ptag{display:inline-flex; align-items:center; gap:8px; font-weight:800; font-size:.82rem; color:var(--orange-ink);
+    background:#fff; border:1px solid var(--line); border-radius:999px; padding:5px 12px; align-self:flex-start; margin-bottom:14px;}
+  .phase h4{font-family:var(--serif); font-size:1.2rem; font-weight:700; margin-bottom:12px;}
+  .phase ul{list-style:none; display:flex; flex-direction:column; gap:9px;}
+  .phase li{font-size:.9rem; line-height:1.4; padding-left:20px; position:relative;}
+  .phase li:before{content:"✓"; position:absolute; left:0; color:var(--orange); font-weight:800;}
+  .phase .price{margin-top:auto; padding-top:14px; font-family:var(--serif); font-weight:700; color:var(--orange-ink); font-size:1.1rem;}
+  .vid{width:100%; border-radius:12px; border:1px solid #f0c9a8; margin-bottom:14px; background:#000; display:block;}
+  .vidcap{font-size:.78rem; color:var(--muted); margin-top:-6px; margin-bottom:12px;}
+
+  .rev3{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  .rev{position:relative; background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px 22px 20px;}
+  .rev .no{position:absolute; top:-14px; left:22px; width:34px; height:34px; border-radius:50%; background:var(--orange); color:#fff;
+    font-family:var(--serif); font-weight:700; display:flex; align-items:center; justify-content:center; font-size:1.05rem;}
+  .rev .rh{font-family:var(--serif); font-size:1.12rem; font-weight:700; margin:8px 0 8px;}
+  .rev .rd{font-size:.9rem; color:#584f45; line-height:1.45;}
+  .rev .meta{margin-top:12px; font-size:.78rem; color:var(--muted);}
+  .rev .meta b{color:var(--orange-ink);}
+  .rev.hero{background:var(--orange-soft); border-color:#f6cba6;}
+  .tagsub{display:inline-block; margin-top:6px; font-size:.72rem; color:var(--muted); font-style:italic;}
+
+  /* ---------- 4. MARKET + COMPETITIVE ---------- */
+  .oneline{background:#fff8f1; border:1px solid #f4c9a2; border-left:6px solid var(--orange); border-radius:14px;
+    padding:18px 24px; font-size:1.06rem; font-weight:700; color:var(--ink); margin-bottom:30px; line-height:1.5;}
+  .oneline b{color:var(--orange-ink);}
+  .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:15px;}
+  .card{border:1px solid var(--line); border-radius:14px; padding:16px 18px; background:var(--soft);
+    display:flex; flex-direction:column;}
+  .card.on{background:var(--orange-soft); border-color:#f6cba6;}
+  .clabel{display:flex; align-items:center; gap:8px; font-size:1rem; font-weight:800;}
+  .clabel .ic{font-size:1.15rem;}
+  .clabel .mult{margin-left:auto; font-family:var(--serif); color:var(--orange-ink); font-weight:700; font-size:1.15rem;}
+  .bars{display:flex; flex-direction:column; gap:7px; margin:12px 0 8px;}
+  .barrow{display:flex; align-items:center; gap:9px;}
+  .chip{font-size:.62rem; font-weight:800; padding:3px 0; border-radius:5px; width:64px; text-align:center; flex:none;}
+  .chip.asis{background:#c9c2b3; color:#4a453c;}
+  .chip.tobe{background:var(--orange); color:#fff;}
+  .track{flex:1; height:16px; background:#e4dccd; border-radius:8px; overflow:hidden;}
+  .card.on .track{background:#f6d6bf;}
+  .bar{height:100%; border-radius:8px;}
+  .bar.cur{background:var(--gray);}
+  .bar.fut{background:var(--orange);}
+  .bval{font-family:var(--serif); font-weight:700; font-size:.95rem; width:82px; text-align:right; flex:none;}
+  .cagr{font-size:.8rem; font-weight:800; color:var(--orange-ink);}
+  .cagr.hi{color:var(--green);}
+  .why{font-size:.76rem; color:var(--muted); margin-top:6px; line-height:1.35;}
+  .why b{color:var(--orange-ink); font-weight:800;}
+
+  .tbl{width:100%; border-collapse:collapse; margin-top:6px;}
+  .tbl th{background:#4a423a; color:#fff; font-size:.78rem; text-align:left; padding:10px 13px; font-weight:700;}
+  .tbl td{padding:10px 13px; border-bottom:1px solid var(--line); font-size:.86rem; vertical-align:middle;}
+  .grp td{background:var(--orange-soft); color:var(--orange-ink); font-weight:800; font-size:.8rem;}
+  .grp.b td{background:#eeeae2; color:#6b655b;}
+  .cn{font-family:var(--serif); font-weight:700; font-size:.95rem; white-space:nowrap;}
+  .cn small{display:block; font-family:-apple-system,sans-serif; font-weight:500; color:var(--muted); font-size:.68rem;}
+  .num{color:var(--orange-ink); font-weight:800;}
+  .warn-txt{color:#c0492f; font-weight:700;}
+  .src{color:var(--muted); font-size:.7rem; margin-top:16px;}
+
+  @media (max-width:820px){
+    .phases,.rev3,.cards,.adtrend{grid-template-columns:1fr;}
+    h1.cover{font-size:2.2rem;} .why-head{font-size:1.6rem;} h2.sec{font-size:1.5rem;}
+    .adcrop{order:-1;}
+    .case-tbl td:first-child,.case-tbl td:last-child{width:auto;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ 0. MINDMAP (top) ============ -->
+<section class="band" style="padding-bottom:30px;">
+  <div class="wrap">
+    <img class="mindmap" src="mindmap.jpg" alt="사업 마인드셋 마인드맵">
+  </div>
+</section>
+
+<!-- ============ 1. WHY HANWHA (moved to top) ============ -->
+<section class="band white">
+  <div class="wrap">
+    <div class="why-head"><span class="hl">미국인 80%</span>가 책 한 권 쓰고 싶어하지만,<br>단 <span class="hl">1%</span>만 실제로 출간을 한다.<span class="src-quote">— 뉴욕 타임즈, 2025</span></div>
+
+    <!-- AI 피로를 파고든 광고 -->
+    <div class="adtrend">
+      <div class="adcopy">
+        <div class="adkicker">AI 피로를 파고든 광고</div>
+        <div class="adflow">
+          <div class="stage">
+            <div class="stage-t">롱폼</div>
+            <div class="logos">
+              <svg viewBox="0 0 48 34" width="40" height="28" aria-label="YouTube"><rect width="48" height="34" rx="8" fill="#FF0000"/><path d="M19 10 L34 17 L19 24 Z" fill="#fff"/></svg>
+            </div>
+          </div>
+          <div class="arrow">→</div>
+          <div class="stage">
+            <div class="stage-t">숏폼</div>
+            <div class="logos">
+              <svg viewBox="0 0 32 32" width="28" height="28" aria-label="TikTok"><rect width="32" height="32" rx="7" fill="#000"/><path d="M22.5 8.2c-1.6-.2-2.9-1.2-3.5-2.7h-2.8v13.1c0 1.6-1.3 2.8-2.8 2.8s-2.8-1.3-2.8-2.8 1.3-2.8 2.8-2.8c.3 0 .6 0 .8.1v-2.9c-.3 0-.5-.1-.8-.1-3.1 0-5.7 2.6-5.7 5.7s2.6 5.7 5.7 5.7 5.7-2.6 5.7-5.7v-6.6c1.1.8 2.4 1.2 3.9 1.2v-2.9c-.2 0-.3 0-.4-.1z" fill="#25F4EE"/><path d="M23 9c-1.6-.2-2.9-1.2-3.5-2.7h-2.8v13.1c0 1.6-1.3 2.8-2.8 2.8-.5 0-.9-.1-1.3-.3.5.7 1.3 1.2 2.3 1.2 1.6 0 2.8-1.3 2.8-2.8V6.9h2.8c.5 1.4 1.8 2.4 3.4 2.7z" fill="#FE2C55"/><path d="M22.9 8.9v-.7c-1.4 0-2.6-.4-3.7-1.2 1 1 2.3 1.7 3.7 1.9z" fill="#fff" opacity=".9"/></svg>
+              <svg viewBox="0 0 32 32" width="28" height="28" aria-label="Instagram"><defs><radialGradient id="ig" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="5%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs><rect width="32" height="32" rx="8" fill="url(#ig)"/><rect x="8" y="8" width="16" height="16" rx="5" fill="none" stroke="#fff" stroke-width="2"/><circle cx="16" cy="16" r="4" fill="none" stroke="#fff" stroke-width="2"/><circle cx="21.5" cy="10.5" r="1.3" fill="#fff"/></svg>
+            </div>
+          </div>
+          <div class="arrow">→</div>
+          <div class="stage on">
+            <div class="stage-t">텍스트로 귀환</div>
+            <div class="logos">
+              <svg viewBox="0 0 32 32" width="28" height="28" aria-label="Threads"><rect width="32" height="32" rx="8" fill="#000"/><path d="M21.2 15.3c-.1-.05-.2-.1-.3-.14-.18-3.3-2-5.2-5-5.22h-.04c-1.83 0-3.35.78-4.28 2.2l1.68 1.15c.7-1.05 1.78-1.27 2.6-1.27h.03c1.02.01 1.8.3 2.3.88.36.42.6 1 .73 1.73-.98-.17-2.03-.22-3.16-.15-3.17.18-5.2 2.03-5.07 4.6.07 1.3.72 2.42 1.83 3.15.94.62 2.15.92 3.4.85 1.66-.09 2.96-.72 3.87-1.88.69-.88 1.13-2.02 1.32-3.45.8.48 1.4 1.12 1.72 1.9.55 1.31.58 3.47-1.17 5.22-1.54 1.53-3.38 2.2-6.17 2.22-3.1-.02-5.44-1.02-6.96-2.96C6.9 22.15 6.15 19.85 6.12 17c.03-2.85.78-5.15 2.2-6.83C9.85 8.23 12.2 7.23 15.3 7.2c3.12.02 5.5 1.03 7.07 2.99.77.96 1.35 2.17 1.73 3.58l1.97-.53c-.46-1.73-1.18-3.22-2.16-4.44C21.9 6.34 18.95 5.03 15.3 5h-.01c-3.64.02-6.55 1.34-8.64 3.9C4.78 11.2 3.9 14 3.87 16.99v.02c.03 2.99.91 5.79 2.78 8.09 2.09 2.56 5 3.88 8.64 3.9h.01c3.24-.02 5.52-.87 7.4-2.75 2.46-2.46 2.39-5.54 1.58-7.44-.58-1.36-1.69-2.46-3.2-3.18zm-5.1 5.98c-1.38.08-2.82-.54-2.89-1.85-.05-.97.69-2.05 2.97-2.18.26-.02.52-.02.77-.02.83 0 1.6.08 2.3.23-.26 3.26-1.79 3.74-3.15 3.82z" fill="#fff"/></svg>
+              <span class="emoji">📖</span>
+              <span class="emoji">💬</span>
+            </div>
+          </div>
+        </div>
+        <div class="adnote">AI로 쏟아지는 영상·이미지 피로 속에서, 사람들은 다시 <b>텍스트와 책</b>으로 돌아오고 있습니다. — 폴라로이드가 뉴욕·런던·서울에 세운 아날로그 캠페인이 그 신호입니다.</div>
+      </div>
+      <div class="adcrop"><img src="ad-polaroid.jpg" alt="폴라로이드 아날로그 캠페인 광고판"></div>
+    </div>
+
+    <div class="why-list">
+      <div class="wrow">
+        <div class="ic">👵</div>
+        <div>
+          <div class="h">어르신의 삶을, 한 권의 책으로</div>
+          <div class="d">시니어 한 분의 인생을 AI로 3주 만에 자서전으로 — <b>한화생명 고객·설계사 채널</b>과 자연스럽게 맞물리는 시니어 라이프·상속 서비스가 됩니다.</div>
+        </div>
+      </div>
+      <div class="wrow">
+        <div class="ic">🧒</div>
+        <div>
+          <div class="h">우리 아이가 쓴 이야기가 진짜 책이 되는 경험</div>
+          <div class="d">아이가 만든 이야기를 출간해주는 <b>정서적 킬러 콘텐츠</b> — 교육·가족 시장을 여는 입구이자, 이미 BriBooks가 아·태에서 검증한 모델입니다.</div>
+        </div>
+      </div>
+      <div class="wrow">
+        <div class="ic">🌱</div>
+        <div>
+          <div class="h">누구나 저자가 되는, 읽고 쓰는 사회</div>
+          <div class="d">모두가 자신의 책을 낼 수 있을 때 독서·글쓰기 문화가 살아납니다 — <b>한화의 브랜드·ESG 가치</b>와 정확히 맞닿는 사회적 기여입니다.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. COVER STATEMENT ============ -->
+<section class="band tint">
+  <div class="wrap cover-wrap">
+    <h1 class="cover">작가는 <span class="hl">글만</span> 쓰세요.<br>출판까지, 나머지는 다 <span class="hl">AI 출판</span>이 해드립니다.</h1>
+  </div>
+</section>
+
+<!-- ============ 3. BUSINESS MODEL ============ -->
+<section class="band white">
+  <div class="wrap">
+    <div class="kicker">비즈니스 모델</div>
+    <h2 class="sec">책 쓰기 — 전 · 중 · 후, 전부를 책임집니다</h2>
+
+    <div class="phases" style="margin-top:26px">
+      <div class="phase">
+        <div class="ptag">📚 책 쓰기 전</div>
+        <h4>어떻게 쓸지부터</h4>
+        <ul>
+          <li>유명 작가의 <b>책 쓰기 강의</b> 제공</li>
+          <li>장르·구성·집필 노하우 커리큘럼</li>
+        </ul>
+        <div class="price">$9.99</div>
+      </div>
+
+      <div class="phase mid">
+        <div class="ptag">🤖 책 쓰는 중</div>
+        <video class="vid" src="../sbhpreplacement.mp4" autoplay muted loop playsinline controls preload="metadata"></video>
+        <div class="vidcap">Bestseller Writer AI 데모</div>
+        <h4>Bestseller Writer AI가 함께</h4>
+        <ul>
+          <li>막히는 부분 <b>분석·해결</b></li>
+          <li>교정·교열 검토</li>
+          <li>편집 및 문장 다듬기</li>
+          <li>스토리라인 검토</li>
+        </ul>
+      </div>
+
+      <div class="phase">
+        <div class="ptag">🎨 책 쓴 후</div>
+        <h4>출간까지 원스톱</h4>
+        <ul>
+          <li>최신 유행 <b>커버 디자인</b> 추천·작성</li>
+          <li>저작권 등록 및 해결</li>
+          <li>ISBN 등록</li>
+          <li>책에 맞는 <b>홍보처·홍보 방안</b> 추천</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="sub">💵 3단계 수익화 구조</h3>
+    <div class="rev3">
+      <div class="rev">
+        <div class="no">1</div>
+        <div class="rh">집필 단계 구독</div>
+        <div class="rd">쓰는 동안 AI 집필 지원을 구독형으로 제공.</div>
+        <div class="meta"><b>타사 사례</b> · PublishDrive · Sudowrite · Gatekeeper</div>
+      </div>
+      <div class="rev">
+        <div class="no">2</div>
+        <div class="rh">자가 출판 비용</div>
+        <div class="rd">작가가 비용을 내고 자신의 책을 출판(자비출판).</div>
+        <div class="meta">패키지·건별 과금 구조</div>
+      </div>
+      <div class="rev hero">
+        <div class="no">3</div>
+        <div class="rh">기획출판 <span class="tagsub">(자비출판의 반대)</span></div>
+        <div class="rd">AI가 시장성을 판단해 될성부른 원고는 <b>당사가 출판 비용을 부담</b>하고 함께 수익을 나눔.</div>
+        <div class="meta"><b>차별화 포인트</b> · AI 선별로 흥행 확률↑</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. MARKET + COMPETITIVE ============ -->
+<section class="band">
+  <div class="wrap">
+    <div class="kicker">시장성</div>
+    <h2 class="sec">시장성</h2>
+
+    <div class="oneline" style="margin-top:22px">
+      💡 고성장(CAGR 30%+) 시장 × 아직 비어있는 <b>한국·시니어·어린이 구간</b> × 3단계 수익화 구조 → <b>초기 진입 시 높은 수익이 예상</b>됩니다.
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <div class="clabel"><span class="ic">📖</span>셀프퍼블리싱<span class="mult">×4.5</span></div>
+        <div class="bars">
+          <div class="barrow"><span class="chip asis">현재 ’24</span><div class="track"><div class="bar cur" style="width:22%"></div></div><span class="bval">$1.85B</span></div>
+          <div class="barrow"><span class="chip tobe">전망 ’34</span><div class="track"><div class="bar fut" style="width:100%"></div></div><span class="bval">$8.4B</span></div>
+        </div>
+        <div class="cagr">CAGR 8.8~16.7% · ≈2.6조→11.5조원</div>
+        <div class="why"><b>근거</b> 인디작가 급증 + POD 보편화(작가 87% 사용)</div>
+      </div>
+      <div class="card on">
+        <div class="clabel"><span class="ic">🤖</span>AI 출판<span class="mult">×13</span></div>
+        <div class="bars">
+          <div class="barrow"><span class="chip asis">현재 ’23</span><div class="track"><div class="bar cur" style="width:8%"></div></div><span class="bval">$3.2B</span></div>
+          <div class="barrow"><span class="chip tobe">전망 ’33</span><div class="track"><div class="bar fut" style="width:100%"></div></div><span class="bval">$41.2B</span></div>
+        </div>
+        <div class="cagr hi">CAGR ~31% · ≈4.4조→57조원</div>
+        <div class="why"><b>근거</b> AI가 제작 원가·기간 급감 → 출간량 폭증(최고 성장)</div>
+      </div>
+      <div class="card on">
+        <div class="clabel"><span class="ic">✍️</span>AI 도서 집필<span class="mult">×17</span></div>
+        <div class="bars">
+          <div class="barrow"><span class="chip asis">현재 ’24</span><div class="track"><div class="bar cur" style="width:6%"></div></div><span class="bval">$2.8B</span></div>
+          <div class="barrow"><span class="chip tobe">전망 ’34</span><div class="track"><div class="bar fut" style="width:100%"></div></div><span class="bval">$47.1B</span></div>
+        </div>
+        <div class="cagr hi">CAGR 32.6% · ≈3.9조→65조원</div>
+        <div class="why"><b>근거</b> 생성형 AI로 집필 자동화, 진입장벽 붕괴</div>
+      </div>
+      <div class="card">
+        <div class="clabel"><span class="ic">🖨️</span>POD 도서 서비스<span class="mult">×2.1</span></div>
+        <div class="bars">
+          <div class="barrow"><span class="chip asis">현재 ’25</span><div class="track"><div class="bar cur" style="width:47%"></div></div><span class="bval">$4.71B</span></div>
+          <div class="barrow"><span class="chip tobe">전망 ’35</span><div class="track"><div class="bar fut" style="width:100%"></div></div><span class="bval">$10B</span></div>
+        </div>
+        <div class="cagr">CAGR 7.8% · ≈6.5조→14조원</div>
+        <div class="why"><b>근거</b> 성숙 단계, 성장은 완만하나 절대 규모 큼</div>
+      </div>
+      <div class="card">
+        <div class="clabel"><span class="ic">👕</span>전체 POD<span class="mult">×4.8</span></div>
+        <div class="bars">
+          <div class="barrow"><span class="chip asis">현재 ’25</span><div class="track"><div class="bar cur" style="width:21%"></div></div><span class="bval">$12B</span></div>
+          <div class="barrow"><span class="chip tobe">전망 ’33</span><div class="track"><div class="bar fut" style="width:100%"></div></div><span class="bval">$57.5B</span></div>
+        </div>
+        <div class="cagr hi">CAGR 23.6% · ≈17조→79조원</div>
+        <div class="why"><b>근거</b> 도서 넘어 굿즈·의류 등 온디맨드 제조 확산</div>
+      </div>
+      <div class="card on">
+        <div class="clabel"><span class="ic">🧒</span>AI 어린이책<span class="mult">×5.2</span></div>
+        <div class="bars">
+          <div class="barrow"><span class="chip asis">현재 ’25</span><div class="track"><div class="bar cur" style="width:19%"></div></div><span class="bval">$1.8B</span></div>
+          <div class="barrow"><span class="chip tobe">전망 ’34</span><div class="track"><div class="bar fut" style="width:100%"></div></div><span class="bval">$9.4B</span></div>
+        </div>
+        <div class="cagr hi">CAGR 20.1% · ≈2.5조→13조원</div>
+        <div class="why"><b>근거</b> 교육열+부모 지출+AI 결합, 아·태 최고 성장</div>
+      </div>
+    </div>
+
+    <h3 class="sub">🏁 이미 뛰어든 플레이어들</h3>
+    <table class="tbl">
+      <thead><tr><th style="width:20%">회사</th><th style="width:22%">유저 요금</th><th style="width:28%">규모 · 펀딩</th><th style="width:30%">한 줄 평</th></tr></thead>
+      <tbody>
+        <tr class="grp"><td colspan="4">🤖 AI 네이티브 — "글은 작가, 나머지는 AI"</td></tr>
+        <tr><td class="cn">Spines<small>2021 · 미국</small></td><td>$1,200~5,000/권</td><td>펀딩 <span class="num">$22.5M</span> · 8,000권 목표(’25)</td><td>AI 풀서비스 출판을 개척한 <b>기준점</b></td></tr>
+        <tr><td class="cn">Publishing.com<small>2017 · 미국</small></td><td>아카데미 $6,000</td><td>매출 <span class="num">$22~60M</span> · 학생 3만</td><td>교육+AI툴, 단 <span class="warn-txt">FTC $150만 합의</span> 리스크</td></tr>
+        <tr><td class="cn">BriBooks<small>2021 · 印·이스라엘</small></td><td>저가 구독</td><td>프리시드 $1.5M · 학생 <span class="num">140만</span></td><td>어린이 출판 특화 — 한화 연결점 유력</td></tr>
+        <tr class="grp b"><td colspan="4">🧑‍💼 하이브리드 — 사람이 하는 "유료 풀서비스 출판"(동일 모델)</td></tr>
+        <tr><td class="cn">Greenleaf<small>미국</small></td><td>$10K~250K</td><td>베스트셀러 <span class="num">70권+</span> · 인세 최대 70%</td><td>프리미엄 출판 대행의 정석</td></tr>
+        <tr><td class="cn">Scribe Media<small>2014 · 미국</small></td><td>프리미엄 대필+출판</td><td><span class="warn-txt">’23 유동성 위기·90명 감원</span> 후 인수</td><td>고비용 사람 모델의 한계 사례</td></tr>
+        <tr><td class="cn">Gatekeeper<small>미국</small></td><td>모듈 $189~249</td><td>작가 <span class="num">2,600+</span> · 인세 100%</td><td>가성비 모듈형 셀프출판</td></tr>
+      </tbody>
+    </table>
+
+    <div class="src">출처: Market.us·DataInsights·Straits/Precedence·WiseGuy(시장), TechCrunch·Crunchbase·FTC·PublishersWeekly(경쟁사) · 환율 $1≈1,380원 근사 · 기관별 편차 있음 · 막대는 카드 내 상대 비율</div>
+  </div>
+</section>
+
+<!-- ============ CLOSING: 다른 AI 사업 레퍼런스 ============ -->
+<section class="band closing">
+  <div class="wrap">
+    <div class="kicker">함께 보기 · 같은 팀의 다른 AI 사업</div>
+    <h2 class="sec">AI로 확장하는 한화 신사업 라인업</h2>
+    <table class="case-tbl">
+      <tr>
+        <td><span class="cno">1</span></td>
+        <td class="mid">
+          <div class="ctitle">🧾 AI 국제조세 OS</div>
+          <div class="cdesc">국경 간 세무·이전가격을 자동화하는 AI 운영체제 — 복잡한 국제조세 판단을 데이터로 대체.</div>
+        </td>
+        <td><a class="cbtn" href="https://kirstenkang-debu.github.io/notes-7fq2k9x/notes/international-tax-ai-automation.html" target="_blank" rel="noopener">바로 보기 →</a></td>
+      </tr>
+      <tr>
+        <td><span class="cno">2</span></td>
+        <td class="mid">
+          <div class="ctitle">🧘 AI 요가 코칭</div>
+          <div class="cdesc">Peloton 사례에서 배우는 AI 코칭 프로덕트 전략 — 구독형 홈 피트니스의 흥망과 재설계.</div>
+        </td>
+        <td><a class="cbtn" href="https://kirstenkang-debu.github.io/notes-7fq2k9x/notes/peloton-case-study.html" target="_blank" rel="noopener">바로 보기 →</a></td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+</body>
+</html>
