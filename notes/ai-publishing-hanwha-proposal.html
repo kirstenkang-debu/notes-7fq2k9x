@@ -93,7 +93,7 @@
   h1.cover .hl{color:var(--orange-ink);}
 
   /* ---------- 3. BUSINESS MODEL ---------- */
-  .phases{display:grid; grid-template-columns:1fr 1.45fr 1fr; gap:18px; align-items:stretch;}
+  .phases{display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; align-items:stretch;}
   .phase{background:var(--soft); border:1px solid var(--line); border-radius:16px; padding:22px 22px; display:flex; flex-direction:column;}
   .phase.mid{background:var(--orange-soft); border-color:#f6cba6;}
   .phase .ptag{display:inline-flex; align-items:center; gap:8px; font-weight:800; font-size:.82rem; color:var(--orange-ink);
@@ -103,7 +103,10 @@
   .phase li{font-size:.9rem; line-height:1.4; padding-left:20px; position:relative;}
   .phase li:before{content:"✓"; position:absolute; left:0; color:var(--orange); font-weight:800;}
   .phase .price{margin-top:auto; padding-top:14px; font-family:var(--serif); font-weight:700; color:var(--orange-ink); font-size:1.1rem;}
-  .vid{width:100%; border-radius:12px; border:1px solid #f0c9a8; margin-bottom:14px; background:#000; display:block;}
+  .vid{width:100%; aspect-ratio:1728/1080; object-fit:cover; border-radius:12px; border:1px solid #f0c9a8; margin-bottom:14px; background:#000; display:block;}
+  .pmedia{width:100%; aspect-ratio:1728/1080; border-radius:12px; border:1px solid #f0c9a8; margin-bottom:14px; display:block;}
+  .pmedia.lecture{object-fit:contain; background:#eaf2fb; padding:12px;}
+  .pmedia.rank{object-fit:cover; object-position:top center; background:#fff;}
   .vidcap{font-size:.78rem; color:var(--muted); margin-top:-6px; margin-bottom:12px;}
 
   .rev3{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
@@ -253,6 +256,8 @@
     <div class="phases" style="margin-top:26px">
       <div class="phase">
         <div class="ptag">📚 책 쓰기 전</div>
+        <img class="pmedia lecture" src="lecture.png" alt="유명 작가 책쓰기 온라인 강의">
+        <div class="vidcap">유명 작가 온라인 강의</div>
         <h4>어떻게 쓸지부터</h4>
         <ul>
           <li>유명 작가의 <b>책 쓰기 강의</b> 제공</li>
@@ -276,6 +281,8 @@
 
       <div class="phase">
         <div class="ptag">🎨 책 쓴 후</div>
+        <img class="pmedia rank" src="bestseller.png" alt="베스트셀러 순위 노출·홍보">
+        <div class="vidcap">베스트셀러 순위 · 홍보 노출</div>
         <h4>출간까지 원스톱</h4>
         <ul>
           <li>최신 유행 <b>커버 디자인</b> 추천·작성</li>
@@ -416,7 +423,7 @@
           <div class="ctitle">🧘 AI 요가 코칭</div>
           <div class="cdesc">Peloton 사례에서 배우는 AI 코칭 프로덕트 전략 — 구독형 홈 피트니스의 흥망과 재설계.</div>
         </td>
-        <td><a class="cbtn" href="https://kirstenkang-debu.github.io/notes-7fq2k9x/notes/peloton-case-study.html" target="_blank" rel="noopener">바로 보기 →</a></td>
+        <td><a class="cbtn" href="https://kirstenkang-debu.github.io/notes-7fq2k9x/notes/ai-sports-posture-coaching.html" target="_blank" rel="noopener">바로 보기 →</a></td>
       </tr>
     </table>
   </div>
