@@ -179,9 +179,34 @@
   .meet-badge{position:absolute; top:-11px; right:14px; background:var(--orange); color:#fff; font-size:.66rem; font-weight:800; padding:4px 11px; border-radius:999px; box-shadow:0 3px 9px rgba(242,149,79,.45);}
   .sf-note{font-size:.76rem; color:var(--muted); margin-top:16px; line-height:1.55;}
   .sf-note b{color:#584f45;}
+  .clink{color:var(--orange-ink); text-decoration:none; border-bottom:1px solid #f0c9a8;}
+  .clink:hover{border-bottom-color:var(--orange-ink);}
+  .tbl td small{color:var(--muted); font-weight:500;}
+  .hz-callout{background:#fff8f1; border:1px solid #f4c9a2; border-left:6px solid var(--orange); border-radius:12px; padding:16px 20px; font-size:.92rem; line-height:1.55; color:#584f45; margin:22px 0;}
+  .hz-callout b{color:var(--orange-ink);}
+
+  /* ---------- WHY THIS BUSINESS: mindset fit + revenue ---------- */
+  .fit-list{display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin:26px 0 40px;}
+  .fit{background:var(--soft); border:1px solid var(--line); border-top:4px solid var(--orange); border-radius:12px; padding:15px 14px;}
+  .fit .ck{font-weight:800; color:var(--green); font-size:.88rem;}
+  .fit .ft{font-family:var(--serif); font-weight:700; font-size:1.02rem; margin:5px 0 7px;}
+  .fit .fd{font-size:.79rem; color:#584f45; line-height:1.45;}
+  .fit .fd b{color:var(--orange-ink);}
+  .revwrap{display:grid; grid-template-columns:1.4fr 1fr; gap:26px; align-items:center; margin-top:8px;}
+  .rchart{display:flex; align-items:flex-end; gap:16px; height:260px; padding:24px 12px 0; border-bottom:2px solid var(--line);}
+  .rbar-wrap{flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%; gap:9px;}
+  .rbar{width:100%; max-width:58px; background:linear-gradient(180deg,var(--orange),#dd7d34); border-radius:8px 8px 0 0; position:relative; min-height:10px;}
+  .rbar .val{position:absolute; top:-23px; left:50%; transform:translateX(-50%); font-family:var(--serif); font-weight:700; font-size:.86rem; color:var(--orange-ink); white-space:nowrap;}
+  .ryear{font-size:.78rem; color:var(--muted); font-weight:700;}
+  .exitbox{background:var(--ink); color:#fff; border-radius:16px; padding:28px 24px; text-align:center;}
+  .exitbox .lbl{font-size:.74rem; letter-spacing:.12em; color:#f4b183; font-weight:800; text-transform:uppercase;}
+  .exitbox .big{font-family:var(--serif); font-size:2.5rem; font-weight:700; margin:8px 0 10px; line-height:1.05;}
+  .exitbox .sub{font-size:.82rem; color:#d9cfc2; line-height:1.6;}
+  .exitbox .sub b{color:#f4b183;}
 
   @media (max-width:820px){
-    .phases,.rev3,.cards,.adtrend,.sf-grid{grid-template-columns:1fr;}
+    .phases,.rev3,.cards,.adtrend,.sf-grid,.revwrap{grid-template-columns:1fr;}
+    .fit-list{grid-template-columns:1fr 1fr;}
     h1.cover{font-size:2.2rem;} .why-head{font-size:1.6rem;} h2.sec{font-size:1.5rem;}
     .adcrop{order:-1;}
     .case-tbl td:first-child,.case-tbl td:last-child{width:auto;}
@@ -411,44 +436,108 @@
       </div>
     </div>
 
-    <h3 class="sub">🌉 샌프란시스코 AI Publisher 최신 현황</h3>
-    <div class="sf-lead">AI 출판의 최전선은 지금 <b>샌프란시스코</b>에 모여 있습니다 — 초안 집필부터 <b>풀 파이프라인 출판</b>까지, 각 단계를 장악한 스타트업들이 빠르게 부상 중입니다.</div>
-    <div class="sf-grid">
-      <div class="sf-card">
-        <div class="sf-name">Sudowrite <span class="loc ok">SF 확정</span></div>
-        <div class="sf-role">소설가를 위한 <b>AI 집필 파트너</b> — 이어쓰기·묘사·리라이트·Story Bible. NYT가 "작가의 구원"이라 평가.</div>
-        <div class="sf-foot"><span class="fund">$10/월</span> · 집필 단계 최강</div>
+    <h3 class="sub">🌉 샌프란시스코 AI Publisher 현황</h3>
+    <div class="sf-lead">SF에는 <b>AI 글쓰기·출판 스타트업이 약 30~50곳(추정)</b> 밀집 — <b>Writer($1.9B 밸류)</b> 같은 거물부터 부트스트랩 툴까지, AI 출판의 최전선입니다.</div>
+    <table class="tbl">
+      <thead><tr>
+        <th style="width:14%">회사</th>
+        <th style="width:27%">특징</th>
+        <th style="width:16%">유저 요금</th>
+        <th style="width:22%">규모·펀딩</th>
+        <th style="width:21%">재무·지표</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="cn"><a class="clink" href="https://sudowrite.com" target="_blank" rel="noopener">Sudowrite</a></td>
+          <td>소설가용 <b>AI 집필 파트너</b></td>
+          <td>$10~20/월</td>
+          <td>시드 <span class="num">$3M</span> · 팀 ~16명</td>
+          <td>ARR ~$1.8M <small>(’25 추정)</small></td>
+        </tr>
+        <tr>
+          <td class="cn"><a class="clink" href="https://www.inkitt.com" target="_blank" rel="noopener">Inkitt</a></td>
+          <td><b>AI 풀서비스 출판 개척</b> <small>(Galatea 앱)</small></td>
+          <td>독자 구독 / 작가 무료</td>
+          <td>누적 <span class="num">$115.9M</span> · 밸류 ~$400M</td>
+          <td>유저 <span class="num">3,300만</span> · 앱 런레이트 $38M+</td>
+        </tr>
+        <tr>
+          <td class="cn"><a class="clink" href="https://chapter.pub" target="_blank" rel="noopener">Chapter</a></td>
+          <td>초안 → <b>풀 원고 60분</b> 생성</td>
+          <td>$97 원타임</td>
+          <td>부트스트랩 <small>(추정)</small></td>
+          <td>비소설 AI 집필 SaaS</td>
+        </tr>
+        <tr>
+          <td class="cn"><a class="clink" href="https://lex.page" target="_blank" rel="noopener">Lex</a></td>
+          <td>작가용 <b>AI 워드프로세서</b></td>
+          <td>프리 + 유료</td>
+          <td>시드 <span class="num">$2.75M</span> · True Ventures</td>
+          <td>유저 <span class="num">20만+</span></td>
+        </tr>
+        <tr>
+          <td class="cn"><a class="clink" href="https://writer.com" target="_blank" rel="noopener">Writer</a></td>
+          <td>엔터프라이즈 생성형 AI <small>(인접 거물)</small></td>
+          <td>엔터프라이즈 맞춤</td>
+          <td>누적 <span class="num">$320M</span> · 밸류 $1.9B</td>
+          <td>ARR <span class="num">$47M</span>(+194%) · 고객 300+</td>
+        </tr>
+        <tr>
+          <td class="cn"><a class="clink" href="https://www.blurb.com" target="_blank" rel="noopener">Blurb</a></td>
+          <td>레거시 POD·포토북 <small>(AI 없음·대조군)</small></td>
+          <td>무료 제작 + 인쇄비</td>
+          <td>2005 설립 · RPI 인수(’20)</td>
+          <td>매출 <span class="num">~$100M/년</span> · 출하 120만권</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="hz-callout">📍 <b>대기업도 이미 뛰어들었습니다</b> — 맥밀란 모회사 <b>Holtzbrinck</b>가 2025년 10월 <b>샌프란시스코에 AI Hub 설립</b>(44 Montgomery St, 과학·교육·미디어 3축 + ‘책임 있는 AI’). <b>대기업 출판사가 SF에서 AI로 움직이는 흐름</b>이 시작됐고, 이는 우리 포지션과 정확히 일치합니다.</div>
+
+    <h3 class="sub">🌐 글로벌·한국 참고 플레이어</h3>
+    <table class="tbl">
+      <thead><tr><th style="width:16%">회사</th><th style="width:34%">특징</th><th style="width:24%">유저 요금</th><th style="width:26%">규모</th></tr></thead>
+      <tbody>
+        <tr><td class="cn"><a class="clink" href="https://spines.com" target="_blank" rel="noopener">Spines</a></td><td>완성 원고 → <b>AI 풀서비스 출판</b> <small>(마이애미)</small></td><td>$4,450~9,820/패키지</td><td>펀딩 <span class="num">$22.5M</span></td></tr>
+        <tr><td class="cn"><a class="clink" href="https://www.ingramspark.com" target="_blank" rel="noopener">IngramSpark</a></td><td>글로벌 <b>POD·유통 최강</b> <small>(Ingram 자회사)</small></td><td>$49 셋업 + 인쇄비</td><td>업계 최대 도매 Ingram 계열</td></tr>
+        <tr><td class="cn"><a class="clink" href="https://www.g-world.co.kr" target="_blank" rel="noopener">좋은땅</a></td><td>한국 대표 <b>자비출판</b> <small>(100% 수작업·AI 없음)</small></td><td>견적제</td><td>1993 설립 · 6,162권 제작</td></tr>
+      </tbody>
+    </table>
+
+    <div class="sf-note">⚠️ 대부분 사기업이라 재무는 펀딩·밸류·유저수로 대체 표기. <b>River AI</b>는 동명 회사 혼동 우려로 제외. <b>Youbooks</b>(글렌데일)·<b>Lumi</b>(2024 폐업)는 SF 아님으로 제외.</div>
+
+    <div class="src">출처: TechCrunch·Crunchbase·Bloomberg·YC·Holtzbrinck·각 사 웹사이트 · 밸류·ARR·유저수는 공개 자료 기준(추정 포함) · SF 스타트업 수는 추정 · 발표 전 스팟체크 권장</div>
+  </div>
+</section>
+
+<!-- ============ OUR ASSETS ============ -->
+<section class="band tint">
+  <div class="wrap">
+    <div class="kicker">우리의 무기 · 실행 자산</div>
+    <h2 class="sec">아이디어가 아니라, 이미 손에 쥔 자산으로 시작합니다</h2>
+    <div class="why-list" style="margin-top:28px">
+      <div class="wrow">
+        <div class="ic">🌍</div>
+        <div>
+          <div class="h">해외 출판 유통 네트워크</div>
+          <div class="d">영국·프랑스 등 <b>해외 출판 총판·유통사 네트워크 확보 가능</b> — 글로벌 출판 실무 경험 기반, 출간 즉시 현지 유통 채널로 연결.</div>
+        </div>
       </div>
-      <div class="sf-card meet">
-        <div class="meet-badge">★ 유일한 풀 AI 출판사</div>
-        <div class="sf-name">Inkitt <span class="loc ok">SF 확정</span></div>
-        <div class="sf-role">오늘날 유일하게 <b>"진짜 AI 출판사"</b>로 작동 — 편집·표지·오디오북·번역·유통까지 풀 파이프라인(Galatea 앱).</div>
-        <div class="sf-foot"><span class="fund">$117M+</span> Khosla·NEA·Kleiner</div>
+      <div class="wrow">
+        <div class="ic">✍️</div>
+        <div>
+          <div class="h">해외 베스트셀러 작가 풀</div>
+          <div class="d">영국·프랑스 <b>베스트셀러 작가 네트워크</b> — 초기 기획출판 라인업과 글로벌 홍보 레버리지.</div>
+        </div>
       </div>
-      <div class="sf-card">
-        <div class="sf-name">Chapter <span class="loc rep">SF 추정</span></div>
-        <div class="sf-role">아이디어·초안 → <b>풀 원고 60분 생성</b>. 고스트라이터를 대체하는 소비자 엔진.</div>
-        <div class="sf-foot"><span class="fund">~$97/건</span> 부트스트랩</div>
-      </div>
-      <div class="sf-card">
-        <div class="sf-name">River AI <span class="loc rep">SF 보도</span></div>
-        <div class="sf-role">책 규모 원고의 <b>AI 편집·교정</b> 워크스페이스. 실사용자 약 2만 명.</div>
-        <div class="sf-foot">초기 단계 · 2025~</div>
-      </div>
-      <div class="sf-card">
-        <div class="sf-name">Lex <span class="loc ok">SF 확정</span></div>
-        <div class="sf-role">작가용 <b>AI 워드프로세서</b> — 인라인 교정, 내 문체 학습. 제품 크래프트 강함.</div>
-        <div class="sf-foot"><span class="fund">$2.75M</span> True Ventures</div>
-      </div>
-      <div class="sf-card">
-        <div class="sf-name">Writer <span class="loc ok">SF 확정</span></div>
-        <div class="sf-role">엔터프라이즈 <b>생성형 AI 글쓰기</b> 플랫폼(인접 거물) — 규모·기술 벤치마크.</div>
-        <div class="sf-foot"><span class="fund">$1.9B</span> 밸류에이션</div>
+      <div class="wrow">
+        <div class="ic">🎓</div>
+        <div>
+          <div class="h">유명 작가 집필 강의 콘텐츠</div>
+          <div class="d">베르나르 베르베르 등 <b>유명 작가 책쓰기 강의</b> 콘텐츠 파트너십(예: 한겨레교육) — ‘책 쓰기 전’ 단계를 강화.</div>
+        </div>
       </div>
     </div>
-    <div class="sf-note">⚠️ Chapter·River AI의 SF 본사는 언론·링크드인 기반이라 <b>미팅 전 재확인</b> 필요. 인접: Fable(AI 동화책)·Wordware(AI 에이전트 인프라). <b>Youbooks</b>(AI 논픽션 생성)는 기능은 유사하나 <b>SF 아님</b>(글렌데일 추정)으로 제외. SF 밖 주요 플레이어: Spines(마이애미)·IngramSpark·좋은땅(한국).</div>
-
-    <div class="src">출처: TechCrunch·Bloomberg·CBC·YC·각 사 웹사이트 · 위치·투자액은 공개 자료 기준(미공개·추정 포함) · 시장 규모는 기관별 편차 있음 · 미팅 전 현장 재확인 권장</div>
   </div>
 </section>
 
@@ -476,6 +565,41 @@
       </div>
     </div>
     <div class="sf-note">⚠️ Amazon KDP는 공식 API가 없어 현재는 <b>업로드 연동</b> 수준. Anthropic은 2025.9 저자 <b>$1.5B 합의</b> 이후, <b>권리 존중·human-in-the-loop</b> 기반 "책임 있는 AI 출판"이 오히려 우리 차별점(moat)이 됩니다.</div>
+  </div>
+</section>
+
+<!-- ============ WHY THIS BUSINESS: MINDSET FIT + REVENUE ============ -->
+<section class="band">
+  <div class="wrap">
+    <div class="kicker">결론 · 왜 이 사업인가</div>
+    <h2 class="sec">‘사업 마인드셋’ 5개 기준을 모두 충족합니다</h2>
+    <div class="fit-list">
+      <div class="fit"><div class="ck">✓ 수익성</div><div class="ft">돈이 된다</div><div class="fd">5년 매출 <b>450억+</b> 시나리오 · 엑싯 <b>$150M+</b></div></div>
+      <div class="fit"><div class="ck">✓ 시장성</div><div class="ft">고성장 시장</div><div class="fd">AI 출판 <b>CAGR 30%+</b> — 앞 시장성 장표</div></div>
+      <div class="fit"><div class="ck">✓ AI 관련</div><div class="ft">AI가 핵심</div><div class="fd">초안→완성 <b>AI 파이프라인</b>이 사업 엔진</div></div>
+      <div class="fit"><div class="ck">✓ 실험 많이</div><div class="ft">빠른 검증</div><div class="fd">MVP·프로토타입으로 <b>저비용·빠르게</b> 테스트</div></div>
+      <div class="fit"><div class="ck">✓ 기술 구현력</div><div class="ft">지금 구현 가능</div><div class="fd"><b>Claude API</b> 기반 실제 구현·프로토타입 착수</div></div>
+    </div>
+
+    <h3 class="sub">📊 예상 수익 &amp; 엑싯 <span style="font-size:.72rem;color:var(--muted);font-weight:500;font-family:-apple-system,sans-serif;">— 가정 기반 시나리오 (숫자 조정 가능)</span></h3>
+    <div class="revwrap">
+      <div>
+        <div class="rchart">
+          <div class="rbar-wrap"><div class="rbar" style="height:12%"><span class="val">10억</span></div><div class="ryear">1년차</div></div>
+          <div class="rbar-wrap"><div class="rbar" style="height:24%"><span class="val">40억</span></div><div class="ryear">2년차</div></div>
+          <div class="rbar-wrap"><div class="rbar" style="height:42%"><span class="val">100억</span></div><div class="ryear">3년차</div></div>
+          <div class="rbar-wrap"><div class="rbar" style="height:66%"><span class="val">220억</span></div><div class="ryear">4년차</div></div>
+          <div class="rbar-wrap"><div class="rbar" style="height:100%"><span class="val">450억</span></div><div class="ryear">5년차</div></div>
+        </div>
+        <div class="why" style="margin-top:14px"><b>가정</b> 유료 저자 확보 + 3단계 수익화(집필 구독 · 자가출판 · 기획출판 수익배분) · 저자당 연매출·전환율은 조정 가능</div>
+      </div>
+      <div class="exitbox">
+        <div class="lbl">5년 내 엑싯 목표</div>
+        <div class="big">최소 $150M+</div>
+        <div class="sub">≈ 2,000억원 · 매출 5배 근사<br>비교: <b>Inkitt $400M</b> · <b>Writer $1.9B</b> · <b>Blurb 매출 $100M/년</b></div>
+      </div>
+    </div>
+    <div class="src" style="margin-top:20px">※ 위 매출·엑싯 수치는 <b>가정 기반 예시 시나리오</b>입니다 — 실제 목표 수치로 교체·검증 필요. 엑싯 배수는 AI 출판·SaaS 비교기업 참고치.</div>
   </div>
 </section>
 
