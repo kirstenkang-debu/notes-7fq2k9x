@@ -162,8 +162,26 @@
   .warn-txt{color:#c0492f; font-weight:700;}
   .src{color:var(--muted); font-size:.7rem; margin-top:16px;}
 
+  /* ---------- SF AI PUBLISHER LANDSCAPE ---------- */
+  .sf-lead{font-size:.98rem; color:#584f45; line-height:1.6; margin:6px 0 22px;}
+  .sf-lead b{color:var(--orange-ink);}
+  .sf-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+  .sf-card{position:relative; background:var(--soft); border:1px solid var(--line); border-radius:14px; padding:18px 18px 16px; display:flex; flex-direction:column;}
+  .sf-card.meet{background:var(--orange-soft); border-color:#f2b98a; box-shadow:0 8px 24px rgba(242,149,79,.20);}
+  .sf-name{font-family:var(--serif); font-weight:700; font-size:1.12rem; display:flex; align-items:center; gap:8px; flex-wrap:wrap;}
+  .loc{font-size:.6rem; font-weight:800; padding:2px 7px; border-radius:999px; letter-spacing:.02em;}
+  .loc.ok{background:#e2efd6; color:#4a6b2a;}
+  .loc.rep{background:#ece5d7; color:#7a7060;}
+  .sf-role{font-size:.86rem; color:#584f45; line-height:1.45; margin:9px 0 12px;}
+  .sf-role b{color:var(--orange-ink);}
+  .sf-foot{margin-top:auto; display:flex; align-items:center; gap:8px; flex-wrap:wrap; font-size:.72rem; color:var(--muted);}
+  .fund{font-weight:800; color:var(--ink); background:#fff; border:1px solid var(--line); border-radius:6px; padding:2px 7px;}
+  .meet-badge{position:absolute; top:-11px; right:14px; background:var(--orange); color:#fff; font-size:.66rem; font-weight:800; padding:4px 11px; border-radius:999px; box-shadow:0 3px 9px rgba(242,149,79,.45);}
+  .sf-note{font-size:.76rem; color:var(--muted); margin-top:16px; line-height:1.55;}
+  .sf-note b{color:#584f45;}
+
   @media (max-width:820px){
-    .phases,.rev3,.cards,.adtrend{grid-template-columns:1fr;}
+    .phases,.rev3,.cards,.adtrend,.sf-grid{grid-template-columns:1fr;}
     h1.cover{font-size:2.2rem;} .why-head{font-size:1.6rem;} h2.sec{font-size:1.5rem;}
     .adcrop{order:-1;}
     .case-tbl td:first-child,.case-tbl td:last-child{width:auto;}
@@ -393,22 +411,44 @@
       </div>
     </div>
 
-    <h3 class="sub">🏁 이미 뛰어든 플레이어들</h3>
-    <table class="tbl">
-      <thead><tr><th style="width:20%">회사</th><th style="width:22%">유저 요금</th><th style="width:28%">규모 · 펀딩</th><th style="width:30%">한 줄 평</th></tr></thead>
-      <tbody>
-        <tr class="grp"><td colspan="4">🤖 AI 네이티브 — "글은 작가, 나머지는 AI"</td></tr>
-        <tr><td class="cn">Spines<small>2021 · 미국</small></td><td>$1,200~5,000/권</td><td>펀딩 <span class="num">$22.5M</span> · 8,000권 목표(’25)</td><td>AI 풀서비스 출판을 개척한 <b>기준점</b></td></tr>
-        <tr><td class="cn">Publishing.com<small>2017 · 미국</small></td><td>아카데미 $6,000</td><td>매출 <span class="num">$22~60M</span> · 학생 3만</td><td>교육+AI툴, 단 <span class="warn-txt">FTC $150만 합의</span> 리스크</td></tr>
-        <tr><td class="cn">BriBooks<small>2021 · 印·이스라엘</small></td><td>저가 구독</td><td>프리시드 $1.5M · 학생 <span class="num">140만</span></td><td>어린이 출판 특화 — 한화 연결점 유력</td></tr>
-        <tr class="grp b"><td colspan="4">🧑‍💼 하이브리드 — 사람이 하는 "유료 풀서비스 출판"(동일 모델)</td></tr>
-        <tr><td class="cn">Greenleaf<small>미국</small></td><td>$10K~250K</td><td>베스트셀러 <span class="num">70권+</span> · 인세 최대 70%</td><td>프리미엄 출판 대행의 정석</td></tr>
-        <tr><td class="cn">Scribe Media<small>2014 · 미국</small></td><td>프리미엄 대필+출판</td><td><span class="warn-txt">’23 유동성 위기·90명 감원</span> 후 인수</td><td>고비용 사람 모델의 한계 사례</td></tr>
-        <tr><td class="cn">Gatekeeper<small>미국</small></td><td>모듈 $189~249</td><td>작가 <span class="num">2,600+</span> · 인세 100%</td><td>가성비 모듈형 셀프출판</td></tr>
-      </tbody>
-    </table>
+    <h3 class="sub">🌉 샌프란시스코 AI Publisher 최신 현황</h3>
+    <div class="sf-lead">AI 출판의 최전선은 지금 <b>샌프란시스코</b>에 모여 있습니다. 우리는 벤치마킹을 넘어 <b>현지 최전선과 직접 연결</b> — 이번 방문에 <b>Sudowrite와 미팅 예정</b>입니다.</div>
+    <div class="sf-grid">
+      <div class="sf-card meet">
+        <div class="meet-badge">🤝 이번 방문 미팅 예정</div>
+        <div class="sf-name">Sudowrite <span class="loc ok">SF 확정</span></div>
+        <div class="sf-role">소설가를 위한 <b>AI 집필 파트너</b> — 이어쓰기·묘사·리라이트·Story Bible. NYT가 "작가의 구원"이라 평가.</div>
+        <div class="sf-foot"><span class="fund">$10/월</span> · 집필 단계 최강</div>
+      </div>
+      <div class="sf-card">
+        <div class="sf-name">Inkitt <span class="loc ok">SF 확정</span></div>
+        <div class="sf-role">오늘날 유일하게 <b>"진짜 AI 출판사"</b>로 작동 — 편집·표지·오디오북·번역·유통까지 풀 파이프라인(Galatea 앱).</div>
+        <div class="sf-foot"><span class="fund">$117M+</span> Khosla·NEA·Kleiner</div>
+      </div>
+      <div class="sf-card">
+        <div class="sf-name">Chapter <span class="loc rep">SF 추정</span></div>
+        <div class="sf-role">아이디어·초안 → <b>풀 원고 60분 생성</b>. 고스트라이터를 대체하는 소비자 엔진.</div>
+        <div class="sf-foot"><span class="fund">~$97/건</span> 부트스트랩</div>
+      </div>
+      <div class="sf-card">
+        <div class="sf-name">River AI <span class="loc rep">SF 보도</span></div>
+        <div class="sf-role">책 규모 원고의 <b>AI 편집·교정</b> 워크스페이스. 실사용자 약 2만 명.</div>
+        <div class="sf-foot">초기 단계 · 2025~</div>
+      </div>
+      <div class="sf-card">
+        <div class="sf-name">Lex <span class="loc ok">SF 확정</span></div>
+        <div class="sf-role">작가용 <b>AI 워드프로세서</b> — 인라인 교정, 내 문체 학습. 제품 크래프트 강함.</div>
+        <div class="sf-foot"><span class="fund">$2.75M</span> True Ventures</div>
+      </div>
+      <div class="sf-card">
+        <div class="sf-name">Writer <span class="loc ok">SF 확정</span></div>
+        <div class="sf-role">엔터프라이즈 <b>생성형 AI 글쓰기</b> 플랫폼(인접 거물) — 규모·기술 벤치마크.</div>
+        <div class="sf-foot"><span class="fund">$1.9B</span> 밸류에이션</div>
+      </div>
+    </div>
+    <div class="sf-note">⚠️ Chapter·River AI의 SF 본사는 언론·링크드인 기반이라 <b>미팅 전 재확인</b> 필요. 인접: Fable(AI 동화책)·Wordware(AI 에이전트 인프라). <b>Youbooks</b>(AI 논픽션 생성)는 기능은 유사하나 <b>SF 아님</b>(글렌데일 추정)으로 제외. SF 밖 주요 플레이어: Spines(마이애미)·IngramSpark·좋은땅(한국).</div>
 
-    <div class="src">출처: Market.us·DataInsights·Straits/Precedence·WiseGuy(시장), TechCrunch·Crunchbase·FTC·PublishersWeekly(경쟁사) · 환율 $1≈1,380원 근사 · 기관별 편차 있음 · 막대는 카드 내 상대 비율</div>
+    <div class="src">출처: TechCrunch·Bloomberg·CBC·YC·각 사 웹사이트 · 위치·투자액은 공개 자료 기준(미공개·추정 포함) · 시장 규모는 기관별 편차 있음 · 미팅 전 현장 재확인 권장</div>
   </div>
 </section>
 
