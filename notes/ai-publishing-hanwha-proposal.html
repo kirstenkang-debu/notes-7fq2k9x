@@ -203,6 +203,24 @@
   .exitbox .big{font-family:var(--serif); font-size:2.5rem; font-weight:700; margin:8px 0 10px; line-height:1.05;}
   .exitbox .sub{font-size:.82rem; color:#d9cfc2; line-height:1.6;}
   .exitbox .sub b{color:#f4b183;}
+  /* compact conclusion (fit one screen) */
+  .band.concl{padding-top:42px; padding-bottom:42px;}
+  .concl h2.sec{font-size:1.68rem;}
+  .concl .fit-list{margin:16px 0 20px; gap:8px;}
+  .concl .fit{padding:11px 12px; border-top-width:3px;}
+  .concl .fit .ck{font-size:.82rem;}
+  .concl .fit .ft{font-size:.93rem; margin:3px 0 4px;}
+  .concl .fit .fd{font-size:.73rem; line-height:1.35;}
+  .concl h3.sub{margin:18px 0 12px; font-size:1.16rem;}
+  .concl .rev3{gap:12px;}
+  .concl .rev{padding:15px 16px 13px;}
+  .concl .rev .rh{font-size:1.02rem; margin:6px 0 6px;}
+  .concl .rev .rd{font-size:.83rem;}
+  .concl .rev .meta{margin-top:9px;}
+  .concl .rchart{height:150px; padding-top:22px; gap:12px;}
+  .concl .exitbox{padding:20px 20px;}
+  .concl .exitbox .big{font-size:2rem; margin:6px 0 8px;}
+  .concl .why{margin-top:10px;}
 
   @media (max-width:820px){
     .phases,.rev3,.cards,.adtrend,.sf-grid,.revwrap{grid-template-columns:1fr;}
@@ -525,8 +543,8 @@
 <section class="band white">
   <div class="wrap">
     <div class="kicker">빅테크 접점 · 파트너십 &amp; 엑싯</div>
-    <h2 class="sec">채널은 Amazon·Google, 엔진은 Anthropic — 우리는 그 사이</h2>
-    <div class="sf-lead">Amazon·Google은 <b>유통·발견(채널)</b>, Anthropic은 <b>AI 엔진</b>. 우리는 그 사이 빈 레이어(<b>초안 → 완성</b>)를 차지합니다 — 셋 다 경쟁자가 아니라 <b>파트너, 나아가 잠재적 인수자(엑싯)</b>.</div>
+    <h2 class="sec">채널은 Amazon·Google — 우리는 그 위에 얹는다</h2>
+    <div class="sf-lead">Amazon·Google은 <b>유통·발견(채널)</b>. 우리는 그 <b>위에 얹는 레이어(초안 → 완성)</b>를 차지합니다 — 경쟁자가 아니라 <b>파트너, 나아가 잠재적 인수자(엑싯)</b>.</div>
     <div class="sf-grid">
       <div class="sf-card">
         <div class="sf-name">📦 Amazon</div>
@@ -538,18 +556,13 @@
         <div class="sf-role"><b>Google Books를 가진 회사.</b> Play Books(비독점 유통)·Google Books(발견)·Gemini 보유.</div>
         <div class="sf-foot"><b>접점</b> 복수 유통 + 검색 기반 발견·메타데이터 최적화<br><b>엑싯</b> 콘텐츠·발견 레이어 보강 인수 후보</div>
       </div>
-      <div class="sf-card meet">
-        <div class="sf-name">🧠 Anthropic</div>
-        <div class="sf-role"><b>우리의 AI 엔진.</b> Claude(초안→완성)·API·안전 브랜드 보유.</div>
-        <div class="sf-foot"><b>접점</b> "Built on Claude" 품질 신호 + 엔터프라이즈 API<br><b>엑싯</b> "책임 있는 AI 출판" 전략 파트너</div>
-      </div>
     </div>
-    <div class="sf-note">⚠️ Amazon KDP는 공식 API가 없어 현재는 <b>업로드 연동</b> 수준. Anthropic은 2025.9 저자 <b>$1.5B 합의</b> 이후, <b>권리 존중·human-in-the-loop</b> 기반 "책임 있는 AI 출판"이 오히려 우리 차별점(moat)이 됩니다.</div>
+    <div class="sf-note">⚠️ Amazon KDP는 공식 API가 없어 현재는 <b>업로드 연동</b> 수준. 유통은 <b>비독점</b>이라 KDP·Play Books 동시 전개가 가능합니다.</div>
   </div>
 </section>
 
 <!-- ============ WHY THIS BUSINESS: MINDSET FIT + REVENUE ============ -->
-<section class="band">
+<section class="band concl">
   <div class="wrap">
     <div class="kicker">결론 · 왜 이 사업인가</div>
     <h2 class="sec">‘사업 마인드셋’ 5개 기준을 모두 충족합니다</h2>
@@ -560,26 +573,6 @@
       <div class="fit"><div class="ck">✓ 실험 많이</div><div class="ft">빠른 검증</div><div class="fd">MVP·프로토타입으로 <b>저비용·빠르게</b> 테스트</div></div>
       <div class="fit"><div class="ck">✓ 기술 구현력</div><div class="ft">지금 구현 가능</div><div class="fd"><b>Claude API</b> 기반 실제 구현·프로토타입 착수</div></div>
     </div>
-
-    <h3 class="sub">📊 예상 수익 &amp; 엑싯 <span style="font-size:.72rem;color:var(--muted);font-weight:500;font-family:-apple-system,sans-serif;">— 가정 기반 시나리오 (숫자 조정 가능)</span></h3>
-    <div class="revwrap">
-      <div>
-        <div class="rchart">
-          <div class="rbar-wrap"><div class="rbar" style="height:12%"><span class="val">10억</span></div><div class="ryear">1년차</div></div>
-          <div class="rbar-wrap"><div class="rbar" style="height:24%"><span class="val">40억</span></div><div class="ryear">2년차</div></div>
-          <div class="rbar-wrap"><div class="rbar" style="height:42%"><span class="val">100억</span></div><div class="ryear">3년차</div></div>
-          <div class="rbar-wrap"><div class="rbar" style="height:66%"><span class="val">220억</span></div><div class="ryear">4년차</div></div>
-          <div class="rbar-wrap"><div class="rbar" style="height:100%"><span class="val">450억</span></div><div class="ryear">5년차</div></div>
-        </div>
-        <div class="why" style="margin-top:14px"><b>가정</b> 유료 저자 확보 + 3단계 수익화(집필 구독 · 자가출판 · 기획출판 수익배분) · 저자당 연매출·전환율은 조정 가능</div>
-      </div>
-      <div class="exitbox">
-        <div class="lbl">5년 내 엑싯 목표</div>
-        <div class="big">최소 $150M+</div>
-        <div class="sub">≈ 2,000억원 · 매출 5배 근사<br>비교: <b>Inkitt $400M</b> · <b>Writer $1.9B</b> · <b>Blurb 매출 $100M/년</b></div>
-      </div>
-    </div>
-    <div class="src" style="margin-top:20px">※ 위 매출·엑싯 수치는 <b>가정 기반 예시 시나리오</b>입니다 — 실제 목표 수치로 교체·검증 필요. 엑싯 배수는 AI 출판·SaaS 비교기업 참고치.</div>
 
     <h3 class="sub">💵 어떻게 버는가 — 3단계 수익화 구조</h3>
     <div class="rev3">
@@ -602,6 +595,26 @@
         <div class="meta"><b>차별화 포인트</b> · AI 선별로 흥행 확률↑</div>
       </div>
     </div>
+
+    <h3 class="sub">📊 예상 수익 &amp; 엑싯 <span style="font-size:.72rem;color:var(--muted);font-weight:500;font-family:-apple-system,sans-serif;">— 가정 기반 시나리오 (숫자 조정 가능)</span></h3>
+    <div class="revwrap">
+      <div>
+        <div class="rchart">
+          <div class="rbar-wrap"><div class="rbar" style="height:12%"><span class="val">10억</span></div><div class="ryear">1년차</div></div>
+          <div class="rbar-wrap"><div class="rbar" style="height:24%"><span class="val">40억</span></div><div class="ryear">2년차</div></div>
+          <div class="rbar-wrap"><div class="rbar" style="height:42%"><span class="val">100억</span></div><div class="ryear">3년차</div></div>
+          <div class="rbar-wrap"><div class="rbar" style="height:66%"><span class="val">220억</span></div><div class="ryear">4년차</div></div>
+          <div class="rbar-wrap"><div class="rbar" style="height:100%"><span class="val">450억</span></div><div class="ryear">5년차</div></div>
+        </div>
+        <div class="why" style="margin-top:14px"><b>가정</b> 유료 저자 확보 + 3단계 수익화(집필 구독 · 자가출판 · 기획출판 수익배분) · 저자당 연매출·전환율은 조정 가능</div>
+      </div>
+      <div class="exitbox">
+        <div class="lbl">5년 내 엑싯 목표</div>
+        <div class="big">최소 $150M+</div>
+        <div class="sub">≈ 2,000억원 · 매출 5배 근사<br>비교: <b>Inkitt $400M</b> · <b>Writer $1.9B</b> · <b>Blurb 매출 $100M/년</b></div>
+      </div>
+    </div>
+    <div class="src" style="margin-top:14px">※ 위 매출·엑싯 수치는 <b>가정 기반 예시 시나리오</b>입니다 — 실제 목표 수치로 교체·검증 필요. 엑싯 배수는 AI 출판·SaaS 비교기업 참고치.</div>
   </div>
 </section>
 
