@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>한국 요가 시장 조사 — AI 자세교정 앱 관점</title>
+<style>
+  :root{
+    --bg:#f7f3ea; --card:#ffffff; --card2:#f1ebdd; --line:#e6ddca;
+    --ink:#2b2721; --sub:#8a8070; --yoga:#6d43d1; --accent2:#c2417f;
+    --ok:#0f9d6b; --warn:#c17d0a; --bad:#c0392b; --gray:#a39a86;
+    --shadow:0 1px 2px rgba(60,50,30,.05),0 6px 18px rgba(60,50,30,.06);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Malgun Gothic",sans-serif;
+    line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1080px;margin:0 auto;padding:40px 22px 80px;}
+  h1{font-size:30px;margin:0 0 6px;letter-spacing:-.02em;}
+  h2{font-size:20px;margin:0 0 14px;letter-spacing:-.01em;display:flex;align-items:center;gap:10px;}
+  h2 .n{font-size:13px;font-weight:700;color:#fff;background:var(--yoga);
+    width:26px;height:26px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;flex:none;}
+  .lead{color:var(--sub);font-size:15px;margin:0 0 4px;}
+  .meta{color:var(--sub);font-size:12.5px;margin-top:10px;display:flex;flex-wrap:wrap;gap:8px 16px;}
+  section{background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:24px 24px 20px;margin:18px 0;box-shadow:var(--shadow);}
+  .hero{background:linear-gradient(135deg,#fbf8f1,#f1ebdd);}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;margin:6px 0 2px;}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{color:var(--sub);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.03em;}
+  td.num{font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap;}
+  tr:last-child td{border-bottom:none;}
+  .tbl-wrap{overflow-x:auto;}
+  .badge{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:20px;
+    white-space:nowrap;line-height:1.5;}
+  .b-ok{background:rgba(15,157,107,.13);color:var(--ok);}
+  .b-warn{background:rgba(193,125,10,.14);color:var(--warn);}
+  .b-bad{background:rgba(192,57,43,.12);color:var(--bad);}
+  .b-gray{background:rgba(120,110,90,.13);color:var(--gray);}
+  .kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:8px;}
+  .kpi .cell{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:14px;}
+  .kpi .big{font-size:23px;font-weight:800;letter-spacing:-.02em;line-height:1.1;}
+  .kpi .lab{font-size:12px;color:var(--sub);margin-top:5px;}
+  .kpi .big.bad{color:var(--bad);} .kpi .big.ok{color:var(--ok);} .kpi .big.yoga{color:var(--yoga);}
+  .callout{border-left:4px solid var(--yoga);background:var(--card2);border-radius:0 12px 12px 0;
+    padding:14px 18px;margin:14px 0;}
+  .callout.red{border-color:var(--bad);}
+  .callout.amber{border-color:var(--warn);}
+  .callout h3{margin:0 0 6px;font-size:15px;}
+  .callout p{margin:0;font-size:13.5px;color:#4a4238;}
+  .verdict-tag{font-size:11px;font-weight:800;padding:3px 9px;border-radius:6px;white-space:nowrap;}
+  .v-bad{background:var(--bad);color:#fff;} .v-mix{background:var(--warn);color:#fff;} .v-ok{background:var(--ok);color:#fff;}
+  ul.tight{margin:8px 0 2px;padding-left:20px;font-size:13.5px;}
+  ul.tight li{margin:4px 0;}
+  .src{font-size:11.5px;color:var(--sub);}
+  .legend{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:12px;color:var(--sub);margin-top:6px;}
+  .gate{display:grid;grid-template-columns:auto 1fr;gap:10px 14px;align-items:start;margin:10px 0;font-size:13.5px;}
+  .gate .g{font-weight:800;color:var(--yoga);font-size:15px;white-space:nowrap;}
+  .foot{color:var(--sub);font-size:12px;margin-top:26px;line-height:1.7;}
+  .warncard{background:rgba(193,125,10,.07);border:1px solid rgba(193,125,10,.3);border-radius:12px;padding:12px 16px;font-size:13px;margin-top:10px;}
+  a{color:var(--yoga);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <section class="hero">
+    <h1>한국 요가 시장 조사</h1>
+    <p class="lead">AI 요가 자세교정 B2C 앱(가칭 YogaFix) 관점의 시장·수요·리스크 스캔</p>
+    <div class="meta">
+      <span>📅 2026-07-09</span>
+      <span>🔎 병렬 리서치 4축 (인구·학원·유튜브·거시검증)</span>
+      <span>🧪 factchk 라벨: <span class="badge b-ok">확인됨</span> <span class="badge b-warn">추정</span> <span class="badge b-bad">불확실</span> <span class="badge b-gray">데이터없음</span></span>
+    </div>
+  </section>
+
+  <!-- TL;DR -->
+  <section>
+    <h2>한 줄 결론 (TL;DR)</h2>
+    <div class="callout red">
+      <h3>시장은 존재한다. 그러나 이 사업의 관문은 "시장 크기"가 아니다.</h3>
+      <p>요가 수요와 "혼자 하면 자세 틀릴까 불안"이라는 <b>pain point는 데이터로 실재(부상 위험 1.72~1.75배)</b>. 하지만 거시 5축 중 4축이 <b>불리</b> — 홈피트니스 냉각(Peloton −94%), 피트니스 앱 최악의 리텐션(월 해지 9.2%), 무료 유튜브·$9.99 번들의 대체재 압도, 그리고 결정적으로 <b>동일 컨셉(B2C AI 요가 자세교정) 선행 앱들이 반복 실패</b>했고 생존자는 전부 B2B로 피벗했다.</p>
+    </div>
+    <div class="kpi">
+      <div class="cell"><div class="big yoga">19.9%</div><div class="lab">생활체육 강좌수강 中 '요가·필라·태보' (3위) <span class="badge b-ok">확인</span></div></div>
+      <div class="cell"><div class="big yoga">23% : 4%</div><div class="lab">요가·필라 경험률 여성:남성 <span class="badge b-warn">추정</span></div></div>
+      <div class="cell"><div class="big">7만+</div><div class="lab">유튜브 #요가 영상 수 (무료 대체재) <span class="badge b-warn">추정</span></div></div>
+      <div class="cell"><div class="big bad">9.2%</div><div class="lab">피트니스 앱 월 해지율 (전 카테고리 2위) <span class="badge b-warn">추정</span></div></div>
+      <div class="cell"><div class="big bad">다수 종료</div><div class="lab">순수 B2C AI요가앱: Zenia·신한하우핏·카카오VX <span class="badge b-ok">확인</span></div></div>
+    </div>
+  </section>
+
+  <!-- 1. 인구 -->
+  <section>
+    <h2><span class="n">1</span> 요가 인구 · 참여</h2>
+    <p class="lead" style="font-size:13.5px">공식 통계는 "요가 단독"을 집계하지 않는다 — 대부분 '요가·필라테스' 묶음. "요가 500만·시장 4조원"류 수치는 <b>업계 인사 단일 발언</b>이라 신뢰도 낮음.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>지표</th><th>수치</th><th>출처 · 연도</th><th>신뢰도</th></tr>
+      <tr><td>강좌·강습 수강 종목 中 '요가·필라·태보'</td><td class="num">19.9% (3위)</td><td>문체부 국민생활체육조사 '23~24</td><td><span class="badge b-ok">확인됨</span></td></tr>
+      <tr><td>가입 희망 동호회 '요가·필라테스'</td><td class="num">10.7%</td><td>국민생활체육조사 '23</td><td><span class="badge b-ok">확인됨</span></td></tr>
+      <tr><td>'요가/필라/스트레칭' 최근 경험률</td><td class="num">14%</td><td>한국갤럽 '25 (스트레칭 포함→과대)</td><td><span class="badge b-ok">확인됨</span></td></tr>
+      <tr><td>가장 하고 싶은 종목 '필라·요가'</td><td class="num">28% · 여성 47%</td><td>엔트러스트서베이 '23 (선호도)</td><td><span class="badge b-ok">확인됨</span></td></tr>
+      <tr><td>여성 vs 남성 경험률</td><td class="num">23% : 4%</td><td>한국갤럽 2차인용 ~'21</td><td><span class="badge b-warn">추정</span></td></tr>
+      <tr><td>요가 '단독' 참여 인구 / 시장규모(원)</td><td class="num">—</td><td>공식 통계 부재</td><td><span class="badge b-gray">데이터없음</span></td></tr>
+      <tr><td>"요가 인구 500만 · 시장 4조원"</td><td class="num">인용주의</td><td>업계 인사(SVYASA 한국지부) 단일 발언</td><td><span class="badge b-bad">불확실</span></td></tr>
+    </table></div>
+    <div class="warncard">👥 <b>코어 고객은 2030 여성</b>(여성 참여율이 남성의 5배 이상). 최근 남성·중장년 유입 추세는 <b>방향성만</b> 있고 수치 신뢰도 낮음. 홈요가 단독 통계는 부재 → 홈트 전반 지표로 대체(집에서 운동 45.8%, 홈트 중 요가 18.3%, 홈트 채널 유튜브 67.8% · 오픈서베이 '21 <span class="badge b-ok">확인</span>).</div>
+  </section>
+
+  <!-- 2. 학원 -->
+  <section>
+    <h2><span class="n">2</span> 요가 학원 · 스튜디오 (오프라인)</h2>
+    <p class="lead" style="font-size:13.5px">역시 요가·필라테스 통합 집계뿐. 사업체 수 정밀치는 국세청 TASIS 엑셀 직접 조회 필요(미확보). 가격은 업계 시세 기준.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>지표</th><th>수치</th><th>출처 · 연도</th><th>신뢰도</th></tr>
+      <tr><td>체력단련장업(헬스·요가·필라 광의)</td><td class="num">9,574→11,144개</td><td>e-나라지표 '20→'21 (+16.9%)</td><td><span class="badge b-ok">확인됨</span></td></tr>
+      <tr><td>요가 '단독' 사업체 수</td><td class="num">—</td><td>809015 코드로 필라와 묶임</td><td><span class="badge b-gray">데이터없음</span></td></tr>
+      <tr><td>요가 월 회비(그룹)</td><td class="num">10~20만원</td><td>miso·숨고 '24~26</td><td><span class="badge b-warn">추정</span></td></tr>
+      <tr><td>요가 개인레슨 / 원데이</td><td class="num">회 5~12만 / 2~3.5만</td><td>miso·숨고 '24</td><td><span class="badge b-warn">추정</span></td></tr>
+      <tr><td>필라테스 소비자 '폐업' 피해</td><td class="num">11건→142건 (13배↑)</td><td>한국소비자원 '21→'24</td><td><span class="badge b-ok">확인됨</span></td></tr>
+      <tr><td>헬스클럽 폐업지수(’22=100)</td><td class="num">183.2 ('23)</td><td>헤럴드경제 '25</td><td><span class="badge b-ok">확인됨</span></td></tr>
+      <tr><td>요가·필라 민간자격 종류</td><td class="num">2개→204개 (’11→’17)</td><td>직능원 (전부 민간자격, 국가공인 無)</td><td><span class="badge b-ok">확인됨</span></td></tr>
+    </table></div>
+    <div class="warncard">🏢 오프라인은 <b>공급 과잉·폐업 신호</b>(필라 폐업 피해 13배↑, 헬스클럽 폐업지수 급등)와 <b>자격증 난립</b>(6년 만에 자격 종류 100배). 요가가 가격은 필라보다 싸지만(그룹 2만원대 vs 필라 기구 5만원+), 남성·재활 수요는 필라로 쏠리는 정황.</div>
+  </section>
+
+  <!-- 3. 유튜브 -->
+  <section>
+    <h2><span class="n">3</span> 유튜브 생태계 — 무료 대체재의 규모</h2>
+    <p class="lead" style="font-size:13.5px">소셜러스 집계 기준 2026-07-08. ★ 표시만 정확 수치, 나머지는 언론/추정.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>채널</th><th>구독자</th><th>총 조회수</th><th>성격 · 대표작</th></tr>
+      <tr><td>에일린 mind yoga ★</td><td class="num">82.6만</td><td class="num">1.6억</td><td>명상·힐링요가</td></tr>
+      <tr><td>요가소년 ★</td><td class="num">50.9만</td><td class="num">6,628만</td><td>남성 요기·다이어트요가</td></tr>
+      <tr><td>서리요가 ★</td><td class="num">28.4만</td><td class="num">5,229만</td><td>홈요가·스트레칭</td></tr>
+      <tr><td>상아(요가)</td><td class="num">~40만</td><td class="num">—</td><td>아침 스트레칭 · 대표작 <b>1,271만뷰</b></td></tr>
+      <tr><td colspan="4" class="src">인접 홈트(대체재 규모 감각): 땅끄부부 190만 · 힙으뜸 47만 · (해외) Yoga with Adriene 1,300만/15.7억뷰</td></tr>
+    </table></div>
+    <div class="callout amber">
+      <h3>⚔️ 무료 유튜브 = 명백한 대체재 위협 — 그러나 구조적 공백이 존재</h3>
+      <p>#요가 영상 <b>7만+</b>, 억대 누적뷰로 홈요가를 <b>대규모·습관적</b> 무료 소비 중. 다만 유튜브가 <u>구조적으로 못 주는 것</u> = <b>①실시간 자세교정 피드백(강사가 시청자를 못 봄→부상 위험) ②개인 수준별 난이도 매칭</b>. 사용자 후기: "초보에겐 버거운 영상이 너무 많다, 스스로 골라야 한다." → 유료 앱의 유일한 wedge는 여기.</p>
+    </div>
+  </section>
+
+  <!-- 4. Macro -->
+  <section>
+    <h2><span class="n">4</span> 거시 전제 검증 (ouroboros + hate 관점)</h2>
+    <p class="lead" style="font-size:13.5px">"요가 인구가 많다"로는 사업이 서지 않는다. <b>사업이 성립하려면 반드시 참이어야 하는 거시 전제 5축</b>을 적대적으로 때린 결과 — 4축이 불리.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>#</th><th>카테고리</th><th>판정</th><th>핵심 근거</th></tr>
+      <tr><td class="num">1</td><td>홈피트니스 시장</td><td><span class="verdict-tag v-mix">불리(혼합)</span></td><td>앱 시장 성장은 추정치뿐, 실질 홈피트니스 냉각 — <b>Peloton 시총 −94%</b>, 미국 헬스장 회원 사상 최고(복귀). <span class="badge b-ok">확인</span></td></tr>
+      <tr><td class="num">2</td><td>WTP · 리텐션</td><td><span class="verdict-tag v-bad">불리</span></td><td>Day30 리텐션 한 자릿수, <b>월 해지 9.2%(연 68%)</b>, 앱 95%가 2년 내 매출 $10K 미달. 다운로드→유료 전환 중위 2.9%. <span class="badge b-ok">확인</span></td></tr>
+      <tr><td class="num">3</td><td>AI 요가 경쟁자</td><td><span class="verdict-tag v-bad">불리(강)</span></td><td><b>순수 B2C AI요가앱의 무덤</b> — Zenia 인수후 방치·신한하우핏 종료('23)·카카오VX 축소·Peloton Guide 단종. 생존자(Sency·Kemtai·Kaia)는 <b>전부 B2B 피벗</b>. <span class="badge b-ok">확인</span></td></tr>
+      <tr><td class="num">4</td><td>대체재 지형</td><td><span class="verdict-tag v-mix">불리(조건부)</span></td><td>무료 유튜브 + Apple/Samsung $9.99 번들이 압도. <b>Alo Moves(프리미엄 요가앱)가 유료 페이월 폐기·전면 무료화</b>. 단 이들 모두 AI 자세교정은 없음 = 유일한 틈새. <span class="badge b-ok">확인</span></td></tr>
+      <tr><td class="num">5</td><td>수요 진정성</td><td><span class="verdict-tag v-ok">니즈 유리</span> / <span class="verdict-tag v-bad">해법 불리</span></td><td>무감독 수련 부상 <b>보정 오즈비 1.72~1.75</b>(니즈 실재). 그러나 물리치료사 Zenia 실사용 혹평: "AI가 부상 유발 오정렬을 못 잡는다". 폰카메라 AI 충족력 <b>미검증</b>. <span class="badge b-ok">확인</span>/<span class="badge b-warn">추정</span></td></tr>
+    </table></div>
+  </section>
+
+  <!-- 5. 종합 -->
+  <section>
+    <h2><span class="n">5</span> 종합 — 진짜 관문 3개</h2>
+    <p class="lead" style="font-size:13.5px">5개 거시 전제 중 명확히 유리한 것은 <b>"pain point의 실재성" 단 하나</b>. 나머지는 불리. 가장 무거운 반증은 <b>동일 컨셉의 반복 실패</b>. 따라서 사업 성립의 관문은 "시장이 크냐"가 아니라 아래 셋:</p>
+    <div class="gate">
+      <div class="g">관문 A</div><div><b>기술 실현성</b> — 폰카메라 AI가 부상 유발 오정렬을 <u>실사용 수준</u>으로 잡는가? (바닥·가림 포즈에서 트래킹이 붕괴하지 않는가) → 이게 앞서 <b>hate가 지목한 root</b>이자 First Nail 테스트 대상.</div>
+      <div class="g">관문 B</div><div><b>습관 형성 / 리텐션</b> — 피트니스 앱 최악의 리텐션(월 해지 9.2%)을 뚫는가? 해지의 25%가 "무료 대체재로 이동".</div>
+      <div class="g">관문 C</div><div><b>지속 과금 정당화</b> — 무료 유튜브 + $9.99 번들 대비, 사용자가 계속 돈 낼 이유(=실시간 AI 교정)가 실제로 값을 하는가? Alo Moves조차 유료를 버렸다.</div>
+    </div>
+    <div class="callout">
+      <h3>→ 다음 수순 제안</h3>
+      <p>시장 크기는 "충분조건"이 아니다. 관문 A(기술)가 무너지면 B·C는 논점 자체가 사라진다. 그래서 순서는 여전히 <b>First Nail(폰카메라 요가 트래킹 실측) → 그 결과로 커버 가능한 포즈 집합 확정 → PRD</b>. 또한 선행 실패 사례가 전부 B2B로 피벗한 사실은 <b>"B2C 단독 과금" 가정 자체를 재검토</b>하라는 신호일 수 있다.</p>
+    </div>
+  </section>
+
+  <div class="foot">
+    <b>신뢰도 범례</b>
+    <div class="legend">
+      <span><span class="badge b-ok">확인됨</span> 1차 통계·공시·저널</span>
+      <span><span class="badge b-warn">추정</span> 상업 리서치사·업계 시세·2차 인용</span>
+      <span><span class="badge b-bad">불확실</span> 단일 발언·자기보고·원문 미확인</span>
+      <span><span class="badge b-gray">데이터없음</span> 공식 통계 부재</span>
+    </div>
+    <p style="margin-top:12px">
+    <b>주요 출처:</b> 문체부 국민생활체육조사 · 한국갤럽 · 오픈서베이 홈트('21) · e-나라지표 체육시설업 · 한국소비자원(필라 폐업피해) · 직능원 민간자격 · 소셜러스 채널통계('26-07-08) · 더팩트(#요가 7만) · RevenueCat State of Subscription Apps '25 · RetentionCheck '26 · Peloton SEC 공시 · Health &amp; Fitness Association '24 · PMC6664709(요가 부상 오즈비) · Athletech(Alo Moves 무료화) · MyHealthyApple(Zenia PT 리뷰).<br>
+    <b>한계:</b> 시장규모·CAGR·앱 유저수는 대부분 리서치사/자기보고 추정치로 기관 간 편차 큼(글로벌 앱시장 9.8억~45억 달러). 요가 '단독' 공식 통계는 전 항목에서 부재. 사업조사용 스캔이며 투자용 실사 아님.
+    </p>
+  </div>
+
+</div>
+</body>
+</html>
